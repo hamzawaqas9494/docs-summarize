@@ -7,10 +7,7 @@ import {
   type ReactNode,
 } from "react";
 
-import {
-  motion,
-  useReducedMotion,
-} from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -20,7 +17,6 @@ import { useTranslation } from "react-i18next";
 import { Seo } from "@/lib/seo";
 import { LocaleLink } from "@/components/LocaleLink";
 import { VideoModal } from "@/components/VideoModal";
-
 
 /* =============================================================================
    BRAND
@@ -41,11 +37,7 @@ const LOGO_SRC = "/brand/idoc-hive-logo.png";
    COMMON
 ============================================================================= */
 
-function ArrowIcon({
-  rtl = false,
-}: {
-  rtl?: boolean;
-}) {
+function ArrowIcon({ rtl = false }: { rtl?: boolean }) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -66,15 +58,8 @@ function ArrowIcon({
 
 function PlayIcon() {
   return (
-    <svg
-      viewBox="0 0 24 24"
-      className="h-4 w-4"
-      aria-hidden="true"
-    >
-      <path
-        d="M8.5 6.5 18 12l-9.5 5.5v-11Z"
-        fill="currentColor"
-      />
+    <svg viewBox="0 0 24 24" className="h-4 w-4" aria-hidden="true">
+      <path d="M8.5 6.5 18 12l-9.5 5.5v-11Z" fill="currentColor" />
     </svg>
   );
 }
@@ -83,11 +68,7 @@ function PlayIcon() {
    TRUST ICONS
 ============================================================================= */
 
-function TrustIcon({
-  index,
-}: {
-  index: number;
-}) {
+function TrustIcon({ index }: { index: number }) {
   const common = {
     viewBox: "0 0 32 32",
     fill: "none",
@@ -172,12 +153,7 @@ function TrustIcon({
           strokeLinecap="round"
         />
 
-        <circle
-          cx="16"
-          cy="18"
-          r="1.4"
-          fill="currentColor"
-        />
+        <circle cx="16" cy="18" r="1.4" fill="currentColor" />
       </svg>
     );
   }
@@ -185,13 +161,7 @@ function TrustIcon({
   if (index === 3) {
     return (
       <svg {...common}>
-        <circle
-          cx="16"
-          cy="9"
-          r="5"
-          stroke="currentColor"
-          strokeWidth="2.2"
-        />
+        <circle cx="16" cy="9" r="5" stroke="currentColor" strokeWidth="2.2" />
 
         <path
           d="M7.5 27v-2c0-5 3.7-8.4 8.5-8.4s8.5 3.4 8.5 8.4v2"
@@ -214,13 +184,7 @@ function TrustIcon({
   if (index === 4) {
     return (
       <svg {...common}>
-        <circle
-          cx="16"
-          cy="16"
-          r="4.5"
-          stroke="currentColor"
-          strokeWidth="2"
-        />
+        <circle cx="16" cy="16" r="4.5" stroke="currentColor" strokeWidth="2" />
 
         <path
           d="
@@ -267,11 +231,7 @@ function TrustIcon({
    HERO HEADLINE
 ============================================================================= */
 
-function HeroHeadline({
-  text,
-}: {
-  text: string;
-}) {
+function HeroHeadline({ text }: { text: string }) {
   const phrase = "governed intelligence";
   const index = text.toLowerCase().indexOf(phrase);
 
@@ -362,12 +322,7 @@ function AnimatedWire({
 
       {!reducedMotion && (
         <>
-          <circle
-            r="5"
-            fill={color}
-            opacity="0.18"
-            filter="url(#wireBlur)"
-          >
+          <circle r="5" fill={color} opacity="0.18" filter="url(#wireBlur)">
             <animateMotion
               path={path}
               dur={`${signalDuration}s`}
@@ -376,11 +331,7 @@ function AnimatedWire({
             />
           </circle>
 
-          <circle
-            r="2.8"
-            fill={color}
-            filter="url(#wireGlow)"
-          >
+          <circle r="2.8" fill={color} filter="url(#wireGlow)">
             <animateMotion
               path={path}
               dur={`${signalDuration}s`}
@@ -389,10 +340,7 @@ function AnimatedWire({
             />
           </circle>
 
-          <circle
-            r="0.95"
-            fill="#FFFFFF"
-          >
+          <circle r="0.95" fill="#FFFFFF">
             <animateMotion
               path={path}
               dur={`${signalDuration}s`}
@@ -413,19 +361,9 @@ function AnimatedWire({
 function PaperPipelineIcon() {
   return (
     <g transform="translate(128 55) scale(0.82)">
-      <rect
-        x="-7"
-        y="-11"
-        width="14"
-        height="22"
-        rx="2"
-        fill={BRAND.blue}
-      />
+      <rect x="-7" y="-11" width="14" height="22" rx="2" fill={BRAND.blue} />
 
-      <path
-        d="M2-11 7-6H2Z"
-        fill="#7ED0F6"
-      />
+      <path d="M2-11 7-6H2Z" fill="#7ED0F6" />
 
       <path
         d="M-4-4H4M-4 0H4M-4 4H2"
@@ -445,12 +383,7 @@ function DataPipelineIcon() {
       stroke={BRAND.blue}
       strokeWidth="1.7"
     >
-      <ellipse
-        cx="0"
-        cy="-7"
-        rx="8"
-        ry="3.4"
-      />
+      <ellipse cx="0" cy="-7" rx="8" ry="3.4" />
 
       <path d="M-8-7V0c0 2 3.6 3.5 8 3.5S8 2 8 0v-7" />
 
@@ -525,16 +458,9 @@ function IntelligencePipelineIcon() {
    PIPELINE ARROWS — RESTORED
 ============================================================================= */
 
-function PipelineChevron({
-  x,
-}: {
-  x: number;
-}) {
+function PipelineChevron({ x }: { x: number }) {
   return (
-    <g
-      transform={`translate(${x} 55) scale(0.7)`}
-      opacity="0.95"
-    >
+    <g transform={`translate(${x} 55) scale(0.7)`} opacity="0.95">
       <path
         d="M-3.5-5 1.5 0l-5 5"
         fill="none"
@@ -603,15 +529,9 @@ function HeroSourceIcon() {
         stroke="#FFFFFF"
       />
 
-      <path
-        d="M-6-8H3l5 5v12H-6Z"
-        fill="#22BFA5"
-      />
+      <path d="M-6-8H3l5 5v12H-6Z" fill="#22BFA5" />
 
-      <path
-        d="M3-8v5h5"
-        fill="#8CE4D4"
-      />
+      <path d="M3-8v5h5" fill="#8CE4D4" />
 
       <path
         d="M-2-1h7M-2 2h7M-2 5h5"
@@ -669,11 +589,9 @@ function ExactHiveLogo() {
 
   const cleanId = rawId.replace(/:/g, "");
 
-  const filterId =
-    `logo-filter-${cleanId}`;
+  const filterId = `logo-filter-${cleanId}`;
 
-  const maskId =
-    `logo-mask-${cleanId}`;
+  const maskId = `logo-mask-${cleanId}`;
 
   return (
     <svg
@@ -702,11 +620,7 @@ function ExactHiveLogo() {
           />
 
           <feComponentTransfer>
-            <feFuncA
-              type="linear"
-              slope="24"
-              intercept="0"
-            />
+            <feFuncA type="linear" slope="24" intercept="0" />
           </feComponentTransfer>
         </filter>
 
@@ -746,16 +660,9 @@ function ExactHiveLogo() {
    HERO CARD CONTENT
 ============================================================================= */
 
-function AIAnswerContent({
-  arabic,
-}: {
-  arabic: boolean;
-}) {
+function AIAnswerContent({ arabic }: { arabic: boolean }) {
   return (
-    <div
-      dir={arabic ? "rtl" : "ltr"}
-      className="h-full w-full overflow-hidden"
-    >
+    <div dir={arabic ? "rtl" : "ltr"} className="h-full w-full overflow-hidden">
       <div className="flex min-w-0 items-start justify-between gap-1">
         <strong
           className="
@@ -767,9 +674,7 @@ function AIAnswerContent({
             text-slate-900
           "
         >
-          {arabic
-            ? "إجابة الذكاء الاصطناعي"
-            : "AI Answer"}
+          {arabic ? "إجابة الذكاء الاصطناعي" : "AI Answer"}
         </strong>
 
         <span className="shrink-0 text-[10px] leading-none">
@@ -799,16 +704,9 @@ function AIAnswerContent({
   );
 }
 
-function SourceCitationContent({
-  arabic,
-}: {
-  arabic: boolean;
-}) {
+function SourceCitationContent({ arabic }: { arabic: boolean }) {
   return (
-    <div
-      dir={arabic ? "rtl" : "ltr"}
-      className="h-full w-full overflow-hidden"
-    >
+    <div dir={arabic ? "rtl" : "ltr"} className="h-full w-full overflow-hidden">
       <div className="flex min-w-0 items-center justify-between gap-1">
         <strong
           className="
@@ -820,9 +718,7 @@ function SourceCitationContent({
             text-slate-900
           "
         >
-          {arabic
-            ? "مراجع المصادر"
-            : "Source Citations"}
+          {arabic ? "مراجع المصادر" : "Source Citations"}
         </strong>
 
         <span className="shrink-0 text-[10px] leading-none">
@@ -874,18 +770,9 @@ function SourceCitationContent({
   );
 }
 
-function AuditTrailContent({
-  arabic,
-}: {
-  arabic: boolean;
-}) {
+function AuditTrailContent({ arabic }: { arabic: boolean }) {
   const rows = arabic
-    ? [
-        "بدء الاستعلام",
-        "فحص الصلاحيات",
-        "استرجاع المصادر",
-        "إنشاء الإجابة",
-      ]
+    ? ["بدء الاستعلام", "فحص الصلاحيات", "استرجاع المصادر", "إنشاء الإجابة"]
     : [
         "Query initiated",
         "Permission check",
@@ -894,10 +781,7 @@ function AuditTrailContent({
       ];
 
   return (
-    <div
-      dir={arabic ? "rtl" : "ltr"}
-      className="h-full w-full overflow-hidden"
-    >
+    <div dir={arabic ? "rtl" : "ltr"} className="h-full w-full overflow-hidden">
       <div className="flex min-w-0 items-center justify-between gap-1">
         <strong
           className="
@@ -909,9 +793,7 @@ function AuditTrailContent({
             text-slate-900
           "
         >
-          {arabic
-            ? "سجل التدقيق"
-            : "Audit Trail"}
+          {arabic ? "سجل التدقيق" : "Audit Trail"}
         </strong>
 
         <span className="shrink-0 text-[10px] leading-none">
@@ -921,10 +803,7 @@ function AuditTrailContent({
 
       <div className="mt-[4px] space-y-[2px]">
         {rows.map((row) => (
-          <div
-            key={row}
-            className="flex min-w-0 items-center gap-[3px]"
-          >
+          <div key={row} className="flex min-w-0 items-center gap-[3px]">
             <span
               className="
                 flex
@@ -960,17 +839,11 @@ function AuditTrailContent({
 function HeroDocumentDiagram() {
   const { i18n } = useTranslation();
 
-  const reducedMotion =
-    useReducedMotion() ?? false;
+  const reducedMotion = useReducedMotion() ?? false;
 
-  const [
-    logoHovered,
-    setLogoHovered,
-  ] = useState(false);
+  const [logoHovered, setLogoHovered] = useState(false);
 
-  const arabic = i18n.language
-    .toLowerCase()
-    .startsWith("ar");
+  const arabic = i18n.language.toLowerCase().startsWith("ar");
 
   const text = useMemo(
     () =>
@@ -983,10 +856,8 @@ function HeroDocumentDiagram() {
             information: "المعلومات",
             informationSub: "التصنيف والحوكمة",
             intelligence: "الذكاء",
-            intelligenceSub:
-              "اسأل واحصل على الإجابات",
-            control:
-              "بياناتك. بنيتك التحتية. سيطرتك.",
+            intelligenceSub: "اسأل واحصل على الإجابات",
+            control: "بياناتك. بنيتك التحتية. سيطرتك.",
           }
         : {
             paper: "Paper",
@@ -997,29 +868,22 @@ function HeroDocumentDiagram() {
             informationSub: "Classify and govern",
             intelligence: "Intelligence",
             intelligenceSub: "Ask and get answers",
-            control:
-              "Your Data. Your Infrastructure. Your Control.",
+            control: "Your Data. Your Infrastructure. Your Control.",
           },
     [arabic],
   );
 
-  const pdfWire =
-    "M94 143 C110 143 115 152 126 152 C141 152 148 159 162 159";
+  const pdfWire = "M94 143 C110 143 115 152 126 152 C141 152 148 159 162 159";
 
-  const docxWire =
-    "M94 178 C115 178 134 178 162 178";
+  const docxWire = "M94 178 C115 178 134 178 162 178";
 
-  const xlsxWire =
-    "M94 213 C111 213 119 207 131 207 C145 207 150 202 162 202";
+  const xlsxWire = "M94 213 C111 213 119 207 131 207 C145 207 150 202 162 202";
 
-  const pptxWire =
-    "M94 248 C111 248 119 240 132 240 C145 240 151 232 162 232";
+  const pptxWire = "M94 248 C111 248 119 240 132 240 C145 240 151 232 162 232";
 
-  const aiWire =
-    "M248 176 C270 176 274 169 276 154 C278 142 283 138 298 138";
+  const aiWire = "M248 176 C270 176 274 169 276 154 C278 142 283 138 298 138";
 
-  const citationWire =
-    "M248 201 C267 201 282 201 298 201";
+  const citationWire = "M248 201 C267 201 282 201 298 201";
 
   const auditWire =
     "M248 229 C267 229 275 237 279 248 C283 259 288 263 298 263";
@@ -1056,222 +920,80 @@ function HeroDocumentDiagram() {
         className="block h-auto w-full overflow-visible"
         role="img"
         aria-label={
-          arabic
-            ? "مخطط معالجة المستندات"
-            : "Document intelligence workflow"
+          arabic ? "مخطط معالجة المستندات" : "Document intelligence workflow"
         }
       >
         <defs>
-          <linearGradient
-            id="heroTopGlass"
-            x1="0"
-            y1="0"
-            x2="1"
-            y2="1"
-          >
-            <stop
-              offset="0%"
-              stopColor="#FFFFFF"
-              stopOpacity="0.99"
-            />
+          <linearGradient id="heroTopGlass" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.99" />
 
-            <stop
-              offset="70%"
-              stopColor="#FFFFFF"
-              stopOpacity="0.95"
-            />
+            <stop offset="70%" stopColor="#FFFFFF" stopOpacity="0.95" />
 
-            <stop
-              offset="100%"
-              stopColor="#EDF9FF"
-              stopOpacity="0.86"
-            />
+            <stop offset="100%" stopColor="#EDF9FF" stopOpacity="0.86" />
           </linearGradient>
 
-          <linearGradient
-            id="heroGlassDark"
-            x1="0"
-            y1="0"
-            x2="1"
-            y2="1"
-          >
-            <stop
-              offset="0%"
-              stopColor="#F7FCFF"
-              stopOpacity="0.96"
-            />
+          <linearGradient id="heroGlassDark" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="#F7FCFF" stopOpacity="0.96" />
 
-            <stop
-              offset="35%"
-              stopColor="#DCEEF8"
-              stopOpacity="0.88"
-            />
+            <stop offset="35%" stopColor="#DCEEF8" stopOpacity="0.88" />
 
-            <stop
-              offset="72%"
-              stopColor="#BBD6E7"
-              stopOpacity="0.76"
-            />
+            <stop offset="72%" stopColor="#BBD6E7" stopOpacity="0.76" />
 
-            <stop
-              offset="100%"
-              stopColor="#8FB3C9"
-              stopOpacity="0.66"
-            />
+            <stop offset="100%" stopColor="#8FB3C9" stopOpacity="0.66" />
           </linearGradient>
 
-          <linearGradient
-            id="heroGlassMiddle"
-            x1="0"
-            y1="0"
-            x2="1"
-            y2="1"
-          >
-            <stop
-              offset="0%"
-              stopColor="#FFFFFF"
-              stopOpacity="0.92"
-            />
+          <linearGradient id="heroGlassMiddle" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.92" />
 
-            <stop
-              offset="58%"
-              stopColor="#D5EAF5"
-              stopOpacity="0.82"
-            />
+            <stop offset="58%" stopColor="#D5EAF5" stopOpacity="0.82" />
 
-            <stop
-              offset="100%"
-              stopColor="#AAC9DA"
-              stopOpacity="0.68"
-            />
+            <stop offset="100%" stopColor="#AAC9DA" stopOpacity="0.68" />
           </linearGradient>
 
-          <linearGradient
-            id="heroGlassLeftEdge"
-            x1="0"
-            y1="0"
-            x2="1"
-            y2="1"
-          >
-            <stop
-              offset="0%"
-              stopColor="#B7D2E1"
-              stopOpacity="0.88"
-            />
+          <linearGradient id="heroGlassLeftEdge" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="#B7D2E1" stopOpacity="0.88" />
 
-            <stop
-              offset="100%"
-              stopColor="#779AAE"
-              stopOpacity="0.7"
-            />
+            <stop offset="100%" stopColor="#779AAE" stopOpacity="0.7" />
           </linearGradient>
 
-          <linearGradient
-            id="heroGlassRightEdge"
-            x1="0"
-            y1="0"
-            x2="1"
-            y2="1"
-          >
-            <stop
-              offset="0%"
-              stopColor="#EAF7FC"
-              stopOpacity="0.9"
-            />
+          <linearGradient id="heroGlassRightEdge" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="#EAF7FC" stopOpacity="0.9" />
 
-            <stop
-              offset="100%"
-              stopColor="#9EBBCD"
-              stopOpacity="0.7"
-            />
+            <stop offset="100%" stopColor="#9EBBCD" stopOpacity="0.7" />
           </linearGradient>
 
-          <linearGradient
-            id="logoRearGlassTop"
-            x1="0"
-            y1="0"
-            x2="1"
-            y2="1"
-          >
-            <stop
-              offset="0%"
-              stopColor="#FFFFFF"
-              stopOpacity="0.34"
-            />
+          <linearGradient id="logoRearGlassTop" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.34" />
 
-            <stop
-              offset="100%"
-              stopColor="#7DA9C0"
-              stopOpacity="0.09"
-            />
+            <stop offset="100%" stopColor="#7DA9C0" stopOpacity="0.09" />
           </linearGradient>
 
-          <linearGradient
-            id="logoRearLeft"
-            x1="0"
-            y1="0"
-            x2="0"
-            y2="1"
-          >
-            <stop
-              offset="0%"
-              stopColor="#CDEAF6"
-              stopOpacity="0.2"
-            />
+          <linearGradient id="logoRearLeft" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#CDEAF6" stopOpacity="0.2" />
 
-            <stop
-              offset="100%"
-              stopColor="#416C83"
-              stopOpacity="0.13"
-            />
+            <stop offset="100%" stopColor="#416C83" stopOpacity="0.13" />
           </linearGradient>
 
-          <linearGradient
-            id="logoRearRight"
-            x1="0"
-            y1="0"
-            x2="1"
-            y2="1"
-          >
-            <stop
-              offset="0%"
-              stopColor="#FFFFFF"
-              stopOpacity="0.24"
-            />
+          <linearGradient id="logoRearRight" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.24" />
 
-            <stop
-              offset="100%"
-              stopColor="#8CB6CA"
-              stopOpacity="0.12"
-            />
+            <stop offset="100%" stopColor="#8CB6CA" stopOpacity="0.12" />
           </linearGradient>
 
           <radialGradient id="heroCenterGlow">
             <stop
               offset="0%"
               stopColor={BRAND.cyan}
-              stopOpacity={
-                logoHovered
-                  ? "0.64"
-                  : "0.44"
-              }
+              stopOpacity={logoHovered ? "0.64" : "0.44"}
             />
 
             <stop
               offset="36%"
               stopColor={BRAND.purple}
-              stopOpacity={
-                logoHovered
-                  ? "0.28"
-                  : "0.16"
-              }
+              stopOpacity={logoHovered ? "0.28" : "0.16"}
             />
 
-            <stop
-              offset="100%"
-              stopColor="#FFFFFF"
-              stopOpacity="0"
-            />
+            <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
           </radialGradient>
 
           <filter
@@ -1329,10 +1051,7 @@ function HeroDocumentDiagram() {
             width="1000%"
             height="1000%"
           >
-            <feGaussianBlur
-              stdDeviation="1.7"
-              result="blur"
-            />
+            <feGaussianBlur stdDeviation="1.7" result="blur" />
 
             <feMerge>
               <feMergeNode in="blur" />
@@ -1367,11 +1086,7 @@ function HeroDocumentDiagram() {
           opacity="0.66"
         />
 
-        <path
-          d="M0 24L22 29V72L0 87Z"
-          fill="#EAF7FC"
-          opacity="0.62"
-        />
+        <path d="M0 24L22 29V72L0 87Z" fill="#EAF7FC" opacity="0.62" />
 
         <ellipse
           cx="223"
@@ -1472,43 +1187,19 @@ function HeroDocumentDiagram() {
             {text.intelligence}
           </text>
 
-          <text
-            x="128"
-            y="91"
-            textAnchor="middle"
-            fontSize="5.5"
-            fill="#000"
-          >
+          <text x="128" y="91" textAnchor="middle" fontSize="5.5" fill="#000">
             {text.paperSub}
           </text>
 
-          <text
-            x="208"
-            y="91"
-            textAnchor="middle"
-            fontSize="5.5"
-            fill="#000"
-          >
+          <text x="208" y="91" textAnchor="middle" fontSize="5.5" fill="#000">
             {text.dataSub}
           </text>
 
-          <text
-            x="292"
-            y="91"
-            textAnchor="middle"
-            fontSize="5.5"
-            fill="#000"
-          >
+          <text x="292" y="91" textAnchor="middle" fontSize="5.5" fill="#000">
             {text.informationSub}
           </text>
 
-          <text
-            x="382"
-            y="91"
-            textAnchor="middle"
-            fontSize="5.5"
-            fill="#000"
-          >
+          <text x="382" y="91" textAnchor="middle" fontSize="5.5" fill="#000">
             {text.intelligenceSub}
           </text>
         </motion.g>
@@ -1536,9 +1227,7 @@ function HeroDocumentDiagram() {
           }).map((_, index) => (
             <g
               key={index}
-              transform={`translate(${
-                index * 0.9
-              } ${-index * 1.55})`}
+              transform={`translate(${index * 0.9} ${-index * 1.55})`}
             >
               <polygon
                 points="7,148 44,129 77,146 40,166"
@@ -1559,20 +1248,11 @@ function HeroDocumentDiagram() {
             </g>
           ))}
 
-          <polygon
-            points="5,198 31,184 55,198 30,213"
-            fill="#EDF7FC"
-          />
+          <polygon points="5,198 31,184 55,198 30,213" fill="#EDF7FC" />
 
-          <polygon
-            points="5,198 30,213 30,247 5,232"
-            fill="#DCEAF2"
-          />
+          <polygon points="5,198 30,213 30,247 5,232" fill="#DCEAF2" />
 
-          <polygon
-            points="30,213 55,198 55,232 30,247"
-            fill="#F9FCFE"
-          />
+          <polygon points="30,213 55,198 55,232 30,247" fill="#F9FCFE" />
         </motion.g>
 
         {/* =============================================================
@@ -1718,15 +1398,10 @@ function HeroDocumentDiagram() {
           />
 
           <motion.g
-            onMouseEnter={() =>
-              setLogoHovered(true)
-            }
-            onMouseLeave={() =>
-              setLogoHovered(false)
-            }
+            onMouseEnter={() => setLogoHovered(true)}
+            onMouseLeave={() => setLogoHovered(false)}
             animate={
-              logoHovered &&
-              !reducedMotion
+              logoHovered && !reducedMotion
                 ? {
                     y: -3,
                     scale: 1.035,
@@ -1741,8 +1416,7 @@ function HeroDocumentDiagram() {
               ease: [0.22, 1, 0.36, 1],
             }}
             style={{
-              transformOrigin:
-                "204px 194px",
+              transformOrigin: "204px 194px",
             }}
           >
             <polygon
@@ -1771,8 +1445,7 @@ function HeroDocumentDiagram() {
               <div
                 className="h-full w-full"
                 style={{
-                  filter:
-                    "brightness(1.025) saturate(1.16) contrast(1.055)",
+                  filter: "brightness(1.025) saturate(1.16) contrast(1.055)",
                 }}
               >
                 <ExactHiveLogo />
@@ -1823,12 +1496,7 @@ function HeroDocumentDiagram() {
 
         <HeroAiAnswerIcon />
 
-        <foreignObject
-          x="338"
-          y="120"
-          width="81"
-          height="38"
-        >
+        <foreignObject x="338" y="120" width="81" height="38">
           <AIAnswerContent arabic={arabic} />
         </foreignObject>
 
@@ -1849,12 +1517,7 @@ function HeroDocumentDiagram() {
 
         <HeroSourceIcon />
 
-        <foreignObject
-          x="338"
-          y="184"
-          width="81"
-          height="28"
-        >
+        <foreignObject x="338" y="184" width="81" height="28">
           <SourceCitationContent arabic={arabic} />
         </foreignObject>
 
@@ -1875,12 +1538,7 @@ function HeroDocumentDiagram() {
 
         <HeroAuditIcon />
 
-        <foreignObject
-          x="338"
-          y="233"
-          width="81"
-          height="62"
-        >
+        <foreignObject x="338" y="233" width="81" height="62">
           <AuditTrailContent arabic={arabic} />
         </foreignObject>
 
@@ -1903,15 +1561,8 @@ function HeroDocumentDiagram() {
    TRUST ITEM
 ============================================================================= */
 
-function TrustItem({
-  text,
-  index,
-}: {
-  text: string;
-  index: number;
-}) {
-  const reducedMotion =
-    useReducedMotion() ?? false;
+function TrustItem({ text, index }: { text: string; index: number }) {
+  const reducedMotion = useReducedMotion() ?? false;
 
   const colors = [
     BRAND.green,
@@ -1922,8 +1573,7 @@ function TrustItem({
     "#536A8D",
   ];
 
-  const color =
-    colors[index % colors.length];
+  const color = colors[index % colors.length];
 
   return (
     <motion.li
@@ -1946,14 +1596,8 @@ function TrustItem({
         amount: 0.2,
       }}
       transition={{
-        duration:
-          reducedMotion
-            ? 0
-            : 0.7,
-        delay:
-          reducedMotion
-            ? 0
-            : index * 0.08,
+        duration: reducedMotion ? 0 : 0.7,
+        delay: reducedMotion ? 0 : index * 0.08,
         ease: [0.22, 1, 0.36, 1],
       }}
       className="
@@ -2014,70 +1658,46 @@ function TrustItem({
    HERO
 ============================================================================= */
 
-function HomeHero({
-  trust,
-  onDemo,
-}: {
-  trust: string[];
-  onDemo: () => void;
-}) {
-  const {
-    t,
-    i18n,
-  } = useTranslation("home");
+function HomeHero({ trust, onDemo }: { trust: string[]; onDemo: () => void }) {
+  const { t, i18n } = useTranslation("home");
 
-  const {
-    t: tc,
-  } = useTranslation("common");
+  const { t: tc } = useTranslation("common");
 
-  const heroRef =
-    useRef<HTMLElement>(null);
+  const heroRef = useRef<HTMLElement>(null);
 
-  const diagramRef =
-    useRef<HTMLDivElement>(null);
+  const diagramRef = useRef<HTMLDivElement>(null);
 
-  const reducedMotion =
-    useReducedMotion() ?? false;
+  const reducedMotion = useReducedMotion() ?? false;
 
-  const rtl =
-    i18n.dir() === "rtl";
+  const rtl = i18n.dir() === "rtl";
 
   useEffect(() => {
     if (reducedMotion) {
       return;
     }
 
-    gsap.registerPlugin(
-      ScrollTrigger,
-    );
+    gsap.registerPlugin(ScrollTrigger);
 
-    const ctx = gsap.context(
-      () => {
-        if (!diagramRef.current) {
-          return;
-        }
+    const ctx = gsap.context(() => {
+      if (!diagramRef.current) {
+        return;
+      }
 
-        gsap.to(
-          diagramRef.current,
-          {
-            yPercent: 3,
-            ease: "none",
+      gsap.to(diagramRef.current, {
+        yPercent: 3,
+        ease: "none",
 
-            scrollTrigger: {
-              trigger:
-                heroRef.current,
+        scrollTrigger: {
+          trigger: heroRef.current,
 
-              start: "top top",
+          start: "top top",
 
-              end: "bottom top",
+          end: "bottom top",
 
-              scrub: 1,
-            },
-          },
-        );
-      },
-      heroRef,
-    );
+          scrub: 1,
+        },
+      });
+    }, heroRef);
 
     return () => {
       ctx.revert();
@@ -2190,9 +1810,7 @@ function HomeHero({
                 xl:text-[61px]
               "
             >
-              <HeroHeadline
-                text={t("hero.headline")}
-              />
+              <HeroHeadline text={t("hero.headline")} />
             </h1>
 
             <p
@@ -2396,20 +2014,9 @@ function HomeHero({
               lg:grid-cols-6
             "
           >
-            {trust
-              .slice(0, 6)
-              .map(
-                (
-                  item,
-                  index,
-                ) => (
-                  <TrustItem
-                    key={`${item}-${index}`}
-                    text={item}
-                    index={index}
-                  />
-                ),
-              )}
+            {trust.slice(0, 6).map((item, index) => (
+              <TrustItem key={`${item}-${index}`} text={item} index={index} />
+            ))}
           </ul>
         </div>
       </div>
@@ -2421,31 +2028,14 @@ function HomeHero({
    PROBLEM HEADLINE
 ============================================================================= */
 
-function ProblemHeadline({
-  text,
-}: {
-  text: string;
-}) {
-  const trimmed =
-    text.trim();
+function ProblemHeadline({ text }: { text: string }) {
+  const trimmed = text.trim();
 
-  const content =
-    trimmed.endsWith(".")
-      ? trimmed.slice(
-          0,
-          -1,
-        )
-      : trimmed;
+  const content = trimmed.endsWith(".") ? trimmed.slice(0, -1) : trimmed;
 
-  const phrase =
-    "trapped in documents";
+  const phrase = "trapped in documents";
 
-  const phraseIndex =
-    content
-      .toLowerCase()
-      .indexOf(
-        phrase,
-      );
+  const phraseIndex = content.toLowerCase().indexOf(phrase);
 
   const gradientStyle = {
     backgroundImage: `linear-gradient(
@@ -2458,9 +2048,7 @@ function ProblemHeadline({
     )`,
   };
 
-  if (
-    phraseIndex === -1
-  ) {
+  if (phraseIndex === -1) {
     return (
       <>
         <span
@@ -2468,51 +2056,33 @@ function ProblemHeadline({
             bg-clip-text
             text-transparent
           "
-          style={
-            gradientStyle
-          }
+          style={gradientStyle}
         >
           {content}
         </span>
 
-        <span className="text-[#F02A35]">
-          .
-        </span>
+        <span className="text-[#F02A35]">.</span>
       </>
     );
   }
 
   return (
     <>
-      {content.slice(
-        0,
-        phraseIndex,
-      )}
+      {content.slice(0, phraseIndex)}
 
       <span
         className="
           bg-clip-text
           text-transparent
         "
-        style={
-          gradientStyle
-        }
+        style={gradientStyle}
       >
-        {content.slice(
-          phraseIndex,
-          phraseIndex +
-            phrase.length,
-        )}
+        {content.slice(phraseIndex, phraseIndex + phrase.length)}
       </span>
 
-      {content.slice(
-        phraseIndex +
-          phrase.length,
-      )}
+      {content.slice(phraseIndex + phrase.length)}
 
-      <span className="text-[#F02A35]">
-        .
-      </span>
+      <span className="text-[#F02A35]">.</span>
     </>
   );
 }
@@ -2526,14 +2096,9 @@ function ProblemItemIcon({
   variant,
 }: {
   index: number;
-  variant:
-    | "before"
-    | "after";
+  variant: "before" | "after";
 }) {
-  const color =
-    variant === "before"
-      ? "#FF2638"
-      : "#0EC34B";
+  const color = variant === "before" ? "#FF2638" : "#0EC34B";
 
   if (index <= 1) {
     return (
@@ -2562,16 +2127,8 @@ function ProblemItemIcon({
 
   if (index === 2) {
     return (
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        className="h-[18px] w-[18px]"
-      >
-        <path
-          d="M5 8.5h14v10.8H5V8.5Z"
-          stroke={color}
-          strokeWidth="1.8"
-        />
+      <svg viewBox="0 0 24 24" fill="none" className="h-[18px] w-[18px]">
+        <path d="M5 8.5h14v10.8H5V8.5Z" stroke={color} strokeWidth="1.8" />
 
         <path
           d="M4 5h16v4H4V5ZM9 12h6"
@@ -2585,18 +2142,8 @@ function ProblemItemIcon({
 
   if (index === 3) {
     return (
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        className="h-[18px] w-[18px]"
-      >
-        <circle
-          cx="11"
-          cy="11"
-          r="6"
-          stroke={color}
-          strokeWidth="1.8"
-        />
+      <svg viewBox="0 0 24 24" fill="none" className="h-[18px] w-[18px]">
+        <circle cx="11" cy="11" r="6" stroke={color} strokeWidth="1.8" />
 
         <path
           d="m15.5 15.5 4 4"
@@ -2610,33 +2157,20 @@ function ProblemItemIcon({
 
   if (index === 4) {
     return (
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        className="h-[18px] w-[18px]"
-      >
+      <svg viewBox="0 0 24 24" fill="none" className="h-[18px] w-[18px]">
         <path
           d="M12 3.5 19 6v5.2c0 4.4-2.7 7.7-7 9.6-4.3-1.9-7-5.2-7-9.6V6l7-2.5Z"
           stroke={color}
           strokeWidth="1.8"
         />
 
-        <circle
-          cx="12"
-          cy="11.5"
-          r="1.5"
-          fill={color}
-        />
+        <circle cx="12" cy="11.5" r="1.5" fill={color} />
       </svg>
     );
   }
 
   return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      className="h-[18px] w-[18px]"
-    >
+    <svg viewBox="0 0 24 24" fill="none" className="h-[18px] w-[18px]">
       <rect
         x="6"
         y="10"
@@ -2685,13 +2219,7 @@ function OrbitGlassCard({
   shineId: string;
   shadowId: string;
 }) {
-  const width = Math.max(
-    72,
-    Math.min(
-      150,
-      label.length * 8.2 + 42,
-    ),
-  );
+  const width = Math.max(72, Math.min(150, label.length * 8.2 + 42));
 
   const content = (
     <>
@@ -2752,19 +2280,9 @@ function OrbitGlassCard({
         opacity="0.11"
       />
 
-      <circle
-        cx={-width / 2 + 18}
-        cy="-1"
-        r="3.8"
-        fill={color}
-      />
+      <circle cx={-width / 2 + 18} cy="-1" r="3.8" fill={color} />
 
-      <circle
-        cx={-width / 2 + 17}
-        cy="-2"
-        r="1.1"
-        fill="#FFFFFF"
-      />
+      <circle cx={-width / 2 + 17} cy="-2" r="1.1" fill="#FFFFFF" />
 
       <text
         x="11"
@@ -2809,35 +2327,23 @@ function OrbitGlassCard({
    LEFT PROBLEM VISUAL
 ============================================================================= */
 
-function ProblemArchiveVisual({
-  reducedMotion,
-}: {
-  reducedMotion: boolean;
-}) {
+function ProblemArchiveVisual({ reducedMotion }: { reducedMotion: boolean }) {
   const rawId = useId();
-  const clean =
-    rawId.replace(/:/g, "");
+  const clean = rawId.replace(/:/g, "");
 
-  const glowId =
-    `archive-glow-${clean}`;
+  const glowId = `archive-glow-${clean}`;
 
-  const shadowId =
-    `archive-shadow-${clean}`;
+  const shadowId = `archive-shadow-${clean}`;
 
-  const cardShadowId =
-    `archive-card-shadow-${clean}`;
+  const cardShadowId = `archive-card-shadow-${clean}`;
 
-  const glassId =
-    `archive-glass-${clean}`;
+  const glassId = `archive-glass-${clean}`;
 
-  const shineId =
-    `archive-shine-${clean}`;
+  const shineId = `archive-shine-${clean}`;
 
-  const cabinetFrontId =
-    `archive-front-${clean}`;
+  const cabinetFrontId = `archive-front-${clean}`;
 
-  const cabinetSideId =
-    `archive-side-${clean}`;
+  const cabinetSideId = `archive-side-${clean}`;
 
   const outerOrbit = `
     M280 42
@@ -2913,137 +2419,47 @@ function ProblemArchiveVisual({
       aria-hidden="true"
     >
       <defs>
-        <radialGradient
-          id={glowId}
-          cx="48%"
-          cy="46%"
-          r="60%"
-        >
-          <stop
-            offset="0%"
-            stopColor="#FFD4DA"
-            stopOpacity="0.92"
-          />
+        <radialGradient id={glowId} cx="48%" cy="46%" r="60%">
+          <stop offset="0%" stopColor="#FFD4DA" stopOpacity="0.92" />
 
-          <stop
-            offset="42%"
-            stopColor="#FFE9EC"
-            stopOpacity="0.78"
-          />
+          <stop offset="42%" stopColor="#FFE9EC" stopOpacity="0.78" />
 
-          <stop
-            offset="76%"
-            stopColor="#FFF5F6"
-            stopOpacity="0.42"
-          />
+          <stop offset="76%" stopColor="#FFF5F6" stopOpacity="0.42" />
 
-          <stop
-            offset="100%"
-            stopColor="#FFFFFF"
-            stopOpacity="0"
-          />
+          <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
         </radialGradient>
 
-        <linearGradient
-          id={glassId}
-          x1="0"
-          y1="0"
-          x2="1"
-          y2="1"
-        >
-          <stop
-            offset="0%"
-            stopColor="#FFFFFF"
-            stopOpacity="1"
-          />
+        <linearGradient id={glassId} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#FFFFFF" stopOpacity="1" />
 
-          <stop
-            offset="40%"
-            stopColor="#FCFEFF"
-            stopOpacity="0.98"
-          />
+          <stop offset="40%" stopColor="#FCFEFF" stopOpacity="0.98" />
 
-          <stop
-            offset="72%"
-            stopColor="#E6F0F6"
-            stopOpacity="0.94"
-          />
+          <stop offset="72%" stopColor="#E6F0F6" stopOpacity="0.94" />
 
-          <stop
-            offset="100%"
-            stopColor="#CDDDE8"
-            stopOpacity="0.9"
-          />
+          <stop offset="100%" stopColor="#CDDDE8" stopOpacity="0.9" />
         </linearGradient>
 
-        <linearGradient
-          id={shineId}
-          x1="0"
-          y1="0"
-          x2="0"
-          y2="1"
-        >
-          <stop
-            offset="0%"
-            stopColor="#FFFFFF"
-            stopOpacity="1"
-          />
+        <linearGradient id={shineId} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#FFFFFF" stopOpacity="1" />
 
-          <stop
-            offset="100%"
-            stopColor="#FFFFFF"
-            stopOpacity="0"
-          />
+          <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
         </linearGradient>
 
-        <linearGradient
-          id={cabinetFrontId}
-          x1="0"
-          y1="0"
-          x2="1"
-          y2="1"
-        >
-          <stop
-            offset="0%"
-            stopColor="#E3EBF1"
-          />
+        <linearGradient id={cabinetFrontId} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#E3EBF1" />
 
-          <stop
-            offset="50%"
-            stopColor="#B8C7D4"
-          />
+          <stop offset="50%" stopColor="#B8C7D4" />
 
-          <stop
-            offset="100%"
-            stopColor="#8498AB"
-          />
+          <stop offset="100%" stopColor="#8498AB" />
         </linearGradient>
 
-        <linearGradient
-          id={cabinetSideId}
-          x1="0"
-          y1="0"
-          x2="0"
-          y2="1"
-        >
-          <stop
-            offset="0%"
-            stopColor="#CBD7E1"
-          />
+        <linearGradient id={cabinetSideId} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#CBD7E1" />
 
-          <stop
-            offset="100%"
-            stopColor="#8195A8"
-          />
+          <stop offset="100%" stopColor="#8195A8" />
         </linearGradient>
 
-        <filter
-          id={shadowId}
-          x="-60%"
-          y="-60%"
-          width="220%"
-          height="220%"
-        >
+        <filter id={shadowId} x="-60%" y="-60%" width="220%" height="220%">
           <feDropShadow
             dx="0"
             dy="12"
@@ -3078,12 +2494,7 @@ function ProblemArchiveVisual({
         </filter>
       </defs>
 
-      <circle
-        cx="280"
-        cy="280"
-        r="276"
-        fill={`url(#${glowId})`}
-      />
+      <circle cx="280" cy="280" r="276" fill={`url(#${glowId})`} />
 
       <circle
         cx="280"
@@ -3185,11 +2596,7 @@ function ProblemArchiveVisual({
         }).map((_, index) => (
           <g
             key={index}
-            transform={`translate(${
-              110 + index * 1.3
-            } ${
-              109 - index * 2.3
-            })`}
+            transform={`translate(${110 + index * 1.3} ${109 - index * 2.3})`}
           >
             <polygon
               points="0,42 104,9 195,42 89,77"
@@ -3213,10 +2620,7 @@ function ProblemArchiveVisual({
       </motion.g>
 
       <g filter={`url(#${shadowId})`}>
-        <polygon
-          points="198,253 302,219 385,255 277,292"
-          fill="#E1E9F0"
-        />
+        <polygon points="198,253 302,219 385,255 277,292" fill="#E1E9F0" />
 
         <polygon
           points="198,253 277,292 277,431 198,390"
@@ -3247,14 +2651,7 @@ function ProblemArchiveVisual({
           strokeWidth="1.2"
         />
 
-        <rect
-          x="321"
-          y="325"
-          width="27"
-          height="5"
-          rx="2.5"
-          fill="#70879A"
-        />
+        <rect x="321" y="325" width="27" height="5" rx="2.5" fill="#70879A" />
 
         <rect
           x="304"
@@ -3267,42 +2664,22 @@ function ProblemArchiveVisual({
           strokeWidth="1.2"
         />
 
-        <rect
-          x="321"
-          y="371"
-          width="27"
-          height="5"
-          rx="2.5"
-          fill="#70879A"
-        />
+        <rect x="321" y="371" width="27" height="5" rx="2.5" fill="#70879A" />
       </g>
 
       <g filter={`url(#${shadowId})`}>
-        <polygon
-          points="69,323 151,297 225,325 140,354"
-          fill="#EFF4F8"
-        />
+        <polygon points="69,323 151,297 225,325 140,354" fill="#EFF4F8" />
 
-        <polygon
-          points="69,323 140,354 140,454 69,420"
-          fill="#CBD8E2"
-        />
+        <polygon points="69,323 140,354 140,454 69,420" fill="#CBD8E2" />
 
-        <polygon
-          points="140,354 225,325 225,425 140,454"
-          fill="#E4ECF2"
-        />
+        <polygon points="140,354 225,325 225,425 140,454" fill="#E4ECF2" />
 
         {Array.from({
           length: 8,
         }).map((_, index) => (
           <g
             key={index}
-            transform={`translate(${
-              82 + index * 9
-            } ${
-              313 - index * 2.6
-            })`}
+            transform={`translate(${82 + index * 9} ${313 - index * 2.6})`}
           >
             <path
               d="M0 0h40l9 9v55H0Z"
@@ -3335,8 +2712,7 @@ function ProblemArchiveVisual({
           ease: "easeInOut",
         }}
         style={{
-          transformOrigin:
-            "431px 360px",
+          transformOrigin: "431px 360px",
         }}
       >
         <polygon
@@ -3358,49 +2734,39 @@ function ProblemArchiveVisual({
         />
       </motion.g>
 
-      {outerItems.map(
-        (
-          item,
-          index,
-        ) => (
-          <OrbitGlassCard
-            key={item.label}
-            label={item.label}
-            color={item.color}
-            path={outerOrbit}
-            duration={42}
-            begin={-(index * 10.5)}
-            reducedMotion={reducedMotion}
-            staticX={outerStatic[index].x}
-            staticY={outerStatic[index].y}
-            glassId={glassId}
-            shineId={shineId}
-            shadowId={cardShadowId}
-          />
-        ),
-      )}
+      {outerItems.map((item, index) => (
+        <OrbitGlassCard
+          key={item.label}
+          label={item.label}
+          color={item.color}
+          path={outerOrbit}
+          duration={42}
+          begin={-(index * 10.5)}
+          reducedMotion={reducedMotion}
+          staticX={outerStatic[index].x}
+          staticY={outerStatic[index].y}
+          glassId={glassId}
+          shineId={shineId}
+          shadowId={cardShadowId}
+        />
+      ))}
 
-      {innerItems.map(
-        (
-          item,
-          index,
-        ) => (
-          <OrbitGlassCard
-            key={item.label}
-            label={item.label}
-            color={item.color}
-            path={innerOrbit}
-            duration={48}
-            begin={-(index * 12)}
-            reducedMotion={reducedMotion}
-            staticX={innerStatic[index].x}
-            staticY={innerStatic[index].y}
-            glassId={glassId}
-            shineId={shineId}
-            shadowId={cardShadowId}
-          />
-        ),
-      )}
+      {innerItems.map((item, index) => (
+        <OrbitGlassCard
+          key={item.label}
+          label={item.label}
+          color={item.color}
+          path={innerOrbit}
+          duration={48}
+          begin={-(index * 12)}
+          reducedMotion={reducedMotion}
+          staticX={innerStatic[index].x}
+          staticY={innerStatic[index].y}
+          glassId={glassId}
+          shineId={shineId}
+          shadowId={cardShadowId}
+        />
+      ))}
     </svg>
   );
 }
@@ -3418,35 +2784,21 @@ function ProblemGovernanceVisual({
 }) {
   const rawId = useId();
 
-  const clean =
-    rawId.replace(/:/g, "");
+  const clean = rawId.replace(/:/g, "");
 
-  const glowId =
-    `gov-glow-${clean}`;
+  const glowId = `gov-glow-${clean}`;
 
-  const shadowId =
-    `gov-shadow-${clean}`;
+  const shadowId = `gov-shadow-${clean}`;
 
-  const glassId =
-    `gov-glass-${clean}`;
+  const glassId = `gov-glass-${clean}`;
 
-  const deepGlassId =
-    `gov-deep-${clean}`;
+  const deepGlassId = `gov-deep-${clean}`;
 
-  const shineId =
-    `gov-shine-${clean}`;
+  const shineId = `gov-shine-${clean}`;
 
   const chips = arabic
-    ? [
-        "محكوم",
-        "صلاحيات واعية",
-        "إجابات خاصة",
-      ]
-    : [
-        "Governed",
-        "Permission-Aware",
-        "Private Answers",
-      ];
+    ? ["محكوم", "صلاحيات واعية", "إجابات خاصة"]
+    : ["Governed", "Permission-Aware", "Private Answers"];
 
   return (
     <svg
@@ -3458,110 +2810,37 @@ function ProblemGovernanceVisual({
       aria-hidden="true"
     >
       <defs>
-        <radialGradient
-          id={glowId}
-          cx="52%"
-          cy="47%"
-          r="61%"
-        >
-          <stop
-            offset="0%"
-            stopColor="#D9FFEA"
-            stopOpacity="0.95"
-          />
+        <radialGradient id={glowId} cx="52%" cy="47%" r="61%">
+          <stop offset="0%" stopColor="#D9FFEA" stopOpacity="0.95" />
 
-          <stop
-            offset="52%"
-            stopColor="#EDFFF5"
-            stopOpacity="0.72"
-          />
+          <stop offset="52%" stopColor="#EDFFF5" stopOpacity="0.72" />
 
-          <stop
-            offset="100%"
-            stopColor="#FFFFFF"
-            stopOpacity="0"
-          />
+          <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
         </radialGradient>
 
-        <linearGradient
-          id={glassId}
-          x1="0"
-          y1="0"
-          x2="1"
-          y2="1"
-        >
-          <stop
-            offset="0%"
-            stopColor="#FFFFFF"
-            stopOpacity="1"
-          />
+        <linearGradient id={glassId} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#FFFFFF" stopOpacity="1" />
 
-          <stop
-            offset="46%"
-            stopColor="#FBFEFF"
-            stopOpacity="0.98"
-          />
+          <stop offset="46%" stopColor="#FBFEFF" stopOpacity="0.98" />
 
-          <stop
-            offset="100%"
-            stopColor="#D4E8F2"
-            stopOpacity="0.9"
-          />
+          <stop offset="100%" stopColor="#D4E8F2" stopOpacity="0.9" />
         </linearGradient>
 
-        <linearGradient
-          id={deepGlassId}
-          x1="0"
-          y1="0"
-          x2="1"
-          y2="1"
-        >
-          <stop
-            offset="0%"
-            stopColor="#FFFFFF"
-            stopOpacity="0.98"
-          />
+        <linearGradient id={deepGlassId} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.98" />
 
-          <stop
-            offset="48%"
-            stopColor="#E4F3FA"
-            stopOpacity="0.9"
-          />
+          <stop offset="48%" stopColor="#E4F3FA" stopOpacity="0.9" />
 
-          <stop
-            offset="100%"
-            stopColor="#BCD8E6"
-            stopOpacity="0.77"
-          />
+          <stop offset="100%" stopColor="#BCD8E6" stopOpacity="0.77" />
         </linearGradient>
 
-        <linearGradient
-          id={shineId}
-          x1="0"
-          y1="0"
-          x2="0"
-          y2="1"
-        >
-          <stop
-            offset="0%"
-            stopColor="#FFFFFF"
-            stopOpacity="1"
-          />
+        <linearGradient id={shineId} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#FFFFFF" stopOpacity="1" />
 
-          <stop
-            offset="100%"
-            stopColor="#FFFFFF"
-            stopOpacity="0"
-          />
+          <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
         </linearGradient>
 
-        <filter
-          id={shadowId}
-          x="-60%"
-          y="-60%"
-          width="220%"
-          height="220%"
-        >
+        <filter id={shadowId} x="-60%" y="-60%" width="220%" height="220%">
           <feDropShadow
             dx="0"
             dy="10"
@@ -3580,12 +2859,7 @@ function ProblemGovernanceVisual({
         </filter>
       </defs>
 
-      <circle
-        cx="280"
-        cy="280"
-        r="278"
-        fill={`url(#${glowId})`}
-      />
+      <circle cx="280" cy="280" r="278" fill={`url(#${glowId})`} />
 
       <circle
         cx="280"
@@ -3633,68 +2907,62 @@ function ProblemGovernanceVisual({
       />
 
       <g transform="translate(-110 0)">
-
-      <motion.g
-        animate={
-          reducedMotion
-            ? undefined
-            : {
-                y: [0, -4, 0],
-              }
-        }
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        filter={`url(#${shadowId})`}
-      >
-        <rect
-          x="74"
-          y="54"
-          width="397"
-          height="65"
-          rx="15"
-          fill={`url(#${glassId})`}
-          stroke="#FFFFFF"
-          strokeWidth="1.8"
-        />
-
-        <rect
-          x="79"
-          y="59"
-          width="387"
-          height="24"
-          rx="11"
-          fill={`url(#${shineId})`}
-          opacity="0.78"
-        />
-
-        <circle
-          cx="108"
-          cy="86"
-          r="9"
-          fill="none"
-          stroke="#668BC5"
-          strokeWidth="2.1"
-        />
-
-        <path
-          d="m114 93 8 8"
-          stroke="#668BC5"
-          strokeWidth="2.1"
-          strokeLinecap="round"
-        />
-
-        <foreignObject
-          x="138"
-          y="69"
-          width="300"
-          height="36"
+        <motion.g
+          animate={
+            reducedMotion
+              ? undefined
+              : {
+                  y: [0, -4, 0],
+                }
+          }
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          filter={`url(#${shadowId})`}
         >
-          <div
-            dir={arabic ? "rtl" : "ltr"}
-            className="
+          <rect
+            x="74"
+            y="54"
+            width="397"
+            height="65"
+            rx="15"
+            fill={`url(#${glassId})`}
+            stroke="#FFFFFF"
+            strokeWidth="1.8"
+          />
+
+          <rect
+            x="79"
+            y="59"
+            width="387"
+            height="24"
+            rx="11"
+            fill={`url(#${shineId})`}
+            opacity="0.78"
+          />
+
+          <circle
+            cx="108"
+            cy="86"
+            r="9"
+            fill="none"
+            stroke="#668BC5"
+            strokeWidth="2.1"
+          />
+
+          <path
+            d="m114 93 8 8"
+            stroke="#668BC5"
+            strokeWidth="2.1"
+            strokeLinecap="round"
+          />
+
+          <foreignObject x="138" y="69" width="300" height="36">
+            <div
+              dir={arabic ? "rtl" : "ltr"}
+              className="
               flex
               h-full
               w-full
@@ -3702,9 +2970,9 @@ function ProblemGovernanceVisual({
               items-center
               overflow-hidden
             "
-          >
-            <span
-              className="
+            >
+              <span
+                className="
                 block
                 min-w-0
                 max-w-full
@@ -3715,150 +2983,133 @@ function ProblemGovernanceVisual({
                 font-semibold
                 text-[#526A8C]
               "
-            >
-              {arabic
-                ? "ابحث عن إجابات موثوقة..."
-                : "Find trusted answers..."}
-            </span>
-          </div>
-        </foreignObject>
-      </motion.g>
+              >
+                {arabic
+                  ? "ابحث عن إجابات موثوقة..."
+                  : "Find trusted answers..."}
+              </span>
+            </div>
+          </foreignObject>
+        </motion.g>
 
-      <g opacity="0.54">
-        <path
-          d="
+        <g opacity="0.54">
+          <path
+            d="
             M120 205H242
             M242 205V140
             M242 205H390
             M390 205V300
           "
-          fill="none"
-          stroke="#50ADEA"
-          strokeWidth="2"
-          strokeDasharray="5 7"
-        />
+            fill="none"
+            stroke="#50ADEA"
+            strokeWidth="2"
+            strokeDasharray="5 7"
+          />
 
-        {[
-          [120, 205],
-          [242, 205],
-          [242, 140],
-          [390, 205],
-        ].map(([x, y]) => (
-          <g key={`${x}-${y}`}>
-            <circle
-              cx={x}
-              cy={y}
-              r="7"
-              fill="#3AAAF0"
-              opacity="0.15"
-            />
+          {[
+            [120, 205],
+            [242, 205],
+            [242, 140],
+            [390, 205],
+          ].map(([x, y]) => (
+            <g key={`${x}-${y}`}>
+              <circle cx={x} cy={y} r="7" fill="#3AAAF0" opacity="0.15" />
 
-            <circle
-              cx={x}
-              cy={y}
-              r="4"
-              fill="#3AAAF0"
-            />
-          </g>
-        ))}
-      </g>
+              <circle cx={x} cy={y} r="4" fill="#3AAAF0" />
+            </g>
+          ))}
+        </g>
 
-      <motion.g
-        animate={
-          reducedMotion
-            ? undefined
-            : {
-                y: [0, -6, 0],
-              }
-        }
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        filter={`url(#${shadowId})`}
-      >
-        <rect
-          x="50"
-          y="166"
-          width="108"
-          height="112"
-          rx="18"
-          fill={`url(#${glassId})`}
-          stroke="#FFFFFF"
-          strokeWidth="1.8"
-        />
+        <motion.g
+          animate={
+            reducedMotion
+              ? undefined
+              : {
+                  y: [0, -6, 0],
+                }
+          }
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          filter={`url(#${shadowId})`}
+        >
+          <rect
+            x="50"
+            y="166"
+            width="108"
+            height="112"
+            rx="18"
+            fill={`url(#${glassId})`}
+            stroke="#FFFFFF"
+            strokeWidth="1.8"
+          />
 
-        <rect
-          x="55"
-          y="171"
-          width="98"
-          height="38"
-          rx="14"
-          fill={`url(#${shineId})`}
-          opacity="0.77"
-        />
+          <rect
+            x="55"
+            y="171"
+            width="98"
+            height="38"
+            rx="14"
+            fill={`url(#${shineId})`}
+            opacity="0.77"
+          />
 
-        <path
-          d="M82 190h29l13 13v50H82Z"
-          fill="#1685EA"
-        />
+          <path d="M82 190h29l13 13v50H82Z" fill="#1685EA" />
 
-        <path
-          d="M111 190v14h13"
-          fill="#7FD2F7"
-        />
+          <path d="M111 190v14h13" fill="#7FD2F7" />
 
-        <path
-          d="
+          <path
+            d="
             M92 217h21
             M92 228h21
             M92 239h15
           "
-          stroke="#FFFFFF"
-          strokeWidth="2.4"
-          strokeLinecap="round"
-        />
-      </motion.g>
+            stroke="#FFFFFF"
+            strokeWidth="2.4"
+            strokeLinecap="round"
+          />
+        </motion.g>
 
-      <motion.g
-        animate={
-          reducedMotion
-            ? undefined
-            : {
-                y: [0, 5, 0],
-              }
-        }
-        transition={{
-          duration: 9,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        filter={`url(#${shadowId})`}
-      >
-        <rect
-          x="400"
-          y="154"
-          width="106"
-          height="114"
-          rx="18"
-          fill={`url(#${glassId})`}
-          stroke="#FFFFFF"
-          strokeWidth="1.8"
-        />
+        <motion.g
+          animate={
+            reducedMotion
+              ? undefined
+              : {
+                  y: [0, 5, 0],
+                }
+          }
+          transition={{
+            duration: 9,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          filter={`url(#${shadowId})`}
+        >
+          <rect
+            x="400"
+            y="154"
+            width="106"
+            height="114"
+            rx="18"
+            fill={`url(#${glassId})`}
+            stroke="#FFFFFF"
+            strokeWidth="1.8"
+          />
 
-        <rect
-          x="405"
-          y="159"
-          width="96"
-          height="38"
-          rx="14"
-          fill={`url(#${shineId})`}
-          opacity="0.76"
-        />
+          <rect
+            x="405"
+            y="159"
+            width="96"
+            height="38"
+            rx="14"
+            fill={`url(#${shineId})`}
+            opacity="0.76"
+          />
 
-        <path
-          d="
+          <path
+            d="
             M453 184
             477 192
             v18
@@ -3866,174 +3117,161 @@ function ProblemGovernanceVisual({
             -16-6-24-17-24-31
             v-18Z
           "
-          fill="#10B94B"
-        />
+            fill="#10B94B"
+          />
 
-        <path
-          d="m440 211 8 8 16-19"
-          stroke="#FFFFFF"
-          strokeWidth="3.8"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </motion.g>
+          <path
+            d="m440 211 8 8 16-19"
+            stroke="#FFFFFF"
+            strokeWidth="3.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </motion.g>
 
-      <g filter={`url(#${shadowId})`}>
-        <rect
-          x="77"
-          y="297"
-          width="136"
-          height="128"
-          rx="21"
-          fill={`url(#${deepGlassId})`}
-          stroke="#91D3F4"
-          strokeWidth="1.8"
-        />
+        <g filter={`url(#${shadowId})`}>
+          <rect
+            x="77"
+            y="297"
+            width="136"
+            height="128"
+            rx="21"
+            fill={`url(#${deepGlassId})`}
+            stroke="#91D3F4"
+            strokeWidth="1.8"
+          />
 
-        <rect
-          x="96"
-          y="317"
-          width="98"
-          height="84"
-          rx="11"
-          fill="#FFFFFF"
-          fillOpacity="0.82"
-        />
+          <rect
+            x="96"
+            y="317"
+            width="98"
+            height="84"
+            rx="11"
+            fill="#FFFFFF"
+            fillOpacity="0.82"
+          />
 
-        <path
-          d="
+          <path
+            d="
             M115 340h56
             M115 355h42
             M115 370h48
           "
-          stroke="#AAC9DC"
-          strokeWidth="5"
-          strokeLinecap="round"
-        />
-      </g>
+            stroke="#AAC9DC"
+            strokeWidth="5"
+            strokeLinecap="round"
+          />
+        </g>
 
-      <motion.g
-        animate={
-          reducedMotion
-            ? undefined
-            : {
-                y: [0, -5, 0],
-                scale: [1, 1.015, 1],
-              }
-        }
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        style={{
-          transformOrigin:
-            "280px 300px",
-        }}
-      >
-        <rect
-          x="178"
-          y="219"
-          width="194"
-          height="168"
-          rx="25"
-          fill="#708DA0"
-          opacity="0.13"
-          transform="translate(6 9)"
-        />
-
-        <rect
-          x="172"
-          y="211"
-          width="194"
-          height="168"
-          rx="25"
-          fill={`url(#${glassId})`}
-          stroke="#FFFFFF"
-          strokeWidth="2"
-          filter={`url(#${shadowId})`}
-        />
-
-        <rect
-          x="179"
-          y="218"
-          width="180"
-          height="70"
-          rx="20"
-          fill={`url(#${shineId})`}
-          opacity="0.72"
-        />
-
-        <foreignObject
-          x="217"
-          y="225"
-          width="112"
-          height="136"
-          pointerEvents="none"
+        <motion.g
+          animate={
+            reducedMotion
+              ? undefined
+              : {
+                  y: [0, -5, 0],
+                  scale: [1, 1.015, 1],
+                }
+          }
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          style={{
+            transformOrigin: "280px 300px",
+          }}
         >
-          <div
-            className="
+          <rect
+            x="178"
+            y="219"
+            width="194"
+            height="168"
+            rx="25"
+            fill="#708DA0"
+            opacity="0.13"
+            transform="translate(6 9)"
+          />
+
+          <rect
+            x="172"
+            y="211"
+            width="194"
+            height="168"
+            rx="25"
+            fill={`url(#${glassId})`}
+            stroke="#FFFFFF"
+            strokeWidth="2"
+            filter={`url(#${shadowId})`}
+          />
+
+          <rect
+            x="179"
+            y="218"
+            width="180"
+            height="70"
+            rx="20"
+            fill={`url(#${shineId})`}
+            opacity="0.72"
+          />
+
+          <foreignObject
+            x="217"
+            y="225"
+            width="112"
+            height="136"
+            pointerEvents="none"
+          >
+            <div
+              className="
               h-full
               w-full
               drop-shadow-[0_10px_10px_rgba(25,58,79,0.22)]
             "
-            style={{
-              filter:
-                "brightness(1.045) saturate(1.18) contrast(1.07)",
-            }}
-          >
-            <ExactHiveLogo />
-          </div>
-        </foreignObject>
-      </motion.g>
+              style={{
+                filter: "brightness(1.045) saturate(1.18) contrast(1.07)",
+              }}
+            >
+              <ExactHiveLogo />
+            </div>
+          </foreignObject>
+        </motion.g>
 
-      <rect
-        x="343"
-        y="305"
-        width="175"
-        height="20"
-        rx="10"
-        fill="#E5F3F8"
-        stroke="#FFFFFF"
-        strokeWidth="1.3"
-      />
+        <rect
+          x="343"
+          y="305"
+          width="175"
+          height="20"
+          rx="10"
+          fill="#E5F3F8"
+          stroke="#FFFFFF"
+          strokeWidth="1.3"
+        />
 
-      <circle
-        cx="478"
-        cy="315"
-        r="7"
-        fill="#A9DDF3"
-      />
+        <circle cx="478" cy="315" r="7" fill="#A9DDF3" />
 
-      <motion.circle
-        cx="362"
-        cy="315"
-        r="4.5"
-        fill="#22A3E0"
-        animate={
-          reducedMotion
-            ? {
-                cx: 362,
-              }
-            : {
-                cx: [362, 496, 362],
-              }
-        }
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
+        <motion.circle
+          cx="362"
+          cy="315"
+          r="4.5"
+          fill="#22A3E0"
+          animate={
+            reducedMotion
+              ? {
+                  cx: 362,
+                }
+              : {
+                  cx: [362, 496, 362],
+                }
+          }
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
 
-      {chips.map(
-        (
-          chip,
-          index,
-        ) => {
-          const y =
-            344 +
-            index * 57;
+        {chips.map((chip, index) => {
+          const y = 344 + index * 57;
 
           return (
             <motion.g
@@ -4051,8 +3289,7 @@ function ProblemGovernanceVisual({
               }}
               transition={{
                 duration: 0.75,
-                delay:
-                  index * 0.12,
+                delay: index * 0.12,
               }}
               filter={`url(#${shadowId})`}
             >
@@ -4162,12 +3399,7 @@ function ProblemGovernanceVisual({
                 </>
               )}
 
-              <foreignObject
-                x="334"
-                y={y + 7}
-                width="174"
-                height="35"
-              >
+              <foreignObject x="334" y={y + 7} width="174" height="35">
                 <div
                   dir={arabic ? "rtl" : "ltr"}
                   className="
@@ -4199,8 +3431,7 @@ function ProblemGovernanceVisual({
               </foreignObject>
             </motion.g>
           );
-        },
-      )}
+        })}
       </g>
     </svg>
   );
@@ -4217,21 +3448,15 @@ function ProblemStateCard({
   items,
   className = "",
 }: {
-  variant:
-    | "before"
-    | "after";
+  variant: "before" | "after";
   title: string;
   subtitle: string;
   items: string[];
   className?: string;
 }) {
-  const isBefore =
-    variant === "before";
+  const isBefore = variant === "before";
 
-  const color =
-    isBefore
-      ? "#FF2638"
-      : "#0EC34B";
+  const color = isBefore ? "#FF2638" : "#0EC34B";
 
   return (
     <article
@@ -4263,11 +3488,7 @@ function ProblemStateCard({
         sm:p-6
         lg:p-7
 
-        ${
-          isBefore
-            ? "border-[#FFB3BA]"
-            : "border-[#A5EAC1]"
-        }
+        ${isBefore ? "border-[#FFB3BA]" : "border-[#A5EAC1]"}
       `}
     >
       <div
@@ -4331,11 +3552,7 @@ function ProblemStateCard({
           }}
         >
           {isBefore ? (
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              className="h-6 w-6"
-            >
+            <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6">
               <path
                 d="m7 7 10 10M17 7 7 17"
                 stroke="currentColor"
@@ -4344,11 +3561,7 @@ function ProblemStateCard({
               />
             </svg>
           ) : (
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              className="h-6 w-6"
-            >
+            <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6">
               <path
                 d="m6.5 12.5 3.5 3.5 7.5-8"
                 stroke="currentColor"
@@ -4396,14 +3609,10 @@ function ProblemStateCard({
       <div className="relative my-5 h-px bg-[#DCE4EB]" />
 
       <ul className="relative space-y-3 sm:space-y-3.5">
-        {items.map(
-          (
-            item,
-            index,
-          ) => (
-            <li
-              key={`${item}-${index}`}
-              className="
+        {items.map((item, index) => (
+          <li
+            key={`${item}-${index}`}
+            className="
                 problem-card-row
 
                 flex
@@ -4411,9 +3620,9 @@ function ProblemStateCard({
                 items-center
                 gap-3
               "
-            >
-              <span
-                className="
+          >
+            <span
+              className="
                   flex
                   h-9
                   w-9
@@ -4431,21 +3640,17 @@ function ProblemStateCard({
                   sm:h-10
                   sm:w-10
                 "
-                style={{
-                  backgroundColor:
-                    isBefore
-                      ? "rgba(255,38,56,0.07)"
-                      : "rgba(14,195,75,0.075)",
-                }}
-              >
-                <ProblemItemIcon
-                  index={index}
-                  variant={variant}
-                />
-              </span>
+              style={{
+                backgroundColor: isBefore
+                  ? "rgba(255,38,56,0.07)"
+                  : "rgba(14,195,75,0.075)",
+              }}
+            >
+              <ProblemItemIcon index={index} variant={variant} />
+            </span>
 
-              <span
-                className="
+            <span
+              className="
                   min-w-0
 
                   text-[13px]
@@ -4456,12 +3661,11 @@ function ProblemStateCard({
                   sm:text-[14px]
                   lg:text-[15px]
                 "
-              >
-                {item}
-              </span>
-            </li>
-          ),
-        )}
+            >
+              {item}
+            </span>
+          </li>
+        ))}
       </ul>
     </article>
   );
@@ -4478,34 +3682,21 @@ function ProblemSection({
   before: string[];
   after: string[];
 }) {
-  const {
-    t,
-    i18n,
-  } = useTranslation("home");
+  const { t, i18n } = useTranslation("home");
 
-  const reducedMotion =
-    useReducedMotion() ?? false;
+  const reducedMotion = useReducedMotion() ?? false;
 
-  const sectionRef =
-    useRef<HTMLElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
 
-  const leftRef =
-    useRef<HTMLDivElement>(null);
+  const leftRef = useRef<HTMLDivElement>(null);
 
-  const rightRef =
-    useRef<HTMLDivElement>(null);
+  const rightRef = useRef<HTMLDivElement>(null);
 
-  const arabic =
-    i18n.language
-      .toLowerCase()
-      .startsWith("ar");
+  const arabic = i18n.language.toLowerCase().startsWith("ar");
 
-  const rtl =
-    i18n.dir() === "rtl";
+  const rtl = i18n.dir() === "rtl";
 
-  const eyebrow = arabic
-    ? "معرفتك. سيطرتك."
-    : "YOUR KNOWLEDGE. YOUR CONTROL.";
+  const eyebrow = arabic ? "معرفتك. سيطرتك." : "YOUR KNOWLEDGE. YOUR CONTROL.";
 
   const beforeSubtitle = arabic
     ? "مجزأ، يصعب الوصول إليه"
@@ -4519,264 +3710,233 @@ function ProblemSection({
     ? "من إدخال المستندات إلى ذكاء قابل للمساءلة."
     : "From document intake to accountable intelligence.";
 
-  const bottomLabel = arabic
-    ? "هذه هي DocHive."
-    : "THAT’S DOCHIVE.";
+  const bottomLabel = arabic ? "هذه هي DocHive." : "THAT’S DOCHIVE.";
 
   useEffect(() => {
-    if (
-      reducedMotion ||
-      !sectionRef.current
-    ) {
+    if (reducedMotion || !sectionRef.current) {
       return;
     }
 
-    gsap.registerPlugin(
-      ScrollTrigger,
-    );
+    gsap.registerPlugin(ScrollTrigger);
 
-    const ctx = gsap.context(
-      () => {
-        const timeline =
-          gsap.timeline({
-            defaults: {
-              ease: "none",
-            },
+    const ctx = gsap.context(() => {
+      const timeline = gsap.timeline({
+        defaults: {
+          ease: "none",
+        },
 
-            scrollTrigger: {
-              trigger:
-                sectionRef.current,
+        scrollTrigger: {
+          trigger: sectionRef.current,
 
-              start:
-                "top 92%",
+          start: "top 92%",
 
-              end:
-                "72% 34%",
+          end: "72% 34%",
 
-              scrub: 2,
-            },
-          });
+          scrub: 2,
+        },
+      });
 
-        timeline
-          .fromTo(
-            ".problem-eyebrow",
-            {
-              opacity: 0,
-              y: 28,
-            },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 1,
-            },
-          )
+      timeline
+        .fromTo(
+          ".problem-eyebrow",
+          {
+            opacity: 0,
+            y: 28,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+          },
+        )
 
-          .fromTo(
-            ".problem-heading",
-            {
-              opacity: 0,
-              y: 52,
-              scale: 0.97,
-            },
-            {
-              opacity: 1,
-              y: 0,
-              scale: 1,
-              duration: 1.4,
-            },
-            "-=0.25",
-          )
+        .fromTo(
+          ".problem-heading",
+          {
+            opacity: 0,
+            y: 52,
+            scale: 0.97,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 1.4,
+          },
+          "-=0.25",
+        )
 
-          .fromTo(
-            ".problem-description",
-            {
-              opacity: 0,
-              y: 34,
-            },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 1.1,
-            },
-            "-=0.4",
-          )
+        .fromTo(
+          ".problem-description",
+          {
+            opacity: 0,
+            y: 34,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1.1,
+          },
+          "-=0.4",
+        )
 
-          .fromTo(
-            ".problem-mobile-art",
-            {
-              opacity: 0,
-              y: 45,
-              scale: 0.96,
-            },
-            {
-              opacity: 1,
-              y: 0,
-              scale: 1,
-              duration: 1.25,
-            },
-            "-=0.2",
-          )
+        .fromTo(
+          ".problem-mobile-art",
+          {
+            opacity: 0,
+            y: 45,
+            scale: 0.96,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 1.25,
+          },
+          "-=0.2",
+        )
 
-          .fromTo(
-            ".problem-before-card",
-            {
-              opacity: 0,
-              x: rtl ? 48 : -48,
-              y: 42,
-              scale: 0.98,
-            },
-            {
-              opacity: 1,
-              x: 0,
-              y: 0,
-              scale: 1,
-              duration: 1.35,
-            },
-          )
+        .fromTo(
+          ".problem-before-card",
+          {
+            opacity: 0,
+            x: rtl ? 48 : -48,
+            y: 42,
+            scale: 0.98,
+          },
+          {
+            opacity: 1,
+            x: 0,
+            y: 0,
+            scale: 1,
+            duration: 1.35,
+          },
+        )
 
-          .fromTo(
-            ".problem-after-card",
-            {
-              opacity: 0,
-              x: rtl ? -48 : 48,
-              y: 42,
-              scale: 0.98,
-            },
-            {
-              opacity: 1,
-              x: 0,
-              y: 0,
-              scale: 1,
-              duration: 1.35,
-            },
-            "-=1.08",
-          )
+        .fromTo(
+          ".problem-after-card",
+          {
+            opacity: 0,
+            x: rtl ? -48 : 48,
+            y: 42,
+            scale: 0.98,
+          },
+          {
+            opacity: 1,
+            x: 0,
+            y: 0,
+            scale: 1,
+            duration: 1.35,
+          },
+          "-=1.08",
+        )
 
-          .fromTo(
-            ".problem-card-symbol",
-            {
-              opacity: 0,
-              scale: 0.65,
-              rotate: -12,
-            },
-            {
-              opacity: 1,
-              scale: 1,
-              rotate: 0,
-              duration: 0.75,
-              stagger: 0.08,
-            },
-            "-=0.65",
-          )
+        .fromTo(
+          ".problem-card-symbol",
+          {
+            opacity: 0,
+            scale: 0.65,
+            rotate: -12,
+          },
+          {
+            opacity: 1,
+            scale: 1,
+            rotate: 0,
+            duration: 0.75,
+            stagger: 0.08,
+          },
+          "-=0.65",
+        )
 
-          .fromTo(
-            ".problem-card-row",
-            {
-              opacity: 0,
-              y: 18,
-            },
-            {
-              opacity: 1,
-              y: 0,
-              stagger: 0.065,
-              duration: 0.6,
-            },
-            "-=0.5",
-          )
+        .fromTo(
+          ".problem-card-row",
+          {
+            opacity: 0,
+            y: 18,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            stagger: 0.065,
+            duration: 0.6,
+          },
+          "-=0.5",
+        )
 
-          .fromTo(
-            ".problem-bottom-strip",
-            {
-              opacity: 0,
-              y: 42,
-              scale: 0.985,
-            },
-            {
-              opacity: 1,
-              y: 0,
-              scale: 1,
-              duration: 1.2,
-            },
-          );
-
-        const media =
-          gsap.matchMedia();
-
-        media.add(
-          "(min-width: 1280px)",
-          () => {
-            if (
-              leftRef.current
-            ) {
-              gsap.fromTo(
-                leftRef.current,
-                {
-                  yPercent: -4,
-                },
-                {
-                  yPercent: 6,
-                  ease: "none",
-
-                  scrollTrigger: {
-                    trigger:
-                      sectionRef.current,
-
-                    start:
-                      "top bottom",
-
-                    end:
-                      "bottom top",
-
-                    scrub: 2.4,
-                  },
-                },
-              );
-            }
-
-            if (
-              rightRef.current
-            ) {
-              gsap.fromTo(
-                rightRef.current,
-                {
-                  yPercent: 5,
-                },
-                {
-                  yPercent: -6,
-                  ease: "none",
-
-                  scrollTrigger: {
-                    trigger:
-                      sectionRef.current,
-
-                    start:
-                      "top bottom",
-
-                    end:
-                      "bottom top",
-
-                    scrub: 2.4,
-                  },
-                },
-              );
-            }
+        .fromTo(
+          ".problem-bottom-strip",
+          {
+            opacity: 0,
+            y: 42,
+            scale: 0.985,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 1.2,
           },
         );
 
-        return () => {
-          media.revert();
-        };
-      },
-      sectionRef,
-    );
+      const media = gsap.matchMedia();
+
+      media.add("(min-width: 1280px)", () => {
+        if (leftRef.current) {
+          gsap.fromTo(
+            leftRef.current,
+            {
+              yPercent: -4,
+            },
+            {
+              yPercent: 6,
+              ease: "none",
+
+              scrollTrigger: {
+                trigger: sectionRef.current,
+
+                start: "top bottom",
+
+                end: "bottom top",
+
+                scrub: 2.4,
+              },
+            },
+          );
+        }
+
+        if (rightRef.current) {
+          gsap.fromTo(
+            rightRef.current,
+            {
+              yPercent: 5,
+            },
+            {
+              yPercent: -6,
+              ease: "none",
+
+              scrollTrigger: {
+                trigger: sectionRef.current,
+
+                start: "top bottom",
+
+                end: "bottom top",
+
+                scrub: 2.4,
+              },
+            },
+          );
+        }
+      });
+
+      return () => {
+        media.revert();
+      };
+    }, sectionRef);
 
     return () => {
       ctx.revert();
     };
-  }, [
-    reducedMotion,
-    rtl,
-  ]);
+  }, [reducedMotion, rtl]);
 
   return (
     <section
@@ -4841,9 +4001,7 @@ function ProblemSection({
           2xl:w-[670px]
         "
       >
-        <ProblemArchiveVisual
-          reducedMotion={reducedMotion}
-        />
+        <ProblemArchiveVisual reducedMotion={reducedMotion} />
       </div>
 
       {/* RIGHT VISUAL */}
@@ -4948,11 +4106,7 @@ function ProblemSection({
               2xl:text-[53px]
             "
           >
-            <ProblemHeadline
-              text={t(
-                "problem.headline",
-              )}
-            />
+            <ProblemHeadline text={t("problem.headline")} />
           </h2>
 
           <p
@@ -4977,9 +4131,7 @@ function ProblemSection({
               2xl:max-w-[680px]
             "
           >
-            {t(
-              "problem.body",
-            )}
+            {t("problem.body")}
           </p>
         </div>
 
@@ -5016,9 +4168,7 @@ function ProblemSection({
               overflow-visible
             "
           >
-            <ProblemArchiveVisual
-              reducedMotion={reducedMotion}
-            />
+            <ProblemArchiveVisual reducedMotion={reducedMotion} />
           </div>
 
           <div
@@ -5064,9 +4214,7 @@ function ProblemSection({
           <ProblemStateCard
             className="problem-before-card"
             variant="before"
-            title={t(
-              "problem.beforeTitle",
-            )}
+            title={t("problem.beforeTitle")}
             subtitle={beforeSubtitle}
             items={before}
           />
@@ -5074,9 +4222,7 @@ function ProblemSection({
           <ProblemStateCard
             className="problem-after-card"
             variant="after"
-            title={t(
-              "problem.afterTitle",
-            )}
+            title={t("problem.afterTitle")}
             subtitle={afterSubtitle}
             items={after}
           />
@@ -5184,15 +4330,9 @@ function ProblemSection({
                   className="h-7 w-7"
                   aria-hidden="true"
                 >
-                  <path
-                    d="M6 2.8h8l4.5 4.5v13.9H6V2.8Z"
-                    fill="#1677F2"
-                  />
+                  <path d="M6 2.8h8l4.5 4.5v13.9H6V2.8Z" fill="#1677F2" />
 
-                  <path
-                    d="M14 2.8v4.7h4.5"
-                    fill="#63C6F6"
-                  />
+                  <path d="M14 2.8v4.7h4.5" fill="#63C6F6" />
 
                   <path
                     d="M9 11h6M9 14.5h6M9 18h4.5"
@@ -5273,27 +4413,17 @@ function ProblemSection({
    TRANSFORM SECTION
 ============================================================================= */
 
-function TransformHeadline({
-  arabic,
-}: {
-  arabic: boolean;
-}) {
+function TransformHeadline({ arabic }: { arabic: boolean }) {
   if (arabic) {
     return (
       <>
         <span className="block">
           من الورق إلى البيانات.{" "}
-          <span className="text-[#22A3E0]">
-            من البيانات
-          </span>{" "}
-          إلى المعلومات.
+          <span className="text-[#22A3E0]">من البيانات</span> إلى المعلومات.
         </span>
 
         <span className="block">
-          <span className="text-[#2AA845]">
-            من المعلومات
-          </span>{" "}
-          إلى{" "}
+          <span className="text-[#2AA845]">من المعلومات</span> إلى{" "}
           <span
             className="
               bg-[linear-gradient(90deg,#F2C94C_0%,#F2C94C_62%,#E5232A_100%)]
@@ -5312,18 +4442,12 @@ function TransformHeadline({
   return (
     <>
       <span className="block">
-        Paper to data.{" "}
-        <span className="text-[#22A3E0]">
-          Data
-        </span>{" "}
-        to information.
+        Paper to data. <span className="text-[#22A3E0]">Data</span> to
+        information.
       </span>
 
       <span className="block">
-        <span className="text-[#2AA845]">
-          Information
-        </span>{" "}
-        to{" "}
+        <span className="text-[#2AA845]">Information</span> to{" "}
         <span
           className="
             bg-[linear-gradient(90deg,#F2C94C_0%,#F2C94C_62%,#E5232A_100%)]
@@ -5339,11 +4463,7 @@ function TransformHeadline({
   );
 }
 
-function TransformConnectorArrow({
-  rtl,
-}: {
-  rtl: boolean;
-}) {
+function TransformConnectorArrow({ rtl }: { rtl: boolean }) {
   return (
     <div
       aria-hidden="true"
@@ -5367,11 +4487,7 @@ function TransformConnectorArrow({
 
         xl:flex
 
-        ${
-          rtl
-            ? "-left-[30px] rotate-180"
-            : "-right-[30px]"
-        }
+        ${rtl ? "-left-[30px] rotate-180" : "-right-[30px]"}
       `}
     >
       <svg
@@ -5405,37 +4521,29 @@ function TransformConnectorArrow({
 
 function TransformStageVisual({
   index,
-  reducedMotion,
+  // reducedMotion,
 }: {
   index: number;
-  reducedMotion: boolean;
+  // reducedMotion: boolean;
 }) {
   const rawId = useId();
   const cleanId = rawId.replace(/:/g, "");
 
-  const shadowId =
-    `transform-shadow-${cleanId}`;
+  const shadowId = `transform-shadow-${cleanId}`;
 
-  const paperGradientId =
-    `transform-paper-${cleanId}`;
+  const paperGradientId = `transform-paper-${cleanId}`;
 
-  const blueGradientId =
-    `transform-blue-${cleanId}`;
+  const blueGradientId = `transform-blue-${cleanId}`;
 
-  const greenGradientId =
-    `transform-green-${cleanId}`;
+  const greenGradientId = `transform-green-${cleanId}`;
 
-  const goldGradientId =
-    `transform-gold-${cleanId}`;
+  const goldGradientId = `transform-gold-${cleanId}`;
 
-  const glassGradientId =
-    `transform-glass-${cleanId}`;
+  const glassGradientId = `transform-glass-${cleanId}`;
 
-  const glowGradientId =
-    `transform-glow-${cleanId}`;
+  const glowGradientId = `transform-glow-${cleanId}`;
 
-  const paperCardGradientId =
-    `transform-paper-card-${cleanId}`;
+  const paperCardGradientId = `transform-paper-card-${cleanId}`;
 
   return (
     <motion.svg
@@ -5455,156 +4563,59 @@ function TransformStageVisual({
       aria-hidden="true"
     >
       <defs>
-        <linearGradient
-          id={paperGradientId}
-          x1="0"
-          y1="0"
-          x2="1"
-          y2="1"
-        >
-          <stop
-            offset="0%"
-            stopColor="#FFFFFF"
-          />
+        <linearGradient id={paperGradientId} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#FFFFFF" />
 
-          <stop
-            offset="55%"
-            stopColor="#E9F2FB"
-          />
+          <stop offset="55%" stopColor="#E9F2FB" />
 
-          <stop
-            offset="100%"
-            stopColor="#B8CAE7"
-          />
+          <stop offset="100%" stopColor="#B8CAE7" />
         </linearGradient>
 
-        <linearGradient
-          id={blueGradientId}
-          x1="0"
-          y1="0"
-          x2="0"
-          y2="1"
-        >
-          <stop
-            offset="0%"
-            stopColor="#22A3E0"
-          />
+        <linearGradient id={blueGradientId} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#22A3E0" />
 
-          <stop
-            offset="48%"
-            stopColor="#1685EA"
-          />
+          <stop offset="48%" stopColor="#1685EA" />
 
-          <stop
-            offset="100%"
-            stopColor="#5C6BC0"
-          />
+          <stop offset="100%" stopColor="#5C6BC0" />
         </linearGradient>
 
-        <linearGradient
-          id={greenGradientId}
-          x1="0"
-          y1="0"
-          x2="1"
-          y2="1"
-        >
-          <stop
-            offset="0%"
-            stopColor="#73D989"
-          />
+        <linearGradient id={greenGradientId} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#73D989" />
 
-          <stop
-            offset="52%"
-            stopColor="#2AA845"
-          />
+          <stop offset="52%" stopColor="#2AA845" />
 
-          <stop
-            offset="100%"
-            stopColor="#1F8D38"
-          />
+          <stop offset="100%" stopColor="#1F8D38" />
         </linearGradient>
 
-        <linearGradient
-          id={goldGradientId}
-          x1="0"
-          y1="0"
-          x2="0"
-          y2="1"
-        >
-          <stop
-            offset="0%"
-            stopColor="#FFE89A"
-          />
+        <linearGradient id={goldGradientId} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#FFE89A" />
 
-          <stop
-            offset="42%"
-            stopColor="#F2C94C"
-          />
+          <stop offset="42%" stopColor="#F2C94C" />
 
-          <stop
-            offset="100%"
-            stopColor="#D8A41D"
-          />
+          <stop offset="100%" stopColor="#D8A41D" />
         </linearGradient>
 
-        <linearGradient
-          id={glassGradientId}
-          x1="0"
-          y1="0"
-          x2="1"
-          y2="1"
-        >
-          <stop
-            offset="0%"
-            stopColor="#FFFFFF"
-            stopOpacity="0.98"
-          />
+        <linearGradient id={glassGradientId} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.98" />
 
-          <stop
-            offset="55%"
-            stopColor="#F6FBFF"
-            stopOpacity="0.94"
-          />
+          <stop offset="55%" stopColor="#F6FBFF" stopOpacity="0.94" />
 
-          <stop
-            offset="100%"
-            stopColor="#D8E8F5"
-            stopOpacity="0.86"
-          />
+          <stop offset="100%" stopColor="#D8E8F5" stopOpacity="0.86" />
         </linearGradient>
 
-        <radialGradient
-          id={glowGradientId}
-          cx="50%"
-          cy="50%"
-          r="50%"
-        >
+        <radialGradient id={glowGradientId} cx="50%" cy="50%" r="50%">
           <stop
             offset="0%"
             stopColor={
-              index === 2
-                ? "#34E67A"
-                : index === 3
-                  ? "#FFD142"
-                  : "#49B6F5"
+              index === 2 ? "#34E67A" : index === 3 ? "#FFD142" : "#49B6F5"
             }
             stopOpacity="0.38"
           />
 
-          <stop
-            offset="100%"
-            stopColor="#FFFFFF"
-            stopOpacity="0"
-          />
+          <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
         </radialGradient>
 
-        <filter
-          id={shadowId}
-          x="-70%"
-          y="-70%"
-          width="240%"
-          height="240%"
-        >
+        <filter id={shadowId} x="-70%" y="-70%" width="240%" height="240%">
           <feDropShadow
             dx="0"
             dy="15"
@@ -5631,9 +4642,7 @@ function TransformStageVisual({
         fill={`url(#${glowGradientId})`}
       />
 
-      <g
-        filter={`url(#${shadowId})`}
-      >
+      <g filter={`url(#${shadowId})`}>
         <polygon
           points="72,137 148,98 228,138 150,180"
           fill={`url(#${glassGradientId})`}
@@ -5656,52 +4665,39 @@ function TransformStageVisual({
 
       {index === 0 && (
         <>
-          <g
-            transform="translate(69 33)"
-            filter={`url(#${shadowId})`}
-          >
+          <g transform="translate(69 33)" filter={`url(#${shadowId})`}>
             {Array.from({
               length: 8,
-            }).map(
-              (
-                _,
-                stackIndex,
-              ) => (
-                <g
-                  key={stackIndex}
-                  transform={`translate(${
-                    stackIndex * 1.4
-                  } ${
-                    -stackIndex * 4.1
-                  })`}
-                >
-                  <polygon
-                    points="31,68 94,35 161,69 96,104"
-                    fill={`url(#${paperGradientId})`}
-                    stroke="#BFD4EC"
-                    strokeWidth="1.4"
-                  />
+            }).map((_, stackIndex) => (
+              <g
+                key={stackIndex}
+                transform={`translate(${stackIndex * 1.4} ${
+                  -stackIndex * 4.1
+                })`}
+              >
+                <polygon
+                  points="31,68 94,35 161,69 96,104"
+                  fill={`url(#${paperGradientId})`}
+                  stroke="#BFD4EC"
+                  strokeWidth="1.4"
+                />
 
-                  <path
-                    d="
+                <path
+                  d="
                       M61 67 104 45
                       M71 73l49-25
                       M82 79l42-21
                     "
-                    stroke="#7E9FCD"
-                    strokeWidth="4.8"
-                    strokeLinecap="round"
-                    opacity="0.72"
-                  />
-                </g>
-              ),
-            )}
+                  stroke="#7E9FCD"
+                  strokeWidth="4.8"
+                  strokeLinecap="round"
+                  opacity="0.72"
+                />
+              </g>
+            ))}
           </g>
 
-          <g
-            transform="translate(189 97)"
-            filter={`url(#${shadowId})`}
-          >
+          <g transform="translate(189 97)" filter={`url(#${shadowId})`}>
             <rect
               x="-22"
               y="-31"
@@ -5725,10 +4721,7 @@ function TransformStageVisual({
 
       {index === 1 && (
         <>
-          <g
-            transform="translate(112 46)"
-            filter={`url(#${shadowId})`}
-          >
+          <g transform="translate(112 46)" filter={`url(#${shadowId})`}>
             <ellipse
               cx="38"
               cy="21"
@@ -5774,10 +4767,7 @@ function TransformStageVisual({
             />
           </g>
 
-          <g
-            transform="translate(205 107)"
-            filter={`url(#${shadowId})`}
-          >
+          <g transform="translate(205 107)" filter={`url(#${shadowId})`}>
             <rect
               x="-22"
               y="-31"
@@ -5802,10 +4792,7 @@ function TransformStageVisual({
 
       {index === 2 && (
         <>
-          <g
-            transform="translate(149 96)"
-            filter={`url(#${shadowId})`}
-          >
+          <g transform="translate(149 96)" filter={`url(#${shadowId})`}>
             <path
               d="
                 M0 0
@@ -5828,51 +4815,31 @@ function TransformStageVisual({
               [37, -43, 15],
               [-43, 43, 15],
               [42, 42, 15],
-            ].map(
-              (
-                [
-                  x,
-                  y,
-                  r,
-                ],
-                nodeIndex,
-              ) => (
-                <g
-                  key={nodeIndex}
-                >
-                  <circle
-                    cx={x}
-                    cy={y}
-                    r={r + 6}
-                    fill="#1AE46A"
-                    opacity="0.2"
-                  />
+            ].map(([x, y, r], nodeIndex) => (
+              <g key={nodeIndex}>
+                <circle cx={x} cy={y} r={r + 6} fill="#1AE46A" opacity="0.2" />
 
-                  <circle
-                    cx={x}
-                    cy={y}
-                    r={r}
-                    fill={`url(#${greenGradientId})`}
-                    stroke="#00A84B"
-                    strokeWidth="2.2"
-                  />
+                <circle
+                  cx={x}
+                  cy={y}
+                  r={r}
+                  fill={`url(#${greenGradientId})`}
+                  stroke="#00A84B"
+                  strokeWidth="2.2"
+                />
 
-                  <circle
-                    cx={x - 4}
-                    cy={y - 5}
-                    r={r * 0.35}
-                    fill="#B9FFD0"
-                    opacity="0.95"
-                  />
-                </g>
-              ),
-            )}
+                <circle
+                  cx={x - 4}
+                  cy={y - 5}
+                  r={r * 0.35}
+                  fill="#B9FFD0"
+                  opacity="0.95"
+                />
+              </g>
+            ))}
           </g>
 
-          <g
-            transform="translate(213 110)"
-            filter={`url(#${shadowId})`}
-          >
+          <g transform="translate(213 110)" filter={`url(#${shadowId})`}>
             <rect
               x="-22"
               y="-31"
@@ -5897,17 +4864,8 @@ function TransformStageVisual({
 
       {index === 3 && (
         <>
-          <g
-            transform="translate(149 92)"
-            filter={`url(#${shadowId})`}
-          >
-            <circle
-              cx="0"
-              cy="-15"
-              r="37"
-              fill="#FFD644"
-              opacity="0.18"
-            />
+          <g transform="translate(149 92)" filter={`url(#${shadowId})`}>
+            <circle cx="0" cy="-15" r="37" fill="#FFD644" opacity="0.18" />
 
             <path
               d="
@@ -5956,28 +4914,18 @@ function TransformStageVisual({
               ["M57-63l12-12", 0],
               ["M-73-17h-17", 0],
               ["M73-17h17", 0],
-            ].map(
-              (
-                [
-                  d,
-                ],
-                rayIndex,
-              ) => (
-                <path
-                  key={rayIndex}
-                  d={d}
-                  stroke="#FFB400"
-                  strokeWidth="5"
-                  strokeLinecap="round"
-                />
-              ),
-            )}
+            ].map(([d], rayIndex) => (
+              <path
+                key={rayIndex}
+                d={String(d)}
+                stroke="#FFB400"
+                strokeWidth="5"
+                strokeLinecap="round"
+              />
+            ))}
           </g>
 
-          <g
-            transform="translate(221 110)"
-            filter={`url(#${shadowId})`}
-          >
+          <g transform="translate(221 110)" filter={`url(#${shadowId})`}>
             <rect
               x="-22"
               y="-31"
@@ -6001,22 +4949,10 @@ function TransformStageVisual({
       )}
 
       <defs>
-        <linearGradient
-          id={paperCardGradientId}
-          x1="0"
-          y1="0"
-          x2="1"
-          y2="1"
-        >
-          <stop
-            offset="0%"
-            stopColor="#FFFFFF"
-          />
+        <linearGradient id={paperCardGradientId} x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#FFFFFF" />
 
-          <stop
-            offset="100%"
-            stopColor="#EEF6FF"
-          />
+          <stop offset="100%" stopColor="#EEF6FF" />
         </linearGradient>
       </defs>
     </motion.svg>
@@ -6039,44 +4975,28 @@ function TransformStageCard({
 }) {
   const theme = [
     {
-      border:
-        "#C9E1FF",
-      numberText:
-        "#1068E8",
-      numberBg:
-        "linear-gradient(145deg,#F4FAFF,#DCEEFF)",
-      glow:
-        "rgba(22,133,234,0.12)",
+      border: "#C9E1FF",
+      numberText: "#1068E8",
+      numberBg: "linear-gradient(145deg,#F4FAFF,#DCEEFF)",
+      glow: "rgba(22,133,234,0.12)",
     },
     {
-      border:
-        "#C9E1FF",
-      numberText:
-        "#1068E8",
-      numberBg:
-        "linear-gradient(145deg,#F4FAFF,#DCEEFF)",
-      glow:
-        "rgba(22,133,234,0.12)",
+      border: "#C9E1FF",
+      numberText: "#1068E8",
+      numberBg: "linear-gradient(145deg,#F4FAFF,#DCEEFF)",
+      glow: "rgba(22,133,234,0.12)",
     },
     {
-      border:
-        "#B8EDD1",
-      numberText:
-        "#08A84D",
-      numberBg:
-        "linear-gradient(145deg,#F1FFF7,#D9F8E7)",
-      glow:
-        "rgba(42,168,69,0.12)",
+      border: "#B8EDD1",
+      numberText: "#08A84D",
+      numberBg: "linear-gradient(145deg,#F1FFF7,#D9F8E7)",
+      glow: "rgba(42,168,69,0.12)",
     },
     {
-      border:
-        "#F2D98B",
-      numberText:
-        "#C98200",
-      numberBg:
-        "linear-gradient(145deg,#FFFBEF,#FFF0BF)",
-      glow:
-        "rgba(242,201,76,0.16)",
+      border: "#F2D98B",
+      numberText: "#C98200",
+      numberBg: "linear-gradient(145deg,#FFFBEF,#FFF0BF)",
+      glow: "rgba(242,201,76,0.16)",
     },
   ][index];
 
@@ -6137,8 +5057,7 @@ function TransformStageCard({
           xl:min-h-[368px]
         "
         style={{
-          borderColor:
-            theme.border,
+          borderColor: theme.border,
 
           boxShadow: `0 20px 64px ${theme.glow}, inset 0 1px 0 rgba(255,255,255,1)`,
         }}
@@ -6151,12 +5070,7 @@ function TransformStageCard({
         }
         transition={{
           duration: 0.65,
-          ease: [
-            0.22,
-            1,
-            0.36,
-            1,
-          ],
+          ease: [0.22, 1, 0.36, 1],
         }}
       >
         <div
@@ -6214,11 +5128,9 @@ function TransformStageCard({
             shadow-[0_9px_26px_rgba(49,77,102,0.10),inset_0_1px_0_rgba(255,255,255,1)]
           "
           style={{
-            color:
-              theme.numberText,
+            color: theme.numberText,
 
-            background:
-              theme.numberBg,
+            background: theme.numberBg,
           }}
         >
           {index + 1}
@@ -6237,9 +5149,9 @@ function TransformStageCard({
         >
           <TransformStageVisual
             index={index}
-            reducedMotion={
-              reducedMotion
-            }
+            // reducedMotion={
+            //   reducedMotion
+            // }
           />
         </div>
 
@@ -6286,11 +5198,7 @@ function TransformStageCard({
         </div>
       </motion.article>
 
-      {index < 3 && (
-        <TransformConnectorArrow
-          rtl={rtl}
-        />
-      )}
+      {index < 3 && <TransformConnectorArrow rtl={rtl} />}
     </div>
   );
 }
@@ -6303,328 +5211,240 @@ function TransformSection({
     text: string;
   }[];
 }) {
-  const {
-    i18n,
-  } = useTranslation(
-    "home",
-  );
+  const { i18n } = useTranslation("home");
 
-  const sectionRef =
-    useRef<HTMLElement>(
-      null,
-    );
+  const sectionRef = useRef<HTMLElement>(null);
 
-  const backdropRef =
-    useRef<HTMLDivElement>(
-      null,
-    );
+  const backdropRef = useRef<HTMLDivElement>(null);
 
-  const reducedMotion =
-    useReducedMotion() ??
-    false;
+  const reducedMotion = useReducedMotion() ?? false;
 
-  const arabic =
-    i18n.language
-      .toLowerCase()
-      .startsWith("ar");
+  const arabic = i18n.language.toLowerCase().startsWith("ar");
 
-  const rtl =
-    i18n.dir() ===
-    "rtl";
+  const rtl = i18n.dir() === "rtl";
 
-  const subtitle =
-    arabic
-      ? "ينشئ DocHive مساراً محكوماً من إدخال المستندات إلى ذكاء قابل للمساءلة."
-      : "DocHive creates a governed path from document intake to accountable intelligence.";
+  const subtitle = arabic
+    ? "ينشئ DocHive مساراً محكوماً من إدخال المستندات إلى ذكاء قابل للمساءلة."
+    : "DocHive creates a governed path from document intake to accountable intelligence.";
 
   useEffect(() => {
-    if (
-      reducedMotion ||
-      !sectionRef.current
-    ) {
+    if (reducedMotion || !sectionRef.current) {
       return;
     }
 
-    gsap.registerPlugin(
-      ScrollTrigger,
-    );
+    gsap.registerPlugin(ScrollTrigger);
 
-    const ctx =
-      gsap.context(
-        () => {
-          const cardWrappers =
-            gsap.utils.toArray<HTMLElement>(
-              ".transform-card-wrap",
-            );
-
-          const arrows =
-            gsap.utils.toArray<HTMLElement>(
-              ".transform-connector-arrow",
-            );
-
-          const stageVisuals =
-            gsap.utils.toArray<SVGElement>(
-              ".transform-stage-visual",
-            );
-
-          const backgroundLines =
-            gsap.utils.toArray<SVGPathElement>(
-              ".transform-background-line",
-            );
-
-          const backgroundDots =
-            gsap.utils.toArray<SVGCircleElement>(
-              ".transform-background-dot",
-            );
-
-          gsap.set(
-            arrows,
-            {
-              opacity: 0,
-              scale: 0.72,
-              x:
-                rtl
-                  ? 7
-                  : -7,
-              transformOrigin:
-                "50% 50%",
-            },
-          );
-
-          gsap.set(
-            backgroundLines,
-            {
-              opacity: 0,
-              strokeDashoffset: 70,
-            },
-          );
-
-          gsap.set(
-            backgroundDots,
-            {
-              opacity: 0,
-              scale: 0.55,
-              transformOrigin:
-                "50% 50%",
-            },
-          );
-
-          const timeline =
-            gsap.timeline({
-              defaults: {
-                ease:
-                  "power2.out",
-              },
-
-              scrollTrigger: {
-                trigger:
-                  sectionRef.current,
-
-                start:
-                  "top 84%",
-
-                end:
-                  "72% 34%",
-
-                scrub:
-                  1.55,
-
-                invalidateOnRefresh:
-                  true,
-              },
-            });
-
-          timeline
-            .fromTo(
-              ".transform-eyebrow",
-              {
-                opacity: 0,
-                y: 18,
-              },
-              {
-                opacity: 1,
-                y: 0,
-                duration: 0.8,
-              },
-            )
-
-            .fromTo(
-              ".transform-heading",
-              {
-                opacity: 0,
-                y: 26,
-                scale: 0.992,
-              },
-              {
-                opacity: 1,
-                y: 0,
-                scale: 1,
-                duration: 1,
-              },
-              "-=0.32",
-            )
-
-            .fromTo(
-              ".transform-subtitle",
-              {
-                opacity: 0,
-                y: 16,
-              },
-              {
-                opacity: 1,
-                y: 0,
-                duration: 0.75,
-              },
-              "-=0.38",
-            )
-
-            .to(
-              backgroundLines,
-              {
-                opacity: 0.82,
-                strokeDashoffset: 0,
-                duration: 0.9,
-                stagger: 0.08,
-              },
-              "-=0.24",
-            )
-
-            .to(
-              backgroundDots,
-              {
-                opacity: 1,
-                scale: 1,
-                duration: 0.5,
-                stagger: 0.08,
-              },
-              "-=0.62",
-            );
-
-          cardWrappers.forEach(
-            (
-              card,
-              index,
-            ) => {
-              const stageVisual =
-                stageVisuals[
-                  index
-                ];
-
-              timeline.fromTo(
-                card,
-                {
-                  opacity: 0,
-                  y: 48,
-                  scale: 0.978,
-                },
-                {
-                  opacity: 1,
-                  y: 0,
-                  scale: 1,
-                  duration: 1.05,
-                  ease:
-                    "power2.out",
-                },
-                index === 0
-                  ? "+=0.06"
-                  : "+=0.16",
-              );
-
-              if (
-                stageVisual
-              ) {
-                timeline.fromTo(
-                  stageVisual,
-                  {
-                    y: 12,
-                    scale: 0.985,
-                  },
-                  {
-                    y: 0,
-                    scale: 1,
-                    duration: 0.82,
-                    ease:
-                      "power2.out",
-                  },
-                  "-=0.88",
-                );
-              }
-
-              if (
-                index <
-                arrows.length
-              ) {
-                timeline.to(
-                  arrows[index],
-                  {
-                    opacity: 1,
-                    scale: 1,
-                    x: 0,
-                    duration: 0.42,
-                    ease:
-                      "power2.out",
-                  },
-                  "-=0.24",
-                );
-              }
-            },
-          );
-
-          if (
-            backdropRef.current
-          ) {
-            gsap.fromTo(
-              backdropRef.current,
-              {
-                yPercent:
-                  -1.3,
-              },
-              {
-                yPercent:
-                  1.8,
-
-                ease:
-                  "none",
-
-                scrollTrigger: {
-                  trigger:
-                    sectionRef.current,
-
-                  start:
-                    "top bottom",
-
-                  end:
-                    "bottom top",
-
-                  scrub:
-                    2.4,
-
-                  invalidateOnRefresh:
-                    true,
-                },
-              },
-            );
-          }
-        },
-        sectionRef,
+    const ctx = gsap.context(() => {
+      const cardWrappers = gsap.utils.toArray<HTMLElement>(
+        ".transform-card-wrap",
       );
+
+      const arrows = gsap.utils.toArray<HTMLElement>(
+        ".transform-connector-arrow",
+      );
+
+      const stageVisuals = gsap.utils.toArray<SVGElement>(
+        ".transform-stage-visual",
+      );
+
+      const backgroundLines = gsap.utils.toArray<SVGPathElement>(
+        ".transform-background-line",
+      );
+
+      const backgroundDots = gsap.utils.toArray<SVGCircleElement>(
+        ".transform-background-dot",
+      );
+
+      gsap.set(arrows, {
+        opacity: 0,
+        scale: 0.72,
+        x: rtl ? 7 : -7,
+        transformOrigin: "50% 50%",
+      });
+
+      gsap.set(backgroundLines, {
+        opacity: 0,
+        strokeDashoffset: 70,
+      });
+
+      gsap.set(backgroundDots, {
+        opacity: 0,
+        scale: 0.55,
+        transformOrigin: "50% 50%",
+      });
+
+      const timeline = gsap.timeline({
+        defaults: {
+          ease: "power2.out",
+        },
+
+        scrollTrigger: {
+          trigger: sectionRef.current,
+
+          start: "top 84%",
+
+          end: "72% 34%",
+
+          scrub: 1.55,
+
+          invalidateOnRefresh: true,
+        },
+      });
+
+      timeline
+        .fromTo(
+          ".transform-eyebrow",
+          {
+            opacity: 0,
+            y: 18,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+          },
+        )
+
+        .fromTo(
+          ".transform-heading",
+          {
+            opacity: 0,
+            y: 26,
+            scale: 0.992,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 1,
+          },
+          "-=0.32",
+        )
+
+        .fromTo(
+          ".transform-subtitle",
+          {
+            opacity: 0,
+            y: 16,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.75,
+          },
+          "-=0.38",
+        )
+
+        .to(
+          backgroundLines,
+          {
+            opacity: 0.82,
+            strokeDashoffset: 0,
+            duration: 0.9,
+            stagger: 0.08,
+          },
+          "-=0.24",
+        )
+
+        .to(
+          backgroundDots,
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 0.5,
+            stagger: 0.08,
+          },
+          "-=0.62",
+        );
+
+      cardWrappers.forEach((card, index) => {
+        const stageVisual = stageVisuals[index];
+
+        timeline.fromTo(
+          card,
+          {
+            opacity: 0,
+            y: 48,
+            scale: 0.978,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 1.05,
+            ease: "power2.out",
+          },
+          index === 0 ? "+=0.06" : "+=0.16",
+        );
+
+        if (stageVisual) {
+          timeline.fromTo(
+            stageVisual,
+            {
+              y: 12,
+              scale: 0.985,
+            },
+            {
+              y: 0,
+              scale: 1,
+              duration: 0.82,
+              ease: "power2.out",
+            },
+            "-=0.88",
+          );
+        }
+
+        if (index < arrows.length) {
+          timeline.to(
+            arrows[index],
+            {
+              opacity: 1,
+              scale: 1,
+              x: 0,
+              duration: 0.42,
+              ease: "power2.out",
+            },
+            "-=0.24",
+          );
+        }
+      });
+
+      if (backdropRef.current) {
+        gsap.fromTo(
+          backdropRef.current,
+          {
+            yPercent: -1.3,
+          },
+          {
+            yPercent: 1.8,
+
+            ease: "none",
+
+            scrollTrigger: {
+              trigger: sectionRef.current,
+
+              start: "top bottom",
+
+              end: "bottom top",
+
+              scrub: 2.4,
+
+              invalidateOnRefresh: true,
+            },
+          },
+        );
+      }
+    }, sectionRef);
 
     return () => {
       ctx.revert();
     };
-  }, [
-    reducedMotion,
-    rtl,
-  ]);
+  }, [reducedMotion, rtl]);
 
   return (
     <section
       ref={sectionRef}
-      dir={
-        rtl
-          ? "rtl"
-          : "ltr"
-      }
+      dir={rtl ? "rtl" : "ltr"}
       className="
         relative
         isolate
@@ -6752,8 +5572,6 @@ function TransformSection({
             r="6"
             fill="#F2C94C"
           />
-
-
         </svg>
 
         <div
@@ -6826,9 +5644,7 @@ function TransformSection({
               lg:text-[12px]
             "
           >
-            {arabic
-              ? "معرفتك. سيطرتك."
-              : "YOUR KNOWLEDGE. YOUR CONTROL."}
+            {arabic ? "معرفتك. سيطرتك." : "YOUR KNOWLEDGE. YOUR CONTROL."}
           </p>
 
           <h2
@@ -6855,9 +5671,7 @@ function TransformSection({
               xl:text-[59px]
             "
           >
-            <TransformHeadline
-              arabic={arabic}
-            />
+            <TransformHeadline arabic={arabic} />
           </h2>
 
           <p
@@ -6904,34 +5718,20 @@ function TransformSection({
             xl:gap-[24px]
           "
         >
-          {stages
-            .slice(
-              0,
-              4,
-            )
-            .map(
-              (
-                stage,
-                index,
-              ) => (
-                <TransformStageCard
-                  key={`${stage.title}-${index}`}
-                  index={index}
-                  stage={stage}
-                  rtl={rtl}
-                  reducedMotion={
-                    reducedMotion
-                  }
-                />
-              ),
-            )}
+          {stages.slice(0, 4).map((stage, index) => (
+            <TransformStageCard
+              key={`${stage.title}-${index}`}
+              index={index}
+              stage={stage}
+              rtl={rtl}
+              reducedMotion={reducedMotion}
+            />
+          ))}
         </div>
       </div>
     </section>
   );
 }
-
-
 
 /* =============================================================================
    HOW IT WORKS SECTION
@@ -7019,21 +5819,12 @@ const HOW_THEMES: HowTheme[] = [
   },
 ];
 
-function HowHeadline({
-  text,
-}: {
-  text: string;
-}) {
-  const phrase =
-    "accountable answers";
+function HowHeadline({ text }: { text: string }) {
+  const phrase = "accountable answers";
 
-  const lower =
-    text.toLowerCase();
+  const lower = text.toLowerCase();
 
-  const index =
-    lower.indexOf(
-      phrase,
-    );
+  const index = lower.indexOf(phrase);
 
   if (index === -1) {
     return <>{text}</>;
@@ -7041,44 +5832,25 @@ function HowHeadline({
 
   return (
     <>
-      {text.slice(
-        0,
-        index,
-      )}
+      {text.slice(0, index)}
 
       <span className="text-[#176FF2]">
-        {text.slice(
-          index,
-          index +
-            phrase.length,
-        )}
+        {text.slice(index, index + phrase.length)}
       </span>
 
-      {text.slice(
-        index +
-          phrase.length,
-      )}
+      {text.slice(index + phrase.length)}
     </>
   );
 }
 
-function HowStepIcon({
-  index,
-  theme,
-}: {
-  index: number;
-  theme: HowTheme;
-}) {
-  const color =
-    theme.color;
+function HowStepIcon({ index, theme }: { index: number; theme: HowTheme }) {
+  const color = theme.color;
 
   const commonStroke = {
     stroke: color,
     strokeWidth: 2.4,
-    strokeLinecap:
-      "round" as const,
-    strokeLinejoin:
-      "round" as const,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
   };
 
   if (index === 0) {
@@ -7089,20 +5861,11 @@ function HowStepIcon({
         className="h-9 w-9"
         aria-hidden="true"
       >
-        <path
-          d="M13 5h16l8 8v29H13V5Z"
-          {...commonStroke}
-        />
+        <path d="M13 5h16l8 8v29H13V5Z" {...commonStroke} />
 
-        <path
-          d="M29 5v9h8"
-          {...commonStroke}
-        />
+        <path d="M29 5v9h8" {...commonStroke} />
 
-        <path
-          d="M24 33V18M18 24l6-6 6 6"
-          {...commonStroke}
-        />
+        <path d="M24 33V18M18 24l6-6 6 6" {...commonStroke} />
       </svg>
     );
   }
@@ -7120,10 +5883,7 @@ function HowStepIcon({
           {...commonStroke}
         />
 
-        <path
-          d="m17 23 5 5 10-11"
-          {...commonStroke}
-        />
+        <path d="m17 23 5 5 10-11" {...commonStroke} />
       </svg>
     );
   }
@@ -7136,20 +5896,11 @@ function HowStepIcon({
         className="h-9 w-9"
         aria-hidden="true"
       >
-        <path
-          d="M16 12h16v24H16z"
-          {...commonStroke}
-        />
+        <path d="M16 12h16v24H16z" {...commonStroke} />
 
-        <path
-          d="M20 18h8M20 23h8M20 28h6"
-          {...commonStroke}
-        />
+        <path d="M20 18h8M20 23h8M20 28h6" {...commonStroke} />
 
-        <path
-          d="M7 16V8h8M33 8h8v8M41 32v8h-8M15 40H7v-8"
-          {...commonStroke}
-        />
+        <path d="M7 16V8h8M33 8h8v8M41 32v8h-8M15 40H7v-8" {...commonStroke} />
       </svg>
     );
   }
@@ -7162,17 +5913,9 @@ function HowStepIcon({
         className="h-9 w-9"
         aria-hidden="true"
       >
-        <path
-          d="M8 22 24 6h15v15L23 37 8 22Z"
-          {...commonStroke}
-        />
+        <path d="M8 22 24 6h15v15L23 37 8 22Z" {...commonStroke} />
 
-        <circle
-          cx="33"
-          cy="13"
-          r="2.2"
-          fill={color}
-        />
+        <circle cx="33" cy="13" r="2.2" fill={color} />
       </svg>
     );
   }
@@ -7185,23 +5928,11 @@ function HowStepIcon({
         className="h-9 w-9"
         aria-hidden="true"
       >
-        <ellipse
-          cx="24"
-          cy="11"
-          rx="13"
-          ry="6"
-          {...commonStroke}
-        />
+        <ellipse cx="24" cy="11" rx="13" ry="6" {...commonStroke} />
 
-        <path
-          d="M11 11v12c0 3.3 5.8 6 13 6s13-2.7 13-6V11"
-          {...commonStroke}
-        />
+        <path d="M11 11v12c0 3.3 5.8 6 13 6s13-2.7 13-6V11" {...commonStroke} />
 
-        <path
-          d="M11 23v12c0 3.3 5.8 6 13 6s13-2.7 13-6V23"
-          {...commonStroke}
-        />
+        <path d="M11 23v12c0 3.3 5.8 6 13 6s13-2.7 13-6V23" {...commonStroke} />
       </svg>
     );
   }
@@ -7219,12 +5950,7 @@ function HowStepIcon({
           {...commonStroke}
         />
 
-        <circle
-          cx="24"
-          cy="23"
-          r="5.2"
-          {...commonStroke}
-        />
+        <circle cx="24" cy="23" r="5.2" {...commonStroke} />
 
         <path
           d="M24 14.5v3M24 28.5v3M15.5 23h3M29.5 23h3M18 17l2 2M28 27l2 2M30 17l-2 2M20 27l-2 2"
@@ -7242,17 +5968,9 @@ function HowStepIcon({
         className="h-9 w-9"
         aria-hidden="true"
       >
-        <circle
-          cx="21"
-          cy="21"
-          r="11"
-          {...commonStroke}
-        />
+        <circle cx="21" cy="21" r="11" {...commonStroke} />
 
-        <path
-          d="m29 29 10 10"
-          {...commonStroke}
-        />
+        <path d="m29 29 10 10" {...commonStroke} />
       </svg>
     );
   }
@@ -7265,31 +5983,13 @@ function HowStepIcon({
         className="h-9 w-9"
         aria-hidden="true"
       >
-        <path
-          d="M8 10h32v23H23l-9 8v-8H8V10Z"
-          {...commonStroke}
-        />
+        <path d="M8 10h32v23H23l-9 8v-8H8V10Z" {...commonStroke} />
 
-        <circle
-          cx="17"
-          cy="21"
-          r="1.8"
-          fill={color}
-        />
+        <circle cx="17" cy="21" r="1.8" fill={color} />
 
-        <circle
-          cx="24"
-          cy="21"
-          r="1.8"
-          fill={color}
-        />
+        <circle cx="24" cy="21" r="1.8" fill={color} />
 
-        <circle
-          cx="31"
-          cy="21"
-          r="1.8"
-          fill={color}
-        />
+        <circle cx="31" cy="21" r="1.8" fill={color} />
       </svg>
     );
   }
@@ -7302,27 +6002,13 @@ function HowStepIcon({
         className="h-9 w-9"
         aria-hidden="true"
       >
-        <path
-          d="M8 5h21l7 7v22H8V5Z"
-          {...commonStroke}
-        />
+        <path d="M8 5h21l7 7v22H8V5Z" {...commonStroke} />
 
-        <path
-          d="M29 5v8h7M14 18h13M14 24h9"
-          {...commonStroke}
-        />
+        <path d="M29 5v8h7M14 18h13M14 24h9" {...commonStroke} />
 
-        <circle
-          cx="31"
-          cy="31"
-          r="7"
-          {...commonStroke}
-        />
+        <circle cx="31" cy="31" r="7" {...commonStroke} />
 
-        <path
-          d="m36 36 6 6"
-          {...commonStroke}
-        />
+        <path d="m36 36 6 6" {...commonStroke} />
       </svg>
     );
   }
@@ -7335,15 +6021,9 @@ function HowStepIcon({
         className="h-9 w-9"
         aria-hidden="true"
       >
-        <path
-          d="M11 5h21l7 7v31H11V5Z"
-          {...commonStroke}
-        />
+        <path d="M11 5h21l7 7v31H11V5Z" {...commonStroke} />
 
-        <path
-          d="M32 5v8h7M17 20h15M17 26h15M17 32h10"
-          {...commonStroke}
-        />
+        <path d="M32 5v8h7M17 20h15M17 26h15M17 32h10" {...commonStroke} />
       </svg>
     );
   }
@@ -7356,24 +6036,11 @@ function HowStepIcon({
         className="h-9 w-9"
         aria-hidden="true"
       >
-        <circle
-          cx="24"
-          cy="15"
-          r="8"
-          {...commonStroke}
-        />
+        <circle cx="24" cy="15" r="8" {...commonStroke} />
 
-        <path
-          d="M10 40v-4c0-8 5.8-13 14-13s14 5 14 13v4"
-          {...commonStroke}
-        />
+        <path d="M10 40v-4c0-8 5.8-13 14-13s14 5 14 13v4" {...commonStroke} />
 
-        <circle
-          cx="36"
-          cy="35"
-          r="7"
-          fill={color}
-        />
+        <circle cx="36" cy="35" r="7" fill={color} />
 
         <path
           d="m32.5 35 2.3 2.3 4.2-4.8"
@@ -7387,21 +6054,10 @@ function HowStepIcon({
   }
 
   return (
-    <svg
-      viewBox="0 0 48 48"
-      fill="none"
-      className="h-9 w-9"
-      aria-hidden="true"
-    >
-      <path
-        d="M9 5h22l7 7v30H9V5Z"
-        {...commonStroke}
-      />
+    <svg viewBox="0 0 48 48" fill="none" className="h-9 w-9" aria-hidden="true">
+      <path d="M9 5h22l7 7v30H9V5Z" {...commonStroke} />
 
-      <path
-        d="M31 5v8h7M16 19h14M16 25h11"
-        {...commonStroke}
-      />
+      <path d="M31 5v8h7M16 19h14M16 25h11" {...commonStroke} />
 
       <path
         d="M31 28 40 31v6c0 4-2.7 7-9 9-6.3-2-9-5-9-9v-6l9-3Z"
@@ -7430,20 +6086,12 @@ function HowStepCard({
   text: string;
   mobile?: boolean;
 }) {
-  const theme =
-    HOW_THEMES[
-      index %
-        HOW_THEMES.length
-    ];
+  const theme = HOW_THEMES[index % HOW_THEMES.length];
 
   return (
     <article
       className={`
-        ${
-          mobile
-            ? "how-mobile-step-card"
-            : "how-desktop-step-card"
-        }
+        ${mobile ? "how-mobile-step-card" : "how-desktop-step-card"}
 
         relative
         z-10
@@ -7476,8 +6124,7 @@ function HowStepCard({
         xl:min-h-[96px]
       `}
       style={{
-        borderColor:
-          theme.border,
+        borderColor: theme.border,
 
         boxShadow: `0 16px 42px ${theme.glow}, inset 0 1px 0 rgba(255,255,255,1)`,
       }}
@@ -7527,11 +6174,9 @@ function HowStepCard({
           sm:text-[16px]
         "
         style={{
-          color:
-            theme.color,
+          color: theme.color,
 
-          backgroundColor:
-            theme.soft,
+          backgroundColor: theme.soft,
         }}
       >
         {index + 1}
@@ -7571,14 +6216,10 @@ function HowStepCard({
             sm:w-[58px]
           "
           style={{
-            backgroundColor:
-              theme.soft,
+            backgroundColor: theme.soft,
           }}
         >
-          <HowStepIcon
-            index={index}
-            theme={theme}
-          />
+          <HowStepIcon index={index} theme={theme} />
         </span>
 
         <p
@@ -7603,11 +6244,7 @@ function HowStepCard({
   );
 }
 
-function HowInlineConnector({
-  reducedMotion,
-}: {
-  reducedMotion: boolean;
-}) {
+function HowInlineConnector({ reducedMotion }: { reducedMotion: boolean }) {
   return (
     <div
       aria-hidden="true"
@@ -7655,11 +6292,7 @@ function HowInlineConnector({
 
         {!reducedMotion && (
           <>
-            <circle
-              r="5.5"
-              fill="#1685EA"
-              opacity="0.14"
-            >
+            <circle r="5.5" fill="#1685EA" opacity="0.14">
               <animate
                 attributeName="cx"
                 values="8;37"
@@ -7675,11 +6308,7 @@ function HowInlineConnector({
               />
             </circle>
 
-            <circle
-              r="2.2"
-              cy="17"
-              fill="#1685EA"
-            >
+            <circle r="2.2" cy="17" fill="#1685EA">
               <animate
                 attributeName="cx"
                 values="8;37"
@@ -7703,17 +6332,11 @@ function HowSnakeTurn({
   reducedMotion: boolean;
   rtl: boolean;
 }) {
-  const rawId =
-    useId();
+  const rawId = useId();
 
-  const clean =
-    rawId.replace(
-      /:/g,
-      "",
-    );
+  const clean = rawId.replace(/:/g, "");
 
-  const pathId =
-    `how-turn-${index}-${clean}`;
+  const pathId = `how-turn-${index}-${clean}`;
 
   return (
     <div
@@ -7743,11 +6366,7 @@ function HowSnakeTurn({
           w-full
           overflow-visible
 
-          ${
-            rtl
-              ? "-scale-x-100"
-              : ""
-          }
+          ${rtl ? "-scale-x-100" : ""}
         `}
       >
         {/* Equal spacing:
@@ -7792,46 +6411,30 @@ function HowSnakeTurn({
 
         {!reducedMotion && (
           <>
-            <circle
-              r="6"
-              fill="#1685EA"
-              opacity="0.14"
-            >
+            <circle r="6" fill="#1685EA" opacity="0.14">
               <animateMotion
                 dur={`${13.5 + index * 0.8}s`}
                 repeatCount="indefinite"
               >
-                <mpath
-                  href={`#${pathId}`}
-                />
+                <mpath href={`#${pathId}`} />
               </animateMotion>
             </circle>
 
-            <circle
-              r="2.6"
-              fill="#1685EA"
-            >
+            <circle r="2.6" fill="#1685EA">
               <animateMotion
                 dur={`${13.5 + index * 0.8}s`}
                 repeatCount="indefinite"
               >
-                <mpath
-                  href={`#${pathId}`}
-                />
+                <mpath href={`#${pathId}`} />
               </animateMotion>
             </circle>
 
-            <circle
-              r="0.9"
-              fill="#FFFFFF"
-            >
+            <circle r="0.9" fill="#FFFFFF">
               <animateMotion
                 dur={`${13.5 + index * 0.8}s`}
                 repeatCount="indefinite"
               >
-                <mpath
-                  href={`#${pathId}`}
-                />
+                <mpath href={`#${pathId}`} />
               </animateMotion>
             </circle>
           </>
@@ -7841,11 +6444,7 @@ function HowSnakeTurn({
   );
 }
 
-function HowMobileConnector({
-  reducedMotion,
-}: {
-  reducedMotion: boolean;
-}) {
+function HowMobileConnector({ reducedMotion }: { reducedMotion: boolean }) {
   return (
     <div
       aria-hidden="true"
@@ -7861,11 +6460,7 @@ function HowMobileConnector({
         lg:hidden
       "
     >
-      <svg
-        viewBox="0 0 32 48"
-        fill="none"
-        className="h-full w-full"
-      >
+      <svg viewBox="0 0 32 48" fill="none" className="h-full w-full">
         <path
           d="M16 1v37"
           stroke="#5A9BF4"
@@ -7883,11 +6478,7 @@ function HowMobileConnector({
         />
 
         {!reducedMotion && (
-          <circle
-            r="2.6"
-            cx="16"
-            fill="#1685EA"
-          >
+          <circle r="2.6" cx="16" fill="#1685EA">
             <animate
               attributeName="cy"
               values="4;35"
@@ -7908,41 +6499,27 @@ function HowInfrastructureVisual({
   arabic: boolean;
   reducedMotion: boolean;
 }) {
-  const rawId =
-    useId();
+  const rawId = useId();
 
-  const clean =
-    rawId.replace(
-      /:/g,
-      "",
-    );
+  const clean = rawId.replace(/:/g, "");
 
-  const glassId =
-    `how-infra-glass-${clean}`;
+  const glassId = `how-infra-glass-${clean}`;
 
-  const glassBlueId =
-    `how-infra-blue-${clean}`;
+  const glassBlueId = `how-infra-blue-${clean}`;
 
-  const stageId =
-    `how-infra-stage-${clean}`;
+  const stageId = `how-infra-stage-${clean}`;
 
-  const shadowId =
-    `how-infra-shadow-${clean}`;
+  const shadowId = `how-infra-shadow-${clean}`;
 
-  const strongShadowId =
-    `how-infra-strong-${clean}`;
+  const strongShadowId = `how-infra-strong-${clean}`;
 
-  const glowId =
-    `how-infra-glow-${clean}`;
+  const glowId = `how-infra-glow-${clean}`;
 
-  const wire1 =
-    `how-infra-wire-1-${clean}`;
+  const wire1 = `how-infra-wire-1-${clean}`;
 
-  const wire2 =
-    `how-infra-wire-2-${clean}`;
+  const wire2 = `how-infra-wire-2-${clean}`;
 
-  const wire3 =
-    `how-infra-wire-3-${clean}`;
+  const wire3 = `how-infra-wire-3-${clean}`;
 
   return (
     <motion.div
@@ -7981,12 +6558,7 @@ function HowInfrastructureVisual({
       }}
       transition={{
         duration: 1,
-        ease: [
-          0.22,
-          1,
-          0.36,
-          1,
-        ],
+        ease: [0.22, 1, 0.36, 1],
       }}
     >
       <svg
@@ -7999,111 +6571,40 @@ function HowInfrastructureVisual({
           overflow-visible
         "
         aria-label={
-          arabic
-            ? "بنية المستندات الخاصة"
-            : "Private document infrastructure"
+          arabic ? "بنية المستندات الخاصة" : "Private document infrastructure"
         }
         role="img"
       >
         <defs>
-          <linearGradient
-            id={glassId}
-            x1="0"
-            y1="0"
-            x2="1"
-            y2="1"
-          >
-            <stop
-              offset="0%"
-              stopColor="#FFFFFF"
-              stopOpacity="0.99"
-            />
+          <linearGradient id={glassId} x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.99" />
 
-            <stop
-              offset="58%"
-              stopColor="#F4FAFF"
-              stopOpacity="0.95"
-            />
+            <stop offset="58%" stopColor="#F4FAFF" stopOpacity="0.95" />
 
-            <stop
-              offset="100%"
-              stopColor="#D9ECF9"
-              stopOpacity="0.88"
-            />
+            <stop offset="100%" stopColor="#D9ECF9" stopOpacity="0.88" />
           </linearGradient>
 
-          <linearGradient
-            id={glassBlueId}
-            x1="0"
-            y1="0"
-            x2="1"
-            y2="1"
-          >
-            <stop
-              offset="0%"
-              stopColor="#F6FBFF"
-              stopOpacity="0.96"
-            />
+          <linearGradient id={glassBlueId} x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="#F6FBFF" stopOpacity="0.96" />
 
-            <stop
-              offset="100%"
-              stopColor="#BFDDFC"
-              stopOpacity="0.82"
-            />
+            <stop offset="100%" stopColor="#BFDDFC" stopOpacity="0.82" />
           </linearGradient>
 
-          <linearGradient
-            id={stageId}
-            x1="0"
-            y1="0"
-            x2="0"
-            y2="1"
-          >
-            <stop
-              offset="0%"
-              stopColor="#FFFFFF"
-              stopOpacity="0.98"
-            />
+          <linearGradient id={stageId} x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.98" />
 
-            <stop
-              offset="100%"
-              stopColor="#C9E4F8"
-              stopOpacity="0.88"
-            />
+            <stop offset="100%" stopColor="#C9E4F8" stopOpacity="0.88" />
           </linearGradient>
 
-          <radialGradient
-            id={glowId}
-            cx="50%"
-            cy="48%"
-            r="52%"
-          >
-            <stop
-              offset="0%"
-              stopColor="#22A3E0"
-              stopOpacity="0.26"
-            />
+          <radialGradient id={glowId} cx="50%" cy="48%" r="52%">
+            <stop offset="0%" stopColor="#22A3E0" stopOpacity="0.26" />
 
-            <stop
-              offset="58%"
-              stopColor="#7AC9FF"
-              stopOpacity="0.13"
-            />
+            <stop offset="58%" stopColor="#7AC9FF" stopOpacity="0.13" />
 
-            <stop
-              offset="100%"
-              stopColor="#FFFFFF"
-              stopOpacity="0"
-            />
+            <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
           </radialGradient>
 
-          <filter
-            id={shadowId}
-            x="-80%"
-            y="-80%"
-            width="260%"
-            height="260%"
-          >
+          <filter id={shadowId} x="-80%" y="-80%" width="260%" height="260%">
             <feDropShadow
               dx="0"
               dy="12"
@@ -8138,13 +6639,7 @@ function HowInfrastructureVisual({
           </filter>
         </defs>
 
-        <ellipse
-          cx="190"
-          cy="395"
-          rx="155"
-          ry="135"
-          fill={`url(#${glowId})`}
-        />
+        <ellipse cx="190" cy="395" rx="155" ry="135" fill={`url(#${glowId})`} />
 
         {/* rear server stack */}
 
@@ -8153,51 +6648,38 @@ function HowInfrastructureVisual({
           opacity="0.92"
           filter={`url(#${shadowId})`}
         >
-          {[0, 73, 146].map(
-            (
-              y,
-              index,
-            ) => (
-              <g
-                key={index}
-                transform={`translate(0 ${y})`}
-              >
-                <polygon
-                  points="38,45 118,4 194,45 113,87"
-                  fill={`url(#${glassId})`}
-                  stroke="#FFFFFF"
-                  strokeWidth="2"
-                />
+          {[0, 73, 146].map((y, index) => (
+            <g key={index} transform={`translate(0 ${y})`}>
+              <polygon
+                points="38,45 118,4 194,45 113,87"
+                fill={`url(#${glassId})`}
+                stroke="#FFFFFF"
+                strokeWidth="2"
+              />
 
-                <polygon
-                  points="38,45 113,87 113,118 38,76"
-                  fill="#C5E1F8"
-                  fillOpacity="0.76"
-                />
+              <polygon
+                points="38,45 113,87 113,118 38,76"
+                fill="#C5E1F8"
+                fillOpacity="0.76"
+              />
 
-                <polygon
-                  points="113,87 194,45 194,76 113,118"
-                  fill="#A9D2F4"
-                  fillOpacity="0.72"
-                />
+              <polygon
+                points="113,87 194,45 194,76 113,118"
+                fill="#A9D2F4"
+                fillOpacity="0.72"
+              />
 
-                <circle
-                  cx="126"
-                  cy="91"
-                  r="4"
-                  fill="#258EF1"
-                />
+              <circle cx="126" cy="91" r="4" fill="#258EF1" />
 
-                <path
-                  d="M144 82 181 64M144 93l37-19"
-                  stroke="#70A9E8"
-                  strokeWidth="4"
-                  strokeLinecap="round"
-                  opacity="0.8"
-                />
-              </g>
-            ),
-          )}
+              <path
+                d="M144 82 181 64M144 93l37-19"
+                stroke="#70A9E8"
+                strokeWidth="4"
+                strokeLinecap="round"
+                opacity="0.8"
+              />
+            </g>
+          ))}
         </g>
 
         {/* dotted wires */}
@@ -8231,53 +6713,33 @@ function HowInfrastructureVisual({
 
         {!reducedMotion && (
           <>
-            {[wire1, wire2, wire3].map(
-              (
-                id,
-                index,
-              ) => (
-                <g key={id}>
-                  <circle
-                    r="5"
-                    fill={
-                      index === 1
-                        ? "#2AA845"
-                        : "#1685EA"
-                    }
-                    opacity="0.15"
+            {[wire1, wire2, wire3].map((id, index) => (
+              <g key={id}>
+                <circle
+                  r="5"
+                  fill={index === 1 ? "#2AA845" : "#1685EA"}
+                  opacity="0.15"
+                >
+                  <animateMotion
+                    dur={`${6.8 + index * 0.8}s`}
+                    begin={`${index * -1.7}s`}
+                    repeatCount="indefinite"
                   >
-                    <animateMotion
-                      dur={`${6.8 + index * 0.8}s`}
-                      begin={`${index * -1.7}s`}
-                      repeatCount="indefinite"
-                    >
-                      <mpath
-                        href={`#${id}`}
-                      />
-                    </animateMotion>
-                  </circle>
+                    <mpath href={`#${id}`} />
+                  </animateMotion>
+                </circle>
 
-                  <circle
-                    r="2.3"
-                    fill={
-                      index === 1
-                        ? "#2AA845"
-                        : "#1685EA"
-                    }
+                <circle r="2.3" fill={index === 1 ? "#2AA845" : "#1685EA"}>
+                  <animateMotion
+                    dur={`${6.8 + index * 0.8}s`}
+                    begin={`${index * -1.7}s`}
+                    repeatCount="indefinite"
                   >
-                    <animateMotion
-                      dur={`${6.8 + index * 0.8}s`}
-                      begin={`${index * -1.7}s`}
-                      repeatCount="indefinite"
-                    >
-                      <mpath
-                        href={`#${id}`}
-                      />
-                    </animateMotion>
-                  </circle>
-                </g>
-              ),
-            )}
+                    <mpath href={`#${id}`} />
+                  </animateMotion>
+                </circle>
+              </g>
+            ))}
           </>
         )}
 
@@ -8302,83 +6764,59 @@ function HowInfrastructureVisual({
             label: "PDF",
             color: "#F12837",
           },
-        ].map(
-          (
-            item,
-            index,
-          ) => (
-            <motion.g
-              key={item.label}
-              animate={
-                reducedMotion
-                  ? undefined
-                  : {
-                      y: [
-                        0,
-                        index % 2 ===
-                          0
-                          ? -5
-                          : 5,
-                        0,
-                      ],
-                    }
-              }
-              transition={{
-                duration:
-                  7.5 +
-                  index *
-                    0.8,
-                repeat:
-                  Infinity,
-                ease:
-                  "easeInOut",
-              }}
-              filter={`url(#${shadowId})`}
+        ].map((item, index) => (
+          <motion.g
+            key={item.label}
+            animate={
+              reducedMotion
+                ? undefined
+                : {
+                    y: [0, index % 2 === 0 ? -5 : 5, 0],
+                  }
+            }
+            transition={{
+              duration: 7.5 + index * 0.8,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            filter={`url(#${shadowId})`}
+          >
+            <rect
+              x={item.x}
+              y={item.y}
+              width="55"
+              height="77"
+              rx="10"
+              fill={`url(#${glassId})`}
+              stroke="#FFFFFF"
+              strokeWidth="1.5"
+            />
+
+            <rect
+              x={item.x + 11}
+              y={item.y + 22}
+              width="34"
+              height="34"
+              rx="4"
+              fill={item.color}
+            />
+
+            <text
+              x={item.x + 28}
+              y={item.y + 43}
+              textAnchor="middle"
+              fontSize={item.label === "DOCX" ? "8.5" : "9.5"}
+              fontWeight="800"
+              fill="#FFFFFF"
             >
-              <rect
-                x={item.x}
-                y={item.y}
-                width="55"
-                height="77"
-                rx="10"
-                fill={`url(#${glassId})`}
-                stroke="#FFFFFF"
-                strokeWidth="1.5"
-              />
-
-              <rect
-                x={item.x + 11}
-                y={item.y + 22}
-                width="34"
-                height="34"
-                rx="4"
-                fill={item.color}
-              />
-
-              <text
-                x={item.x + 28}
-                y={item.y + 43}
-                textAnchor="middle"
-                fontSize={
-                  item.label ===
-                  "DOCX"
-                    ? "8.5"
-                    : "9.5"
-                }
-                fontWeight="800"
-                fill="#FFFFFF"
-              >
-                {item.label}
-              </text>
-            </motion.g>
-          ),
-        )}
+              {item.label}
+            </text>
+          </motion.g>
+        ))}
 
         {/* base */}
 
-        <g
-          filter={`url(#${strongShadowId})`}
-        >
+        <g filter={`url(#${strongShadowId})`}>
           <polygon
             points="83,438 195,380 308,439 196,498"
             fill={`url(#${stageId})`}
@@ -8401,10 +6839,7 @@ function HowInfrastructureVisual({
 
         {/* foreground document */}
 
-        <g
-          transform="translate(109 244)"
-          filter={`url(#${strongShadowId})`}
-        >
+        <g transform="translate(109 244)" filter={`url(#${strongShadowId})`}>
           <path
             d="M28 12h112l25 24v187c0 9-7 16-16 16H28c-9 0-16-7-16-16V28c0-9 7-16 16-16Z"
             fill={`url(#${glassId})`}
@@ -8429,8 +6864,7 @@ function HowInfrastructureVisual({
             <div
               className="h-full w-full"
               style={{
-                filter:
-                  "brightness(1.03) saturate(1.12) contrast(1.04)",
+                filter: "brightness(1.03) saturate(1.12) contrast(1.04)",
               }}
             >
               <ExactHiveLogo />
@@ -8450,373 +6884,250 @@ function HowInfrastructureVisual({
   );
 }
 
-function HowSection({
-  steps,
-}: {
-  steps: string[];
-}) {
-  const {
-    t,
-    i18n,
-  } = useTranslation(
-    "home",
-  );
+function HowSection({ steps }: { steps: string[] }) {
+  const { t, i18n } = useTranslation("home");
 
-  const sectionRef =
-    useRef<HTMLElement>(
-      null,
-    );
+  const sectionRef = useRef<HTMLElement>(null);
 
-  const artRef =
-    useRef<HTMLDivElement>(
-      null,
-    );
+  const artRef = useRef<HTMLDivElement>(null);
 
-  const reducedMotion =
-    useReducedMotion() ??
-    false;
+  const reducedMotion = useReducedMotion() ?? false;
 
-  const arabic =
-    i18n.language
-      .toLowerCase()
-      .startsWith("ar");
+  const arabic = i18n.language.toLowerCase().startsWith("ar");
 
-  const rtl =
-    i18n.dir() ===
-    "rtl";
+  const rtl = i18n.dir() === "rtl";
 
-  const displaySteps =
-    Array.from({
-      length: 12,
-    }).map(
-      (
-        _,
-        index,
-      ) =>
-        steps[index] ??
-        "",
-    );
+  const displaySteps = Array.from({
+    length: 12,
+  }).map((_, index) => steps[index] ?? "");
 
   useEffect(() => {
-    if (
-      reducedMotion ||
-      !sectionRef.current
-    ) {
+    if (reducedMotion || !sectionRef.current) {
       return;
     }
 
-    gsap.registerPlugin(
-      ScrollTrigger,
-    );
+    gsap.registerPlugin(ScrollTrigger);
 
-    const ctx =
-      gsap.context(
-        () => {
-          const mm =
-            gsap.matchMedia();
+    const ctx = gsap.context(() => {
+      const mm = gsap.matchMedia();
 
-          const revealHeader =
-            gsap.timeline({
-              scrollTrigger: {
-                trigger:
-                  sectionRef.current,
+      const revealHeader = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
 
-                start:
-                  "top 88%",
+          start: "top 88%",
 
-                end:
-                  "top 46%",
+          end: "top 46%",
 
-                scrub: 1.45,
+          scrub: 1.45,
 
-                invalidateOnRefresh:
-                  true,
-              },
-            });
-
-          revealHeader
-            .fromTo(
-              ".how-eyebrow",
-              {
-                opacity: 0,
-                y: 18,
-              },
-              {
-                opacity: 1,
-                y: 0,
-                ease:
-                  "power2.out",
-                duration: 0.8,
-              },
-            )
-            .fromTo(
-              ".how-heading",
-              {
-                opacity: 0,
-                y: 30,
-                scale: 0.992,
-              },
-              {
-                opacity: 1,
-                y: 0,
-                scale: 1,
-                ease:
-                  "power2.out",
-                duration: 1,
-              },
-              "-=0.32",
-            )
-            .fromTo(
-              ".how-description",
-              {
-                opacity: 0,
-                y: 16,
-              },
-              {
-                opacity: 1,
-                y: 0,
-                ease:
-                  "power2.out",
-                duration: 0.72,
-              },
-              "-=0.38",
-            );
-
-          mm.add(
-            "(min-width: 1024px)",
-            () => {
-              const cards =
-                gsap.utils.toArray<HTMLElement>(
-                  ".how-desktop-step-card",
-                );
-
-              const connectors =
-                gsap.utils.toArray<HTMLElement>(
-                  ".how-desktop-connector",
-                );
-
-              gsap.set(
-                cards,
-                {
-                  opacity: 0,
-                  y: 18,
-                  scale: 0.994,
-                  force3D: true,
-                  transformOrigin:
-                    "50% 50%",
-                },
-              );
-
-              gsap.set(
-                connectors,
-                {
-                  opacity: 0,
-                },
-              );
-
-              const flow =
-                gsap.timeline({
-                  scrollTrigger: {
-                    trigger:
-                      ".how-desktop-flow",
-
-                    start:
-                      "top 86%",
-
-                    end:
-                      "bottom 24%",
-
-                    scrub: 2.65,
-
-                    invalidateOnRefresh:
-                      true,
-                  },
-                });
-
-              cards.forEach(
-                (
-                  card,
-                  index,
-                ) => {
-                  flow.to(
-                    card,
-                    {
-                      opacity: 1,
-                      y: 0,
-                      scale: 1,
-                      duration: 1.08,
-                      ease:
-                        "power1.inOut",
-                      force3D: true,
-                    },
-                    index === 0
-                      ? "+=0.04"
-                      : "+=0.16",
-                  );
-
-                  if (
-                    connectors[
-                      index
-                    ]
-                  ) {
-                    flow.to(
-                      connectors[
-                        index
-                      ],
-                      {
-                        opacity: 1,
-                        duration: 0.46,
-                        ease:
-                          "power1.inOut",
-                      },
-                      "-=0.16",
-                    );
-                  }
-                },
-              );
-
-              if (
-                artRef.current
-              ) {
-                gsap.fromTo(
-                  artRef.current,
-                  {
-                    yPercent:
-                      1.5,
-                  },
-                  {
-                    yPercent:
-                      -1.5,
-
-                    ease:
-                      "none",
-
-                    scrollTrigger: {
-                      trigger:
-                        sectionRef.current,
-
-                      start:
-                        "top bottom",
-
-                      end:
-                        "bottom top",
-
-                      scrub: 2.8,
-
-                      invalidateOnRefresh:
-                        true,
-                    },
-                  },
-                );
-              }
-            },
-          );
-
-          mm.add(
-            "(max-width: 1023px)",
-            () => {
-              const cards =
-                gsap.utils.toArray<HTMLElement>(
-                  ".how-mobile-step-card",
-                );
-
-              const connectors =
-                gsap.utils.toArray<HTMLElement>(
-                  ".how-mobile-connector",
-                );
-
-              cards.forEach(
-                (
-                  card,
-                  index,
-                ) => {
-                  gsap.fromTo(
-                    card,
-                    {
-                      opacity: 0,
-                      y: 18,
-                      scale: 0.994,
-                      force3D: true,
-                    },
-                    {
-                      opacity: 1,
-                      y: 0,
-                      scale: 1,
-                      duration: 1.0,
-                      ease:
-                        "power1.inOut",
-                      force3D: true,
-
-                      scrollTrigger: {
-                        trigger:
-                          card,
-
-                        start:
-                          "top 88%",
-
-                        toggleActions:
-                          "play none none reverse",
-                      },
-                    },
-                  );
-
-                  if (
-                    connectors[
-                      index
-                    ]
-                  ) {
-                    gsap.fromTo(
-                      connectors[
-                        index
-                      ],
-                      {
-                        opacity: 0,
-                      },
-                      {
-                        opacity: 1,
-                        duration: 0.6,
-
-                        scrollTrigger: {
-                          trigger:
-                            card,
-
-                          start:
-                            "bottom 90%",
-
-                          toggleActions:
-                            "play none none reverse",
-                        },
-                      },
-                    );
-                  }
-                },
-              );
-            },
-          );
-
-          return () => {
-            mm.revert();
-          };
+          invalidateOnRefresh: true,
         },
-        sectionRef,
-      );
+      });
+
+      revealHeader
+        .fromTo(
+          ".how-eyebrow",
+          {
+            opacity: 0,
+            y: 18,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            ease: "power2.out",
+            duration: 0.8,
+          },
+        )
+        .fromTo(
+          ".how-heading",
+          {
+            opacity: 0,
+            y: 30,
+            scale: 0.992,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            ease: "power2.out",
+            duration: 1,
+          },
+          "-=0.32",
+        )
+        .fromTo(
+          ".how-description",
+          {
+            opacity: 0,
+            y: 16,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            ease: "power2.out",
+            duration: 0.72,
+          },
+          "-=0.38",
+        );
+
+      mm.add("(min-width: 1024px)", () => {
+        const cards = gsap.utils.toArray<HTMLElement>(".how-desktop-step-card");
+
+        const connectors = gsap.utils.toArray<HTMLElement>(
+          ".how-desktop-connector",
+        );
+
+        gsap.set(cards, {
+          opacity: 0,
+          y: 18,
+          scale: 0.994,
+          force3D: true,
+          transformOrigin: "50% 50%",
+        });
+
+        gsap.set(connectors, {
+          opacity: 0,
+        });
+
+        const flow = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".how-desktop-flow",
+
+            start: "top 86%",
+
+            end: "bottom 24%",
+
+            scrub: 2.65,
+
+            invalidateOnRefresh: true,
+          },
+        });
+
+        cards.forEach((card, index) => {
+          flow.to(
+            card,
+            {
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              duration: 1.08,
+              ease: "power1.inOut",
+              force3D: true,
+            },
+            index === 0 ? "+=0.04" : "+=0.16",
+          );
+
+          if (connectors[index]) {
+            flow.to(
+              connectors[index],
+              {
+                opacity: 1,
+                duration: 0.46,
+                ease: "power1.inOut",
+              },
+              "-=0.16",
+            );
+          }
+        });
+
+        if (artRef.current) {
+          gsap.fromTo(
+            artRef.current,
+            {
+              yPercent: 1.5,
+            },
+            {
+              yPercent: -1.5,
+
+              ease: "none",
+
+              scrollTrigger: {
+                trigger: sectionRef.current,
+
+                start: "top bottom",
+
+                end: "bottom top",
+
+                scrub: 2.8,
+
+                invalidateOnRefresh: true,
+              },
+            },
+          );
+        }
+      });
+
+      mm.add("(max-width: 1023px)", () => {
+        const cards = gsap.utils.toArray<HTMLElement>(".how-mobile-step-card");
+
+        const connectors = gsap.utils.toArray<HTMLElement>(
+          ".how-mobile-connector",
+        );
+
+        cards.forEach((card, index) => {
+          gsap.fromTo(
+            card,
+            {
+              opacity: 0,
+              y: 18,
+              scale: 0.994,
+              force3D: true,
+            },
+            {
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              duration: 1.0,
+              ease: "power1.inOut",
+              force3D: true,
+
+              scrollTrigger: {
+                trigger: card,
+
+                start: "top 88%",
+
+                toggleActions: "play none none reverse",
+              },
+            },
+          );
+
+          if (connectors[index]) {
+            gsap.fromTo(
+              connectors[index],
+              {
+                opacity: 0,
+              },
+              {
+                opacity: 1,
+                duration: 0.6,
+
+                scrollTrigger: {
+                  trigger: card,
+
+                  start: "bottom 90%",
+
+                  toggleActions: "play none none reverse",
+                },
+              },
+            );
+          }
+        });
+      });
+
+      return () => {
+        mm.revert();
+      };
+    }, sectionRef);
 
     return () => {
       ctx.revert();
     };
-  }, [
-    reducedMotion,
-    rtl,
-  ]);
+  }, [reducedMotion, rtl]);
 
   return (
     <section
       ref={sectionRef}
-      dir={
-        rtl
-          ? "rtl"
-          : "ltr"
-      }
+      dir={rtl ? "rtl" : "ltr"}
       className="
         relative
         isolate
@@ -8952,11 +7263,7 @@ function HowSection({
               "
             />
 
-            <span>
-              {arabic
-                ? "كيف يعمل"
-                : "HOW IT WORKS"}
-            </span>
+            <span>{arabic ? "كيف يعمل" : "HOW IT WORKS"}</span>
 
             <span
               aria-hidden="true"
@@ -8997,11 +7304,7 @@ function HowSection({
               xl:text-[62px]
             "
           >
-            <HowHeadline
-              text={t(
-                "how.headline",
-              )}
-            />
+            <HowHeadline text={t("how.headline")} />
           </h2>
 
           <p
@@ -9023,9 +7326,7 @@ function HowSection({
               lg:text-[16px]
             "
           >
-            {t(
-              "how.body",
-            )}
+            {t("how.body")}
           </p>
         </div>
 
@@ -9055,76 +7356,35 @@ function HowSection({
               [3, 4, 5],
               [6, 7, 8],
               [9, 10, 11],
-            ].map(
-              (
-                row,
-                rowIndex,
-              ) => (
+            ].map((row, rowIndex) => (
+              <div key={rowIndex}>
                 <div
-                  key={rowIndex}
-                >
-                  <div
-                    className="
+                  className="
                       grid
                       grid-cols-[minmax(0,1fr)_52px_minmax(0,1fr)_52px_minmax(0,1fr)]
                       items-stretch
                     "
-                  >
-                    <HowStepCard
-                      index={row[0]}
-                      text={
-                        displaySteps[
-                          row[0]
-                        ]
-                      }
-                    />
+                >
+                  <HowStepCard index={row[0]} text={displaySteps[row[0]]} />
 
-                    <HowInlineConnector
-                      reducedMotion={
-                        reducedMotion
-                      }
-                    />
+                  <HowInlineConnector reducedMotion={reducedMotion} />
 
-                    <HowStepCard
-                      index={row[1]}
-                      text={
-                        displaySteps[
-                          row[1]
-                        ]
-                      }
-                    />
+                  <HowStepCard index={row[1]} text={displaySteps[row[1]]} />
 
-                    <HowInlineConnector
-                      reducedMotion={
-                        reducedMotion
-                      }
-                    />
+                  <HowInlineConnector reducedMotion={reducedMotion} />
 
-                    <HowStepCard
-                      index={row[2]}
-                      text={
-                        displaySteps[
-                          row[2]
-                        ]
-                      }
-                    />
-                  </div>
-
-                  {rowIndex <
-                    3 && (
-                    <HowSnakeTurn
-                      index={
-                        rowIndex
-                      }
-                      reducedMotion={
-                        reducedMotion
-                      }
-                      rtl={rtl}
-                    />
-                  )}
+                  <HowStepCard index={row[2]} text={displaySteps[row[2]]} />
                 </div>
-              ),
-            )}
+
+                {rowIndex < 3 && (
+                  <HowSnakeTurn
+                    index={rowIndex}
+                    reducedMotion={reducedMotion}
+                    rtl={rtl}
+                  />
+                )}
+              </div>
+            ))}
           </div>
 
           <div
@@ -9137,9 +7397,7 @@ function HowSection({
           >
             <HowInfrastructureVisual
               arabic={arabic}
-              reducedMotion={
-                reducedMotion
-              }
+              reducedMotion={reducedMotion}
             />
           </div>
         </div>
@@ -9158,39 +7416,20 @@ function HowSection({
             lg:hidden
           "
         >
-          {displaySteps.map(
-            (
-              step,
-              index,
-            ) => (
-              <div
-                key={`mobile-${index}`}
-              >
-                <HowStepCard
-                  index={index}
-                  text={step}
-                  mobile
-                />
+          {displaySteps.map((step, index) => (
+            <div key={`mobile-${index}`}>
+              <HowStepCard index={index} text={step} mobile />
 
-                {index <
-                  displaySteps.length -
-                    1 && (
-                  <HowMobileConnector
-                    reducedMotion={
-                      reducedMotion
-                    }
-                  />
-                )}
-              </div>
-            ),
-          )}
+              {index < displaySteps.length - 1 && (
+                <HowMobileConnector reducedMotion={reducedMotion} />
+              )}
+            </div>
+          ))}
 
           <div className="mt-9">
             <HowInfrastructureVisual
               arabic={arabic}
-              reducedMotion={
-                reducedMotion
-              }
+              reducedMotion={reducedMotion}
             />
           </div>
         </div>
@@ -9216,12 +7455,7 @@ function HowSection({
           }}
           transition={{
             duration: 0.85,
-            ease: [
-              0.22,
-              1,
-              0.36,
-              1,
-            ],
+            ease: [0.22, 1, 0.36, 1],
           }}
           className="
             mt-8
@@ -9260,7 +7494,6 @@ function HowSection({
     </section>
   );
 }
-
 
 /* =============================================================================
    GOVERNANCE SECTION
@@ -9306,18 +7539,10 @@ const GOVERNANCE_THEMES: GovernanceTheme[] = [
   },
 ];
 
-function GovernanceHeadline({
-  text,
-}: {
-  text: string;
-}) {
-  const phrase =
-    "your rules";
+function GovernanceHeadline({ text }: { text: string }) {
+  const phrase = "your rules";
 
-  const index =
-    text
-      .toLowerCase()
-      .indexOf(phrase);
+  const index = text.toLowerCase().indexOf(phrase);
 
   if (index === -1) {
     return <>{text}</>;
@@ -9328,17 +7553,10 @@ function GovernanceHeadline({
       {text.slice(0, index)}
 
       <span className="text-[#176FF2]">
-        {text.slice(
-          index,
-          index +
-            phrase.length,
-        )}
+        {text.slice(index, index + phrase.length)}
       </span>
 
-      {text.slice(
-        index +
-          phrase.length,
-      )}
+      {text.slice(index + phrase.length)}
     </>
   );
 }
@@ -9350,16 +7568,13 @@ function GovernanceFeatureIcon({
   index: number;
   theme: GovernanceTheme;
 }) {
-  const color =
-    theme.color;
+  const color = theme.color;
 
   const stroke = {
     stroke: color,
     strokeWidth: 2.25,
-    strokeLinecap:
-      "round" as const,
-    strokeLinejoin:
-      "round" as const,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
   };
 
   if (index === 0) {
@@ -9386,27 +7601,13 @@ function GovernanceFeatureIcon({
         className="h-10 w-10"
         aria-hidden="true"
       >
-        <path
-          d="M9 5h21l8 8v21H9V5Z"
-          {...stroke}
-        />
+        <path d="M9 5h21l8 8v21H9V5Z" {...stroke} />
 
-        <path
-          d="M30 5v9h8M15 18h13M15 24h8"
-          {...stroke}
-        />
+        <path d="M30 5v9h8M15 18h13M15 24h8" {...stroke} />
 
-        <circle
-          cx="31"
-          cy="31"
-          r="7"
-          {...stroke}
-        />
+        <circle cx="31" cy="31" r="7" {...stroke} />
 
-        <path
-          d="m36 36 6 6"
-          {...stroke}
-        />
+        <path d="m36 36 6 6" {...stroke} />
       </svg>
     );
   }
@@ -9419,29 +7620,13 @@ function GovernanceFeatureIcon({
         className="h-10 w-10"
         aria-hidden="true"
       >
-        <circle
-          cx="19"
-          cy="16"
-          r="7"
-          {...stroke}
-        />
+        <circle cx="19" cy="16" r="7" {...stroke} />
 
-        <circle
-          cx="31"
-          cy="18"
-          r="6"
-          {...stroke}
-        />
+        <circle cx="31" cy="18" r="6" {...stroke} />
 
-        <path
-          d="M7 40v-4c0-8 5-13 12-13s12 5 12 13v4"
-          {...stroke}
-        />
+        <path d="M7 40v-4c0-8 5-13 12-13s12 5 12 13v4" {...stroke} />
 
-        <path
-          d="M28 27c7 .4 12 4.5 12 11v2"
-          {...stroke}
-        />
+        <path d="M28 27c7 .4 12 4.5 12 11v2" {...stroke} />
       </svg>
     );
   }
@@ -9453,15 +7638,9 @@ function GovernanceFeatureIcon({
       className="h-10 w-10"
       aria-hidden="true"
     >
-      <path
-        d="M10 5h20l8 8v30H10V5Z"
-        {...stroke}
-      />
+      <path d="M10 5h20l8 8v30H10V5Z" {...stroke} />
 
-      <path
-        d="M30 5v9h8M16 21h15M16 27h15M16 33h11"
-        {...stroke}
-      />
+      <path d="M30 5v9h8M16 21h15M16 27h15M16 33h11" {...stroke} />
     </svg>
   );
 }
@@ -9473,11 +7652,7 @@ function GovernanceFeatureCard({
   item: GovernanceCardItem;
   index: number;
 }) {
-  const theme =
-    GOVERNANCE_THEMES[
-      index %
-        GOVERNANCE_THEMES.length
-    ];
+  const theme = GOVERNANCE_THEMES[index % GOVERNANCE_THEMES.length];
 
   return (
     <article
@@ -9518,8 +7693,7 @@ function GovernanceFeatureCard({
         sm:py-6
       "
       style={{
-        borderColor:
-          theme.border,
+        borderColor: theme.border,
 
         boxShadow: `0 18px 56px ${theme.glow}, inset 0 1px 0 rgba(255,255,255,1)`,
       }}
@@ -9561,14 +7735,10 @@ function GovernanceFeatureCard({
           sm:w-[72px]
         "
         style={{
-          backgroundColor:
-            theme.soft,
+          backgroundColor: theme.soft,
         }}
       >
-        <GovernanceFeatureIcon
-          index={index}
-          theme={theme}
-        />
+        <GovernanceFeatureIcon index={index} theme={theme} />
       </span>
 
       <div className="relative min-w-0">
@@ -9696,25 +7866,13 @@ function GovernancePanelShell({
   );
 }
 
-function GovernanceAiAnswerPanel({
-  arabic,
-}: {
-  arabic: boolean;
-}) {
+function GovernanceAiAnswerPanel({ arabic }: { arabic: boolean }) {
   return (
     <GovernancePanelShell
-      title={
-        arabic
-          ? "إجابة الذكاء الاصطناعي"
-          : "AI Answer"
-      }
+      title={arabic ? "إجابة الذكاء الاصطناعي" : "AI Answer"}
     >
       <div
-        dir={
-          arabic
-            ? "rtl"
-            : "ltr"
-        }
+        dir={arabic ? "rtl" : "ltr"}
         className="
           space-y-3
           p-4
@@ -9836,52 +7994,36 @@ function GovernanceAiAnswerPanel({
               text-[#425A82]
             "
           >
-            {arabic
-              ? "المصادر"
-              : "Sources"}
+            {arabic ? "المصادر" : "Sources"}
           </p>
 
           <div className="flex flex-wrap gap-2">
             {[
               {
-                label:
-                  arabic
-                    ? "المبيعات المؤسسية AG-0123"
-                    : "Corporate Sales AG-0123",
-                color:
-                  "#1685EA",
-                bg:
-                  "#EAF4FF",
+                label: arabic
+                  ? "المبيعات المؤسسية AG-0123"
+                  : "Corporate Sales AG-0123",
+                color: "#1685EA",
+                bg: "#EAF4FF",
               },
               {
-                label:
-                  arabic
-                    ? "سياسة المالية FN-004"
-                    : "Finance Policy FN-004",
-                color:
-                  "#19B862",
-                bg:
-                  "#EAFBF1",
+                label: arabic
+                  ? "سياسة المالية FN-004"
+                  : "Finance Policy FN-004",
+                color: "#19B862",
+                bg: "#EAFBF1",
               },
               {
-                label:
-                  arabic
-                    ? "تأهيل المورد VDR-101"
-                    : "Vendor Onboarding VDR-101",
-                color:
-                  "#F2A21B",
-                bg:
-                  "#FFF6DF",
+                label: arabic
+                  ? "تأهيل المورد VDR-101"
+                  : "Vendor Onboarding VDR-101",
+                color: "#F2A21B",
+                bg: "#FFF6DF",
               },
-            ].map(
-              (
-                item,
-              ) => (
-                <span
-                  key={
-                    item.label
-                  }
-                  className="
+            ].map((item) => (
+              <span
+                key={item.label}
+                className="
                     inline-flex
                     max-w-full
                     items-center
@@ -9897,38 +8039,29 @@ function GovernanceAiAnswerPanel({
 
                     sm:text-[9.5px]
                   "
-                  style={{
-                    color:
-                      item.color,
+                style={{
+                  color: item.color,
 
-                    backgroundColor:
-                      item.bg,
-                  }}
+                  backgroundColor: item.bg,
+                }}
+              >
+                <svg
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  className="h-3.5 w-3.5 shrink-0"
                 >
-                  <svg
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    className="h-3.5 w-3.5 shrink-0"
-                  >
-                    <path
-                      d="M5 2h7l4 4v12H5V2Z"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                    />
+                  <path
+                    d="M5 2h7l4 4v12H5V2Z"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                  />
 
-                    <path
-                      d="M12 2v5h4"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                    />
-                  </svg>
+                  <path d="M12 2v5h4" stroke="currentColor" strokeWidth="1.5" />
+                </svg>
 
-                  <span className="truncate">
-                    {item.label}
-                  </span>
-                </span>
-              ),
-            )}
+                <span className="truncate">{item.label}</span>
+              </span>
+            ))}
           </div>
         </div>
       </div>
@@ -9936,27 +8069,12 @@ function GovernanceAiAnswerPanel({
   );
 }
 
-function GovernanceApprovalPanel({
-  arabic,
-}: {
-  arabic: boolean;
-}) {
+function GovernanceApprovalPanel({ arabic }: { arabic: boolean }) {
   return (
     <GovernancePanelShell
-      title={
-        arabic
-          ? "المراجعة والموافقة"
-          : "Review & Approval"
-      }
+      title={arabic ? "المراجعة والموافقة" : "Review & Approval"}
     >
-      <div
-        dir={
-          arabic
-            ? "rtl"
-            : "ltr"
-        }
-        className="p-4"
-      >
+      <div dir={arabic ? "rtl" : "ltr"} className="p-4">
         <div
           className="
             rounded-[12px]
@@ -9987,11 +8105,7 @@ function GovernanceApprovalPanel({
                 text-[#1685EA]
               "
             >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                className="h-5 w-5"
-              >
+              <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5">
                 <path
                   d="M6 2h8l4 4v16H6V2Z"
                   stroke="currentColor"
@@ -10031,9 +8145,7 @@ function GovernanceApprovalPanel({
                   text-[#8796B0]
                 "
               >
-                {arabic
-                  ? "الإجابة المقترحة"
-                  : "Proposed answer"}
+                {arabic ? "الإجابة المقترحة" : "Proposed answer"}
               </p>
 
               <p
@@ -10058,50 +8170,27 @@ function GovernanceApprovalPanel({
         <div className="mt-3 space-y-2">
           {[
             {
-              label:
-                arabic
-                  ? "موافق عليه"
-                  : "Approved",
-              color:
-                "#18B85A",
-              bg:
-                "#EAFBF1",
-              icon:
-                "✓",
+              label: arabic ? "موافق عليه" : "Approved",
+              color: "#18B85A",
+              bg: "#EAFBF1",
+              icon: "✓",
             },
             {
-              label:
-                arabic
-                  ? "بانتظار المراجعة"
-                  : "Pending review",
-              color:
-                "#E5A000",
-              bg:
-                "#FFF7E5",
-              icon:
-                "◷",
+              label: arabic ? "بانتظار المراجعة" : "Pending review",
+              color: "#E5A000",
+              bg: "#FFF7E5",
+              icon: "◷",
             },
             {
-              label:
-                arabic
-                  ? "مطلوب تعديل"
-                  : "Revision needed",
-              color:
-                "#E5232A",
-              bg:
-                "#FFF0F2",
-              icon:
-                "×",
+              label: arabic ? "مطلوب تعديل" : "Revision needed",
+              color: "#E5232A",
+              bg: "#FFF0F2",
+              icon: "×",
             },
-          ].map(
-            (
-              item,
-            ) => (
-              <div
-                key={
-                  item.label
-                }
-                className="
+          ].map((item) => (
+            <div
+              key={item.label}
+              className="
                   flex
                   items-center
                   justify-center
@@ -10119,19 +8208,16 @@ function GovernanceApprovalPanel({
 
                   sm:text-[10.5px]
                 "
-                style={{
-                  color:
-                    item.color,
+              style={{
+                color: item.color,
 
-                  backgroundColor:
-                    item.bg,
+                backgroundColor: item.bg,
 
-                  borderColor:
-                    `${item.color}33`,
-                }}
-              >
-                <span
-                  className="
+                borderColor: `${item.color}33`,
+              }}
+            >
+              <span
+                className="
                     flex
                     h-4
                     w-4
@@ -10143,125 +8229,44 @@ function GovernanceApprovalPanel({
                     text-[9px]
                     text-white
                   "
-                  style={{
-                    backgroundColor:
-                      item.color,
-                  }}
-                >
-                  {item.icon}
-                </span>
+                style={{
+                  backgroundColor: item.color,
+                }}
+              >
+                {item.icon}
+              </span>
 
-                {item.label}
-              </div>
-            ),
-          )}
+              {item.label}
+            </div>
+          ))}
         </div>
       </div>
     </GovernancePanelShell>
   );
 }
 
-function GovernanceAuditPanel({
-  arabic,
-}: {
-  arabic: boolean;
-}) {
-  const rows =
-    arabic
-      ? [
-          [
-            "sarah.chen",
-            "22 أبريل 2025",
-            "AG-0123",
-            "استعلام",
-            "—",
-          ],
-          [
-            "alex.kim",
-            "22 أبريل 2025",
-            "AG-0123",
-            "استدلال",
-            "مكتمل",
-          ],
-          [
-            "morgan.lee",
-            "22 أبريل 2025",
-            "FN-004",
-            "مراجعة",
-            "موافق",
-          ],
-          [
-            "jordan.patel",
-            "22 أبريل 2025",
-            "VDR-101",
-            "وصول",
-            "مسموح",
-          ],
-        ]
-      : [
-          [
-            "sarah.chen",
-            "Apr 22, 2025",
-            "AG-0123",
-            "Query",
-            "—",
-          ],
-          [
-            "alex.kim",
-            "Apr 22, 2025",
-            "AG-0123",
-            "Inference",
-            "Completed",
-          ],
-          [
-            "morgan.lee",
-            "Apr 22, 2025",
-            "FN-004",
-            "Review",
-            "Approved",
-          ],
-          [
-            "jordan.patel",
-            "Apr 22, 2025",
-            "VDR-101",
-            "Access",
-            "Allowed",
-          ],
-        ];
+function GovernanceAuditPanel({ arabic }: { arabic: boolean }) {
+  const rows = arabic
+    ? [
+        ["sarah.chen", "22 أبريل 2025", "AG-0123", "استعلام", "—"],
+        ["alex.kim", "22 أبريل 2025", "AG-0123", "استدلال", "مكتمل"],
+        ["morgan.lee", "22 أبريل 2025", "FN-004", "مراجعة", "موافق"],
+        ["jordan.patel", "22 أبريل 2025", "VDR-101", "وصول", "مسموح"],
+      ]
+    : [
+        ["sarah.chen", "Apr 22, 2025", "AG-0123", "Query", "—"],
+        ["alex.kim", "Apr 22, 2025", "AG-0123", "Inference", "Completed"],
+        ["morgan.lee", "Apr 22, 2025", "FN-004", "Review", "Approved"],
+        ["jordan.patel", "Apr 22, 2025", "VDR-101", "Access", "Allowed"],
+      ];
 
-  const headers =
-    arabic
-      ? [
-          "المستخدم",
-          "الوقت",
-          "المستند",
-          "الإجراء",
-          "القرار",
-        ]
-      : [
-          "User",
-          "Timestamp",
-          "Document",
-          "Action",
-          "Decision",
-        ];
+  const headers = arabic
+    ? ["المستخدم", "الوقت", "المستند", "الإجراء", "القرار"]
+    : ["User", "Timestamp", "Document", "Action", "Decision"];
 
   return (
-    <GovernancePanelShell
-      title={
-        arabic
-          ? "دليل التدقيق"
-          : "Audit Evidence"
-      }
-    >
-      <div
-        dir={
-          arabic
-            ? "rtl"
-            : "ltr"
-        }
-        className="p-3.5"
-      >
+    <GovernancePanelShell title={arabic ? "دليل التدقيق" : "Audit Evidence"}>
+      <div dir={arabic ? "rtl" : "ltr"} className="p-3.5">
         <div
           className="
             overflow-hidden
@@ -10282,13 +8287,10 @@ function GovernanceAuditPanel({
               bg-[#F6F9FD]
             "
           >
-            {headers.map(
-              (
-                header,
-              ) => (
-                <div
-                  key={header}
-                  className="
+            {headers.map((header) => (
+              <div
+                key={header}
+                className="
                     min-w-0
                     border-e
                     border-[#E4EDF7]
@@ -10303,40 +8305,27 @@ function GovernanceAuditPanel({
 
                     sm:text-[8.5px]
                   "
-                >
-                  <span className="block truncate">
-                    {header}
-                  </span>
-                </div>
-              ),
-            )}
+              >
+                <span className="block truncate">{header}</span>
+              </div>
+            ))}
           </div>
 
-          {rows.map(
-            (
-              row,
-              rowIndex,
-            ) => (
-              <div
-                key={
-                  rowIndex
-                }
-                className="
+          {rows.map((row, rowIndex) => (
+            <div
+              key={rowIndex}
+              className="
                   grid
                   grid-cols-[1.05fr_1.15fr_1fr_0.9fr_1fr]
 
                   border-t
                   border-[#E7EEF7]
                 "
-              >
-                {row.map(
-                  (
-                    cell,
-                    cellIndex,
-                  ) => (
-                    <div
-                      key={`${rowIndex}-${cellIndex}`}
-                      className="
+            >
+              {row.map((cell, cellIndex) => (
+                <div
+                  key={`${rowIndex}-${cellIndex}`}
+                  className="
                         min-w-0
                         border-e
                         border-[#EDF2F8]
@@ -10352,19 +8341,14 @@ function GovernanceAuditPanel({
 
                         sm:text-[8.7px]
                       "
-                    >
-                      {cellIndex ===
-                        4 &&
-                      (cell ===
-                          "Approved" ||
-                        cell ===
-                          "موافق" ||
-                        cell ===
-                          "Allowed" ||
-                        cell ===
-                          "مسموح") ? (
-                        <span
-                          className={`
+                >
+                  {cellIndex === 4 &&
+                  (cell === "Approved" ||
+                    cell === "موافق" ||
+                    cell === "Allowed" ||
+                    cell === "مسموح") ? (
+                    <span
+                      className={`
                             inline-flex
                             max-w-full
                             items-center
@@ -10377,55 +8361,35 @@ function GovernanceAuditPanel({
                             font-bold
 
                             ${
-                              cell ===
-                                  "Approved" ||
-                                cell ===
-                                  "موافق"
+                              cell === "Approved" || cell === "موافق"
                                 ? "bg-[#E8FAEF] text-[#15AA55]"
                                 : "bg-[#EAF4FF] text-[#1685EA]"
                             }
                           `}
-                        >
-                          <span className="truncate">
-                            {cell}
-                          </span>
-                        </span>
-                      ) : (
-                        <span className="block truncate">
-                          {cell}
-                        </span>
-                      )}
-                    </div>
-                  ),
-                )}
-              </div>
-            ),
-          )}
+                    >
+                      <span className="truncate">{cell}</span>
+                    </span>
+                  ) : (
+                    <span className="block truncate">{cell}</span>
+                  )}
+                </div>
+              ))}
+            </div>
+          ))}
         </div>
       </div>
     </GovernancePanelShell>
   );
 }
 
-function GovernanceBackground({
-  reducedMotion,
-}: {
-  reducedMotion: boolean;
-}) {
-  const rawId =
-    useId();
+function GovernanceBackground({ reducedMotion }: { reducedMotion: boolean }) {
+  const rawId = useId();
 
-  const clean =
-    rawId.replace(
-      /:/g,
-      "",
-    );
+  const clean = rawId.replace(/:/g, "");
 
-  const leftPathId =
-    `gov-bg-left-${clean}`;
+  const leftPathId = `gov-bg-left-${clean}`;
 
-  const rightPathId =
-    `gov-bg-right-${clean}`;
+  const rightPathId = `gov-bg-right-${clean}`;
 
   return (
     <div
@@ -10509,32 +8473,15 @@ function GovernanceBackground({
 
         {!reducedMotion && (
           <>
-            <circle
-              r="4.5"
-              fill="#1685EA"
-            >
-              <animateMotion
-                dur="12s"
-                repeatCount="indefinite"
-              >
-                <mpath
-                  href={`#${leftPathId}`}
-                />
+            <circle r="4.5" fill="#1685EA">
+              <animateMotion dur="12s" repeatCount="indefinite">
+                <mpath href={`#${leftPathId}`} />
               </animateMotion>
             </circle>
 
-            <circle
-              r="4.5"
-              fill="#F2C94C"
-            >
-              <animateMotion
-                dur="13.5s"
-                begin="-4s"
-                repeatCount="indefinite"
-              >
-                <mpath
-                  href={`#${rightPathId}`}
-                />
+            <circle r="4.5" fill="#F2C94C">
+              <animateMotion dur="13.5s" begin="-4s" repeatCount="indefinite">
+                <mpath href={`#${rightPathId}`} />
               </animateMotion>
             </circle>
           </>
@@ -10582,12 +8529,7 @@ function GovernanceFloatingBadge({
 
         lg:flex
 
-        ${
-          side ===
-          "left"
-            ? "left-[6%] top-[125px]"
-            : "right-[6%] top-[170px]"
-        }
+        ${side === "left" ? "left-[6%] top-[125px]" : "right-[6%] top-[170px]"}
       `}
       animate={
         reducedMotion
@@ -10597,37 +8539,23 @@ function GovernanceFloatingBadge({
             }
       }
       transition={{
-        duration:
-          side ===
-          "left"
-            ? 8.2
-            : 9.1,
+        duration: side === "left" ? 8.2 : 9.1,
         repeat: Infinity,
         ease: "easeInOut",
       }}
     >
-      {type ===
-      "logo" ? (
+      {type === "logo" ? (
         <div
           className="h-[48px] w-[48px]"
           style={{
-            filter:
-              "brightness(1.035) saturate(1.12) contrast(1.035)",
+            filter: "brightness(1.035) saturate(1.12) contrast(1.035)",
           }}
         >
           <ExactHiveLogo />
         </div>
       ) : (
-        <svg
-          viewBox="0 0 48 48"
-          fill="none"
-          className="h-10 w-10"
-        >
-          <path
-            d="M13 5h17l7 7v31H13V5Z"
-            stroke="#5C6BC0"
-            strokeWidth="2.2"
-          />
+        <svg viewBox="0 0 48 48" fill="none" className="h-10 w-10">
+          <path d="M13 5h17l7 7v31H13V5Z" stroke="#5C6BC0" strokeWidth="2.2" />
 
           <path
             d="M30 5v8h7M19 21h12M19 27h12M19 33h8"
@@ -10641,212 +8569,157 @@ function GovernanceFloatingBadge({
   );
 }
 
-function GovernanceSection({
-  cards,
-}: {
-  cards: GovernanceCardItem[];
-}) {
-  const {
-    t,
-    i18n,
-  } = useTranslation(
-    "home",
-  );
+function GovernanceSection({ cards }: { cards: GovernanceCardItem[] }) {
+  const { t, i18n } = useTranslation("home");
 
-  const sectionRef =
-    useRef<HTMLElement>(
-      null,
-    );
+  const sectionRef = useRef<HTMLElement>(null);
 
-  const reducedMotion =
-    useReducedMotion() ??
-    false;
+  const reducedMotion = useReducedMotion() ?? false;
 
-  const arabic =
-    i18n.language
-      .toLowerCase()
-      .startsWith("ar");
+  const arabic = i18n.language.toLowerCase().startsWith("ar");
 
-  const rtl =
-    i18n.dir() ===
-    "rtl";
+  const rtl = i18n.dir() === "rtl";
 
-  const featureCards =
-    cards.slice(
-      0,
-      4,
-    );
+  const featureCards = cards.slice(0, 4);
 
   useEffect(() => {
-    if (
-      reducedMotion ||
-      !sectionRef.current
-    ) {
+    if (reducedMotion || !sectionRef.current) {
       return;
     }
 
-    gsap.registerPlugin(
-      ScrollTrigger,
-    );
+    gsap.registerPlugin(ScrollTrigger);
 
-    const ctx =
-      gsap.context(
-        () => {
-          const lines =
-            gsap.utils.toArray<SVGPathElement>(
-              ".governance-bg-line",
-            );
+    const ctx = gsap.context(() => {
+      const lines = gsap.utils.toArray<SVGPathElement>(".governance-bg-line");
 
-          gsap.set(
-            lines,
-            {
-              opacity: 0,
-              strokeDashoffset: 70,
-            },
-          );
+      gsap.set(lines, {
+        opacity: 0,
+        strokeDashoffset: 70,
+      });
 
-          const timeline =
-            gsap.timeline({
-              scrollTrigger: {
-                trigger:
-                  sectionRef.current,
+      const timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
 
-                start:
-                  "top 86%",
+          start: "top 86%",
 
-                end:
-                  "72% 26%",
+          end: "72% 26%",
 
-                scrub: 2.15,
+          scrub: 2.15,
 
-                invalidateOnRefresh:
-                  true,
-              },
-            });
-
-          timeline
-            .fromTo(
-              ".governance-eyebrow",
-              {
-                opacity: 0,
-                y: 16,
-              },
-              {
-                opacity: 1,
-                y: 0,
-                duration: 0.72,
-                ease:
-                  "power1.out",
-              },
-            )
-
-            .fromTo(
-              ".governance-heading",
-              {
-                opacity: 0,
-                y: 28,
-                scale: 0.994,
-              },
-              {
-                opacity: 1,
-                y: 0,
-                scale: 1,
-                duration: 0.95,
-                ease:
-                  "power1.out",
-              },
-              "-=0.28",
-            )
-
-            .fromTo(
-              ".governance-description",
-              {
-                opacity: 0,
-                y: 18,
-              },
-              {
-                opacity: 1,
-                y: 0,
-                duration: 0.8,
-                ease:
-                  "power1.out",
-              },
-              "-=0.38",
-            )
-
-            .to(
-              lines,
-              {
-                opacity: 0.82,
-                strokeDashoffset: 0,
-                duration: 0.8,
-                stagger: 0.08,
-                ease:
-                  "power1.out",
-              },
-              "-=0.28",
-            )
-
-            .fromTo(
-              ".governance-feature-card",
-              {
-                opacity: 0,
-                y: 30,
-                scale: 0.988,
-                force3D: true,
-              },
-              {
-                opacity: 1,
-                y: 0,
-                scale: 1,
-                stagger: 0.16,
-                duration: 0.95,
-                ease:
-                  "power1.inOut",
-                force3D: true,
-              },
-              "-=0.2",
-            )
-
-            .fromTo(
-              ".governance-proof-panel",
-              {
-                opacity: 0,
-                y: 34,
-                scale: 0.988,
-                force3D: true,
-              },
-              {
-                opacity: 1,
-                y: 0,
-                scale: 1,
-                stagger: 0.18,
-                duration: 1,
-                ease:
-                  "power1.inOut",
-                force3D: true,
-              },
-              "-=0.12",
-            );
+          invalidateOnRefresh: true,
         },
-        sectionRef,
-      );
+      });
+
+      timeline
+        .fromTo(
+          ".governance-eyebrow",
+          {
+            opacity: 0,
+            y: 16,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.72,
+            ease: "power1.out",
+          },
+        )
+
+        .fromTo(
+          ".governance-heading",
+          {
+            opacity: 0,
+            y: 28,
+            scale: 0.994,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.95,
+            ease: "power1.out",
+          },
+          "-=0.28",
+        )
+
+        .fromTo(
+          ".governance-description",
+          {
+            opacity: 0,
+            y: 18,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power1.out",
+          },
+          "-=0.38",
+        )
+
+        .to(
+          lines,
+          {
+            opacity: 0.82,
+            strokeDashoffset: 0,
+            duration: 0.8,
+            stagger: 0.08,
+            ease: "power1.out",
+          },
+          "-=0.28",
+        )
+
+        .fromTo(
+          ".governance-feature-card",
+          {
+            opacity: 0,
+            y: 30,
+            scale: 0.988,
+            force3D: true,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            stagger: 0.16,
+            duration: 0.95,
+            ease: "power1.inOut",
+            force3D: true,
+          },
+          "-=0.2",
+        )
+
+        .fromTo(
+          ".governance-proof-panel",
+          {
+            opacity: 0,
+            y: 34,
+            scale: 0.988,
+            force3D: true,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            stagger: 0.18,
+            duration: 1,
+            ease: "power1.inOut",
+            force3D: true,
+          },
+          "-=0.12",
+        );
+    }, sectionRef);
 
     return () => {
       ctx.revert();
     };
-  }, [
-    reducedMotion,
-  ]);
+  }, [reducedMotion]);
 
   return (
     <section
       ref={sectionRef}
-      dir={
-        rtl
-          ? "rtl"
-          : "ltr"
-      }
+      dir={rtl ? "rtl" : "ltr"}
       className="
         relative
         isolate
@@ -10863,26 +8736,18 @@ function GovernanceSection({
         lg:px-8
       "
     >
-      <GovernanceBackground
-        reducedMotion={
-          reducedMotion
-        }
-      />
+      <GovernanceBackground reducedMotion={reducedMotion} />
 
       <GovernanceFloatingBadge
         side="left"
         type="logo"
-        reducedMotion={
-          reducedMotion
-        }
+        reducedMotion={reducedMotion}
       />
 
       <GovernanceFloatingBadge
         side="right"
         type="document"
-        reducedMotion={
-          reducedMotion
-        }
+        reducedMotion={reducedMotion}
       />
 
       <div
@@ -10915,9 +8780,7 @@ function GovernanceSection({
               sm:text-[11px]
             "
           >
-            {arabic
-              ? "الحوكمة أولاً"
-              : "GOVERNANCE FIRST"}
+            {arabic ? "الحوكمة أولاً" : "GOVERNANCE FIRST"}
           </p>
 
           <h2
@@ -10942,11 +8805,7 @@ function GovernanceSection({
               lg:text-[59px]
             "
           >
-            <GovernanceHeadline
-              text={t(
-                "governance.headline",
-              )}
-            />
+            <GovernanceHeadline text={t("governance.headline")} />
           </h2>
 
           <p
@@ -10968,9 +8827,7 @@ function GovernanceSection({
               lg:text-[16px]
             "
           >
-            {t(
-              "governance.body",
-            )}
+            {t("governance.body")}
           </p>
         </div>
 
@@ -10990,18 +8847,13 @@ function GovernanceSection({
             md:gap-5
           "
         >
-          {featureCards.map(
-            (
-              item,
-              index,
-            ) => (
-              <GovernanceFeatureCard
-                key={`${item.id}-${index}`}
-                item={item}
-                index={index}
-              />
-            ),
-          )}
+          {featureCards.map((item, index) => (
+            <GovernanceFeatureCard
+              key={`${item.id}-${index}`}
+              item={item}
+              index={index}
+            />
+          ))}
         </div>
 
         <div
@@ -11019,23 +8871,16 @@ function GovernanceSection({
             xl:grid-cols-3
           "
         >
-          <GovernanceAiAnswerPanel
-            arabic={arabic}
-          />
+          <GovernanceAiAnswerPanel arabic={arabic} />
 
-          <GovernanceApprovalPanel
-            arabic={arabic}
-          />
+          <GovernanceApprovalPanel arabic={arabic} />
 
-          <GovernanceAuditPanel
-            arabic={arabic}
-          />
+          <GovernanceAuditPanel arabic={arabic} />
         </div>
       </div>
     </section>
   );
 }
-
 
 /* =============================================================================
    DEPLOYMENT SECTION
@@ -11078,18 +8923,10 @@ const DEPLOYMENT_THEMES: DeploymentTheme[] = [
   },
 ];
 
-function DeploymentHeadline({
-  text,
-}: {
-  text: string;
-}) {
-  const phrase =
-    "you control";
+function DeploymentHeadline({ text }: { text: string }) {
+  const phrase = "you control";
 
-  const index =
-    text
-      .toLowerCase()
-      .indexOf(phrase);
+  const index = text.toLowerCase().indexOf(phrase);
 
   if (index === -1) {
     return <>{text}</>;
@@ -11100,17 +8937,10 @@ function DeploymentHeadline({
       {text.slice(0, index)}
 
       <span className="text-[#176FF2]">
-        {text.slice(
-          index,
-          index +
-            phrase.length,
-        )}
+        {text.slice(index, index + phrase.length)}
       </span>
 
-      {text.slice(
-        index +
-          phrase.length,
-      )}
+      {text.slice(index + phrase.length)}
     </>
   );
 }
@@ -11125,10 +8955,8 @@ function DeploymentIcon({
   const stroke = {
     stroke: theme.color,
     strokeWidth: 2.5,
-    strokeLinecap:
-      "round" as const,
-    strokeLinejoin:
-      "round" as const,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
   };
 
   if (index === 0) {
@@ -11139,20 +8967,11 @@ function DeploymentIcon({
         className="h-9 w-9"
         aria-hidden="true"
       >
-        <path
-          d="m24 6 15 8-15 8-15-8 15-8Z"
-          {...stroke}
-        />
+        <path d="m24 6 15 8-15 8-15-8 15-8Z" {...stroke} />
 
-        <path
-          d="M9 14v18l15 9 15-9V14"
-          {...stroke}
-        />
+        <path d="M9 14v18l15 9 15-9V14" {...stroke} />
 
-        <path
-          d="M24 22v19"
-          {...stroke}
-        />
+        <path d="M24 22v19" {...stroke} />
       </svg>
     );
   }
@@ -11165,53 +8984,21 @@ function DeploymentIcon({
         className="h-9 w-9"
         aria-hidden="true"
       >
-        <rect
-          x="10"
-          y="8"
-          width="28"
-          height="12"
-          rx="3"
-          {...stroke}
-        />
+        <rect x="10" y="8" width="28" height="12" rx="3" {...stroke} />
 
-        <rect
-          x="10"
-          y="28"
-          width="28"
-          height="12"
-          rx="3"
-          {...stroke}
-        />
+        <rect x="10" y="28" width="28" height="12" rx="3" {...stroke} />
 
-        <circle
-          cx="17"
-          cy="14"
-          r="2"
-          fill={theme.color}
-        />
+        <circle cx="17" cy="14" r="2" fill={theme.color} />
 
-        <circle
-          cx="17"
-          cy="34"
-          r="2"
-          fill={theme.color}
-        />
+        <circle cx="17" cy="34" r="2" fill={theme.color} />
 
-        <path
-          d="M24 14h8M24 34h8"
-          {...stroke}
-        />
+        <path d="M24 14h8M24 34h8" {...stroke} />
       </svg>
     );
   }
 
   return (
-    <svg
-      viewBox="0 0 48 48"
-      fill="none"
-      className="h-9 w-9"
-      aria-hidden="true"
-    >
+    <svg viewBox="0 0 48 48" fill="none" className="h-9 w-9" aria-hidden="true">
       <path
         d="M24 5 39 11v11c0 9-5.5 16-15 21-9.5-5-15-12-15-21V11L24 5Z"
         {...stroke}
@@ -11227,20 +9014,13 @@ function DeploymentSignalCap({
   index: number;
   reducedMotion: boolean;
 }) {
-  const rawId =
-    useId();
+  const rawId = useId();
 
-  const clean =
-    rawId.replace(
-      /:/g,
-      "",
-    );
+  const clean = rawId.replace(/:/g, "");
 
-  const pathId =
-    `deployment-cap-${index}-${clean}`;
+  const pathId = `deployment-cap-${index}-${clean}`;
 
-  const theme =
-    DEPLOYMENT_THEMES[index];
+  const theme = DEPLOYMENT_THEMES[index];
 
   const path =
     index === 1
@@ -11314,46 +9094,30 @@ function DeploymentSignalCap({
 
         {!reducedMotion && (
           <>
-            <circle
-              r="5.5"
-              fill={theme.line}
-              opacity="0.14"
-            >
+            <circle r="5.5" fill={theme.line} opacity="0.14">
               <animateMotion
                 dur={`${12.5 + index * 0.9}s`}
                 repeatCount="indefinite"
               >
-                <mpath
-                  href={`#${pathId}`}
-                />
+                <mpath href={`#${pathId}`} />
               </animateMotion>
             </circle>
 
-            <circle
-              r="2.6"
-              fill={theme.line}
-            >
+            <circle r="2.6" fill={theme.line}>
               <animateMotion
                 dur={`${12.5 + index * 0.9}s`}
                 repeatCount="indefinite"
               >
-                <mpath
-                  href={`#${pathId}`}
-                />
+                <mpath href={`#${pathId}`} />
               </animateMotion>
             </circle>
 
-            <circle
-              r="0.85"
-              fill="#FFFFFF"
-            >
+            <circle r="0.85" fill="#FFFFFF">
               <animateMotion
                 dur={`${12.5 + index * 0.9}s`}
                 repeatCount="indefinite"
               >
-                <mpath
-                  href={`#${pathId}`}
-                />
+                <mpath href={`#${pathId}`} />
               </animateMotion>
             </circle>
           </>
@@ -11361,35 +9125,15 @@ function DeploymentSignalCap({
 
         {index === 1 ? (
           <>
-            <circle
-              cx="84"
-              cy="52"
-              r="4.5"
-              fill={theme.line}
-            />
+            <circle cx="84" cy="52" r="4.5" fill={theme.line} />
 
-            <circle
-              cx="243"
-              cy="52"
-              r="4.5"
-              fill={theme.line}
-            />
+            <circle cx="243" cy="52" r="4.5" fill={theme.line} />
           </>
         ) : (
           <>
-            <circle
-              cx="8"
-              cy="52"
-              r="4.5"
-              fill={theme.line}
-            />
+            <circle cx="8" cy="52" r="4.5" fill={theme.line} />
 
-            <circle
-              cx="319"
-              cy="52"
-              r="4.5"
-              fill={theme.line}
-            />
+            <circle cx="319" cy="52" r="4.5" fill={theme.line} />
           </>
         )}
       </svg>
@@ -11397,11 +9141,7 @@ function DeploymentSignalCap({
   );
 }
 
-function DeploymentCheck({
-  color,
-}: {
-  color: string;
-}) {
+function DeploymentCheck({ color }: { color: string }) {
   return (
     <span
       className="
@@ -11420,8 +9160,7 @@ function DeploymentCheck({
         shadow-[0_7px_18px_rgba(46,73,96,0.07),inset_0_1px_0_rgba(255,255,255,1)]
       "
       style={{
-        backgroundColor:
-          `${color}14`,
+        backgroundColor: `${color}14`,
       }}
     >
       <svg
@@ -11451,8 +9190,7 @@ function DeploymentCard({
   index: number;
   reducedMotion: boolean;
 }) {
-  const theme =
-    DEPLOYMENT_THEMES[index];
+  const theme = DEPLOYMENT_THEMES[index];
 
   return (
     <div
@@ -11468,12 +9206,7 @@ function DeploymentCard({
         will-change-transform
       "
     >
-      <DeploymentSignalCap
-        index={index}
-        reducedMotion={
-          reducedMotion
-        }
-      />
+      <DeploymentSignalCap index={index} reducedMotion={reducedMotion} />
 
       <article
         className="
@@ -11518,8 +9251,7 @@ function DeploymentCard({
           lg:px-7
         "
         style={{
-          borderColor:
-            theme.border,
+          borderColor: theme.border,
 
           boxShadow: `0 28px 80px ${theme.glow}, inset 0 1px 0 rgba(255,255,255,1)`,
         }}
@@ -11581,14 +9313,10 @@ function DeploymentCard({
             sm:w-[74px]
           "
           style={{
-            backgroundColor:
-              theme.soft,
+            backgroundColor: theme.soft,
           }}
         >
-          <DeploymentIcon
-            index={index}
-            theme={theme}
-          />
+          <DeploymentIcon index={index} theme={theme} />
         </div>
 
         <h3
@@ -11625,19 +9353,10 @@ function DeploymentCard({
             sm:space-y-3.5
           "
         >
-          {card.points
-            .slice(
-              0,
-              4,
-            )
-            .map(
-              (
-                point,
-                pointIndex,
-              ) => (
-                <li
-                  key={`${point}-${pointIndex}`}
-                  className="
+          {card.points.slice(0, 4).map((point, pointIndex) => (
+            <li
+              key={`${point}-${pointIndex}`}
+              className="
                     deployment-point
 
                     flex
@@ -11645,15 +9364,11 @@ function DeploymentCard({
                     items-start
                     gap-3
                   "
-                >
-                  <DeploymentCheck
-                    color={
-                      theme.color
-                    }
-                  />
+            >
+              <DeploymentCheck color={theme.color} />
 
-                  <span
-                    className="
+              <span
+                className="
                       min-w-0
                       pt-0.5
 
@@ -11666,12 +9381,11 @@ function DeploymentCard({
 
                       lg:text-[14px]
                     "
-                  >
-                    {point}
-                  </span>
-                </li>
-              ),
-            )}
+              >
+                {point}
+              </span>
+            </li>
+          ))}
         </ul>
 
         <span
@@ -11688,11 +9402,9 @@ function DeploymentCard({
             rounded-t-full
           "
           style={{
-            backgroundColor:
-              theme.line,
+            backgroundColor: theme.line,
 
-            boxShadow:
-              `0 -4px 18px ${theme.glow}`,
+            boxShadow: `0 -4px 18px ${theme.glow}`,
           }}
         />
       </article>
@@ -11700,25 +9412,14 @@ function DeploymentCard({
   );
 }
 
-function DeploymentBackground({
-  reducedMotion,
-}: {
-  reducedMotion: boolean;
-}) {
-  const rawId =
-    useId();
+function DeploymentBackground({ reducedMotion }: { reducedMotion: boolean }) {
+  const rawId = useId();
 
-  const clean =
-    rawId.replace(
-      /:/g,
-      "",
-    );
+  const clean = rawId.replace(/:/g, "");
 
-  const leftPathId =
-    `deployment-bg-left-${clean}`;
+  const leftPathId = `deployment-bg-left-${clean}`;
 
-  const rightPathId =
-    `deployment-bg-right-${clean}`;
+  const rightPathId = `deployment-bg-right-${clean}`;
 
   return (
     <div
@@ -11830,14 +9531,10 @@ function DeploymentBackground({
       >
         {Array.from({
           length: 9,
-        }).map(
-          (
-            _,
-            index,
-          ) => (
-            <span
-              key={index}
-              className="
+        }).map((_, index) => (
+          <span
+            key={index}
+            className="
                 h-[4px]
                 w-[4px]
 
@@ -11845,9 +9542,8 @@ function DeploymentBackground({
 
                 bg-[#77B6F8]
               "
-            />
-          ),
-        )}
+          />
+        ))}
       </div>
 
       <div
@@ -11865,14 +9561,10 @@ function DeploymentBackground({
       >
         {Array.from({
           length: 9,
-        }).map(
-          (
-            _,
-            index,
-          ) => (
-            <span
-              key={index}
-              className="
+        }).map((_, index) => (
+          <span
+            key={index}
+            className="
                 h-[4px]
                 w-[4px]
 
@@ -11880,9 +9572,8 @@ function DeploymentBackground({
 
                 bg-[#7DBBF8]
               "
-            />
-          ),
-        )}
+          />
+        ))}
       </div>
 
       <svg
@@ -11925,34 +9616,15 @@ function DeploymentBackground({
 
         {!reducedMotion && (
           <>
-            <circle
-              r="3.8"
-              fill="#1685EA"
-              opacity="0.64"
-            >
-              <animateMotion
-                dur="14s"
-                repeatCount="indefinite"
-              >
-                <mpath
-                  href={`#${leftPathId}`}
-                />
+            <circle r="3.8" fill="#1685EA" opacity="0.64">
+              <animateMotion dur="14s" repeatCount="indefinite">
+                <mpath href={`#${leftPathId}`} />
               </animateMotion>
             </circle>
 
-            <circle
-              r="3.8"
-              fill="#7A35F2"
-              opacity="0.62"
-            >
-              <animateMotion
-                dur="15.5s"
-                begin="-5s"
-                repeatCount="indefinite"
-              >
-                <mpath
-                  href={`#${rightPathId}`}
-                />
+            <circle r="3.8" fill="#7A35F2" opacity="0.62">
+              <animateMotion dur="15.5s" begin="-5s" repeatCount="indefinite">
+                <mpath href={`#${rightPathId}`} />
               </animateMotion>
             </circle>
           </>
@@ -11967,377 +9639,262 @@ function DeploymentSection({
 }: {
   deployments: DeploymentCardItem[];
 }) {
-  const {
-    t,
-    i18n,
-  } = useTranslation(
-    "home",
-  );
+  const { t, i18n } = useTranslation("home");
 
-  const sectionRef =
-    useRef<HTMLElement>(
-      null,
-    );
+  const sectionRef = useRef<HTMLElement>(null);
 
-  const reducedMotion =
-    useReducedMotion() ??
-    false;
+  const reducedMotion = useReducedMotion() ?? false;
 
-  const arabic =
-    i18n.language
-      .toLowerCase()
-      .startsWith("ar");
+  const arabic = i18n.language.toLowerCase().startsWith("ar");
 
-  const rtl =
-    i18n.dir() ===
-    "rtl";
+  const rtl = i18n.dir() === "rtl";
 
-  const visibleCards =
-    deployments.slice(
-      0,
-      3,
-    );
+  const visibleCards = deployments.slice(0, 3);
 
   useEffect(() => {
-    if (
-      reducedMotion ||
-      !sectionRef.current
-    ) {
+    if (reducedMotion || !sectionRef.current) {
       return;
     }
 
-    gsap.registerPlugin(
-      ScrollTrigger,
-    );
+    gsap.registerPlugin(ScrollTrigger);
 
-    const ctx =
-      gsap.context(
-        () => {
-          const mm =
-            gsap.matchMedia();
+    const ctx = gsap.context(() => {
+      const mm = gsap.matchMedia();
 
-          const headerTimeline =
-            gsap.timeline({
-              scrollTrigger: {
-                trigger:
-                  sectionRef.current,
+      const headerTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
 
-                start:
-                  "top 90%",
+          start: "top 90%",
 
-                end:
-                  "top 52%",
+          end: "top 52%",
 
-                scrub: 1.55,
+          scrub: 1.55,
 
-                invalidateOnRefresh:
-                  true,
-              },
-            });
-
-          headerTimeline
-            .fromTo(
-              ".deployment-eyebrow",
-              {
-                opacity: 0,
-                y: 12,
-              },
-              {
-                opacity: 1,
-                y: 0,
-                duration: 0.65,
-                ease:
-                  "power1.out",
-              },
-            )
-
-            .fromTo(
-              ".deployment-heading",
-              {
-                opacity: 0,
-                y: 20,
-                scale: 0.996,
-              },
-              {
-                opacity: 1,
-                y: 0,
-                scale: 1,
-                duration: 0.82,
-                ease:
-                  "power1.inOut",
-              },
-              "-=0.25",
-            )
-
-            .fromTo(
-              ".deployment-description",
-              {
-                opacity: 0,
-                y: 12,
-              },
-              {
-                opacity: 1,
-                y: 0,
-                duration: 0.68,
-                ease:
-                  "power1.out",
-              },
-              "-=0.34",
-            );
-
-          mm.add(
-            "(min-width: 1024px)",
-            () => {
-              const cardWraps =
-                gsap.utils.toArray<HTMLElement>(
-                  ".deployment-card-wrap",
-                );
-
-              const caps =
-                gsap.utils.toArray<HTMLElement>(
-                  ".deployment-signal-cap",
-                );
-
-              gsap.set(
-                cardWraps,
-                {
-                  opacity: 0,
-                  y: 24,
-                  scale: 0.994,
-                  force3D: true,
-                  transformOrigin:
-                    "50% 50%",
-                },
-              );
-
-              gsap.set(
-                caps,
-                {
-                  opacity: 0,
-                  scaleY: 0.96,
-                  transformOrigin:
-                    "50% 100%",
-                },
-              );
-
-              const timeline =
-                gsap.timeline({
-                  scrollTrigger: {
-                    trigger:
-                      ".deployment-cards-grid",
-
-                    start:
-                      "top 88%",
-
-                    end:
-                      "top 30%",
-
-                    scrub: 1.75,
-
-                    invalidateOnRefresh:
-                      true,
-                  },
-                });
-
-              cardWraps.forEach(
-                (
-                  card,
-                  index,
-                ) => {
-                  const cardPoints =
-                    gsap.utils.toArray<HTMLElement>(
-                      card.querySelectorAll(
-                        ".deployment-point",
-                      ),
-                    );
-
-                  gsap.set(
-                    cardPoints,
-                    {
-                      opacity: 0,
-                      x:
-                        rtl
-                          ? 8
-                          : -8,
-                    },
-                  );
-
-                  timeline.to(
-                    card,
-                    {
-                      opacity: 1,
-                      y: 0,
-                      scale: 1,
-                      duration: 0.82,
-                      ease:
-                        "power1.inOut",
-                      force3D: true,
-                    },
-                    index === 0
-                      ? "+=0.02"
-                      : "+=0.07",
-                  );
-
-                  if (
-                    caps[index]
-                  ) {
-                    timeline.to(
-                      caps[index],
-                      {
-                        opacity: 1,
-                        scaleY: 1,
-                        duration: 0.34,
-                        ease:
-                          "power1.out",
-                      },
-                      "-=0.48",
-                    );
-                  }
-
-                  timeline.to(
-                    cardPoints,
-                    {
-                      opacity: 1,
-                      x: 0,
-                      duration: 0.34,
-                      stagger: 0.045,
-                      ease:
-                        "power1.out",
-                    },
-                    "-=0.48",
-                  );
-                },
-              );
-            },
-          );
-
-          mm.add(
-            "(max-width: 1023px)",
-            () => {
-              const cardWraps =
-                gsap.utils.toArray<HTMLElement>(
-                  ".deployment-card-wrap",
-                );
-
-              cardWraps.forEach(
-                (
-                  card,
-                ) => {
-                  const cap =
-                    card.querySelector<HTMLElement>(
-                      ".deployment-signal-cap",
-                    );
-
-                  const cardPoints =
-                    gsap.utils.toArray<HTMLElement>(
-                      card.querySelectorAll(
-                        ".deployment-point",
-                      ),
-                    );
-
-                  gsap.set(
-                    cardPoints,
-                    {
-                      opacity: 0,
-                      x:
-                        rtl
-                          ? 8
-                          : -8,
-                    },
-                  );
-
-                  const itemTimeline =
-                    gsap.timeline({
-                      scrollTrigger: {
-                        trigger:
-                          card,
-
-                        start:
-                          "top 90%",
-
-                        toggleActions:
-                          "play none none reverse",
-                      },
-                    });
-
-                  itemTimeline
-                    .fromTo(
-                      card,
-                      {
-                        opacity: 0,
-                        y: 20,
-                        scale: 0.995,
-                        force3D: true,
-                      },
-                      {
-                        opacity: 1,
-                        y: 0,
-                        scale: 1,
-                        duration: 0.72,
-                        ease:
-                          "power1.inOut",
-                        force3D: true,
-                      },
-                    );
-
-                  if (
-                    cap
-                  ) {
-                    itemTimeline.fromTo(
-                      cap,
-                      {
-                        opacity: 0,
-                      },
-                      {
-                        opacity: 1,
-                        duration: 0.35,
-                        ease:
-                          "power1.out",
-                      },
-                      "-=0.45",
-                    );
-                  }
-
-                  itemTimeline.to(
-                    cardPoints,
-                    {
-                      opacity: 1,
-                      x: 0,
-                      duration: 0.3,
-                      stagger: 0.04,
-                      ease:
-                        "power1.out",
-                    },
-                    "-=0.36",
-                  );
-                },
-              );
-            },
-          );
-
-          return () => {
-            mm.revert();
-          };
+          invalidateOnRefresh: true,
         },
-        sectionRef,
-      );
+      });
+
+      headerTimeline
+        .fromTo(
+          ".deployment-eyebrow",
+          {
+            opacity: 0,
+            y: 12,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.65,
+            ease: "power1.out",
+          },
+        )
+
+        .fromTo(
+          ".deployment-heading",
+          {
+            opacity: 0,
+            y: 20,
+            scale: 0.996,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.82,
+            ease: "power1.inOut",
+          },
+          "-=0.25",
+        )
+
+        .fromTo(
+          ".deployment-description",
+          {
+            opacity: 0,
+            y: 12,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.68,
+            ease: "power1.out",
+          },
+          "-=0.34",
+        );
+
+      mm.add("(min-width: 1024px)", () => {
+        const cardWraps = gsap.utils.toArray<HTMLElement>(
+          ".deployment-card-wrap",
+        );
+
+        const caps = gsap.utils.toArray<HTMLElement>(".deployment-signal-cap");
+
+        gsap.set(cardWraps, {
+          opacity: 0,
+          y: 24,
+          scale: 0.994,
+          force3D: true,
+          transformOrigin: "50% 50%",
+        });
+
+        gsap.set(caps, {
+          opacity: 0,
+          scaleY: 0.96,
+          transformOrigin: "50% 100%",
+        });
+
+        const timeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".deployment-cards-grid",
+
+            start: "top 88%",
+
+            end: "top 30%",
+
+            scrub: 1.75,
+
+            invalidateOnRefresh: true,
+          },
+        });
+
+        cardWraps.forEach((card, index) => {
+          const cardPoints = gsap.utils.toArray<HTMLElement>(
+            card.querySelectorAll(".deployment-point"),
+          );
+
+          gsap.set(cardPoints, {
+            opacity: 0,
+            x: rtl ? 8 : -8,
+          });
+
+          timeline.to(
+            card,
+            {
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              duration: 0.82,
+              ease: "power1.inOut",
+              force3D: true,
+            },
+            index === 0 ? "+=0.02" : "+=0.07",
+          );
+
+          if (caps[index]) {
+            timeline.to(
+              caps[index],
+              {
+                opacity: 1,
+                scaleY: 1,
+                duration: 0.34,
+                ease: "power1.out",
+              },
+              "-=0.48",
+            );
+          }
+
+          timeline.to(
+            cardPoints,
+            {
+              opacity: 1,
+              x: 0,
+              duration: 0.34,
+              stagger: 0.045,
+              ease: "power1.out",
+            },
+            "-=0.48",
+          );
+        });
+      });
+
+      mm.add("(max-width: 1023px)", () => {
+        const cardWraps = gsap.utils.toArray<HTMLElement>(
+          ".deployment-card-wrap",
+        );
+
+        cardWraps.forEach((card) => {
+          const cap = card.querySelector<HTMLElement>(".deployment-signal-cap");
+
+          const cardPoints = gsap.utils.toArray<HTMLElement>(
+            card.querySelectorAll(".deployment-point"),
+          );
+
+          gsap.set(cardPoints, {
+            opacity: 0,
+            x: rtl ? 8 : -8,
+          });
+
+          const itemTimeline = gsap.timeline({
+            scrollTrigger: {
+              trigger: card,
+
+              start: "top 90%",
+
+              toggleActions: "play none none reverse",
+            },
+          });
+
+          itemTimeline.fromTo(
+            card,
+            {
+              opacity: 0,
+              y: 20,
+              scale: 0.995,
+              force3D: true,
+            },
+            {
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              duration: 0.72,
+              ease: "power1.inOut",
+              force3D: true,
+            },
+          );
+
+          if (cap) {
+            itemTimeline.fromTo(
+              cap,
+              {
+                opacity: 0,
+              },
+              {
+                opacity: 1,
+                duration: 0.35,
+                ease: "power1.out",
+              },
+              "-=0.45",
+            );
+          }
+
+          itemTimeline.to(
+            cardPoints,
+            {
+              opacity: 1,
+              x: 0,
+              duration: 0.3,
+              stagger: 0.04,
+              ease: "power1.out",
+            },
+            "-=0.36",
+          );
+        });
+      });
+
+      return () => {
+        mm.revert();
+      };
+    }, sectionRef);
 
     return () => {
       ctx.revert();
     };
-  }, [
-    reducedMotion,
-    rtl,
-  ]);
+  }, [reducedMotion, rtl]);
 
   return (
     <section
       ref={sectionRef}
-      dir={
-        rtl
-          ? "rtl"
-          : "ltr"
-      }
+      dir={rtl ? "rtl" : "ltr"}
       className="
         relative
         isolate
@@ -12354,11 +9911,7 @@ function DeploymentSection({
         lg:px-8
       "
     >
-      <DeploymentBackground
-        reducedMotion={
-          reducedMotion
-        }
-      />
+      <DeploymentBackground reducedMotion={reducedMotion} />
 
       <div
         className="
@@ -12410,11 +9963,7 @@ function DeploymentSection({
               "
             />
 
-            <span>
-              {arabic
-                ? "انشر بطريقتك"
-                : "DEPLOY YOUR WAY"}
-            </span>
+            <span>{arabic ? "انشر بطريقتك" : "DEPLOY YOUR WAY"}</span>
 
             <span
               aria-hidden="true"
@@ -12455,11 +10004,7 @@ function DeploymentSection({
               xl:text-[62px]
             "
           >
-            <DeploymentHeadline
-              text={t(
-                "deployment.headline",
-              )}
-            />
+            <DeploymentHeadline text={t("deployment.headline")} />
           </h2>
 
           <p
@@ -12481,9 +10026,7 @@ function DeploymentSection({
               lg:text-[16px]
             "
           >
-            {t(
-              "deployment.body",
-            )}
+            {t("deployment.body")}
           </p>
         </div>
 
@@ -12511,27 +10054,19 @@ function DeploymentSection({
             xl:gap-8
           "
         >
-          {visibleCards.map(
-            (
-              card,
-              index,
-            ) => (
-              <DeploymentCard
-                key={`${card.title}-${index}`}
-                card={card}
-                index={index}
-                reducedMotion={
-                  reducedMotion
-                }
-              />
-            ),
-          )}
+          {visibleCards.map((card, index) => (
+            <DeploymentCard
+              key={`${card.title}-${index}`}
+              card={card}
+              index={index}
+              reducedMotion={reducedMotion}
+            />
+          ))}
         </div>
       </div>
     </section>
   );
 }
-
 
 /* =============================================================================
    ARCHITECTURE SECTION
@@ -12601,13 +10136,8 @@ function getArchitectureLayerDetails(
           "أدوار وصلاحيات دقيقة",
           "سياق وصول ينتقل مع كل طلب",
         ],
-        boundary:
-          "لا يتم تمرير أي مستند غير مصرح به إلى الاسترجاع أو النموذج.",
-        stack: [
-          "Identity",
-          "SSO",
-          "RBAC",
-        ],
+        boundary: "لا يتم تمرير أي مستند غير مصرح به إلى الاسترجاع أو النموذج.",
+        stack: ["Identity", "SSO", "RBAC"],
       },
       {
         title: "التطبيق والسياسات",
@@ -12621,11 +10151,7 @@ function getArchitectureLayerDetails(
         ],
         boundary:
           "السياسة ليست طبقة لاحقة؛ يتم تطبيقها أثناء كل خطوة في سير العمل.",
-        stack: [
-          "Vue 3",
-          "Inertia",
-          "Laravel",
-        ],
+        stack: ["Vue 3", "Inertia", "Laravel"],
       },
       {
         title: "البيانات: PostgreSQL + pgvector",
@@ -12637,13 +10163,8 @@ function getArchitectureLayerDetails(
           "متجهات للاسترجاع الدلالي",
           "روابط المصدر والاستشهادات محفوظة",
         ],
-        boundary:
-          "تظل البيانات والمتجهات وعلاقات المصدر تحت سيطرتك وفي بيئتك.",
-        stack: [
-          "PostgreSQL",
-          "pgvector",
-          "Metadata",
-        ],
+        boundary: "تظل البيانات والمتجهات وعلاقات المصدر تحت سيطرتك وفي بيئتك.",
+        stack: ["PostgreSQL", "pgvector", "Metadata"],
       },
       {
         title: "النموذج واستدلال الذكاء الاصطناعي",
@@ -12657,11 +10178,7 @@ function getArchitectureLayerDetails(
         ],
         boundary:
           "لا يحتاج المسار إلى إرسال المحتوى إلى خدمة ذكاء اصطناعي عامة متعددة المستأجرين.",
-        stack: [
-          "Private AI",
-          "Inference",
-          "Citations",
-        ],
+        stack: ["Private AI", "Inference", "Citations"],
       },
       {
         title: "الأمن والمراقبة",
@@ -12675,11 +10192,7 @@ function getArchitectureLayerDetails(
         ],
         boundary:
           "يمكن ربط كل إجابة وسلوك بالمستخدم والمصدر والسياسة والإجراء.",
-        stack: [
-          "Audit",
-          "Observability",
-          "Keys",
-        ],
+        stack: ["Audit", "Observability", "Keys"],
       },
     ];
   }
@@ -12697,11 +10210,7 @@ function getArchitectureLayerDetails(
       ],
       boundary:
         "Unauthorized documents never enter retrieval or model context.",
-      stack: [
-        "Identity",
-        "SSO",
-        "RBAC",
-      ],
+      stack: ["Identity", "SSO", "RBAC"],
     },
     {
       title: "Application and policy",
@@ -12715,11 +10224,7 @@ function getArchitectureLayerDetails(
       ],
       boundary:
         "Policy is enforced during the workflow, not added after the answer.",
-      stack: [
-        "Vue 3",
-        "Inertia",
-        "Laravel",
-      ],
+      stack: ["Vue 3", "Inertia", "Laravel"],
     },
     {
       title: "Data: PostgreSQL + pgvector",
@@ -12733,11 +10238,7 @@ function getArchitectureLayerDetails(
       ],
       boundary:
         "Records, vectors, and source relationships remain under your control.",
-      stack: [
-        "PostgreSQL",
-        "pgvector",
-        "Metadata",
-      ],
+      stack: ["PostgreSQL", "pgvector", "Metadata"],
     },
     {
       title: "Model and AI inference",
@@ -12751,11 +10252,7 @@ function getArchitectureLayerDetails(
       ],
       boundary:
         "The workflow does not require sending content to a public multi-tenant AI service.",
-      stack: [
-        "Private AI",
-        "Inference",
-        "Citations",
-      ],
+      stack: ["Private AI", "Inference", "Citations"],
     },
     {
       title: "Security and observability",
@@ -12769,65 +10266,33 @@ function getArchitectureLayerDetails(
       ],
       boundary:
         "Every answer and action can be traced to user, source, policy, and decision.",
-      stack: [
-        "Audit",
-        "Observability",
-        "Keys",
-      ],
+      stack: ["Audit", "Observability", "Keys"],
     },
   ];
 }
 
+function ArchitectureHeadline({ text }: { text: string }) {
+  const phrases = ["you already govern", "already govern"];
 
-function ArchitectureHeadline({
-  text,
-}: {
-  text: string;
-}) {
-  const phrases = [
-    "you already govern",
-    "already govern",
-  ];
+  const lower = text.toLowerCase();
 
-  const lower =
-    text.toLowerCase();
-
-  const phrase =
-    phrases.find(
-      (candidate) =>
-        lower.includes(
-          candidate,
-        ),
-    );
+  const phrase = phrases.find((candidate) => lower.includes(candidate));
 
   if (!phrase) {
     return <>{text}</>;
   }
 
-  const index =
-    lower.indexOf(
-      phrase,
-    );
+  const index = lower.indexOf(phrase);
 
   return (
     <>
-      {text.slice(
-        0,
-        index,
-      )}
+      {text.slice(0, index)}
 
       <span className="text-[#176FF2]">
-        {text.slice(
-          index,
-          index +
-            phrase.length,
-        )}
+        {text.slice(index, index + phrase.length)}
       </span>
 
-      {text.slice(
-        index +
-          phrase.length,
-      )}
+      {text.slice(index + phrase.length)}
     </>
   );
 }
@@ -12842,10 +10307,8 @@ function ArchitectureStageIcon({
   const stroke = {
     stroke: theme.color,
     strokeWidth: 2.35,
-    strokeLinecap:
-      "round" as const,
-    strokeLinejoin:
-      "round" as const,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
   };
 
   if (index === 0) {
@@ -12856,29 +10319,13 @@ function ArchitectureStageIcon({
         className="h-10 w-10"
         aria-hidden="true"
       >
-        <circle
-          cx="18"
-          cy="17"
-          r="6"
-          {...stroke}
-        />
+        <circle cx="18" cy="17" r="6" {...stroke} />
 
-        <circle
-          cx="30"
-          cy="18"
-          r="5"
-          {...stroke}
-        />
+        <circle cx="30" cy="18" r="5" {...stroke} />
 
-        <path
-          d="M8 39v-3c0-7 4.6-12 10-12s10 5 10 12v3"
-          {...stroke}
-        />
+        <path d="M8 39v-3c0-7 4.6-12 10-12s10 5 10 12v3" {...stroke} />
 
-        <path
-          d="M27 26c6 .5 11 4.5 11 11v2"
-          {...stroke}
-        />
+        <path d="M27 26c6 .5 11 4.5 11 11v2" {...stroke} />
       </svg>
     );
   }
@@ -12891,26 +10338,11 @@ function ArchitectureStageIcon({
         className="h-10 w-10"
         aria-hidden="true"
       >
-        <rect
-          x="12"
-          y="8"
-          width="24"
-          height="32"
-          rx="3"
-          {...stroke}
-        />
+        <rect x="12" y="8" width="24" height="32" rx="3" {...stroke} />
 
-        <path
-          d="M18 14h12M18 20h12M18 26h8"
-          {...stroke}
-        />
+        <path d="M18 14h12M18 20h12M18 26h8" {...stroke} />
 
-        <circle
-          cx="29"
-          cy="34"
-          r="2"
-          fill={theme.color}
-        />
+        <circle cx="29" cy="34" r="2" fill={theme.color} />
       </svg>
     );
   }
@@ -12923,23 +10355,11 @@ function ArchitectureStageIcon({
         className="h-10 w-10"
         aria-hidden="true"
       >
-        <ellipse
-          cx="24"
-          cy="12"
-          rx="12"
-          ry="5"
-          {...stroke}
-        />
+        <ellipse cx="24" cy="12" rx="12" ry="5" {...stroke} />
 
-        <path
-          d="M12 12v11c0 3 5.4 5.5 12 5.5S36 26 36 23V12"
-          {...stroke}
-        />
+        <path d="M12 12v11c0 3 5.4 5.5 12 5.5S36 26 36 23V12" {...stroke} />
 
-        <path
-          d="M12 23v11c0 3 5.4 5.5 12 5.5S36 37 36 34V23"
-          {...stroke}
-        />
+        <path d="M12 23v11c0 3 5.4 5.5 12 5.5S36 37 36 34V23" {...stroke} />
       </svg>
     );
   }
@@ -12977,31 +10397,17 @@ function ArchitectureStageIcon({
         {...stroke}
       />
 
-      <path
-        d="m18 23 4 4 8-9"
-        {...stroke}
-      />
+      <path d="m18 23 4 4 8-9" {...stroke} />
     </svg>
   );
 }
 
 function VueMark() {
   return (
-    <svg
-      viewBox="0 0 48 42"
-      className="h-8 w-9"
-      aria-label="Vue"
-      role="img"
-    >
-      <path
-        d="M3 4h10l11 18L35 4h10L24 38 3 4Z"
-        fill="#41B883"
-      />
+    <svg viewBox="0 0 48 42" className="h-8 w-9" aria-label="Vue" role="img">
+      <path d="M3 4h10l11 18L35 4h10L24 38 3 4Z" fill="#41B883" />
 
-      <path
-        d="M12 4h8l4 7 4-7h8L24 24 12 4Z"
-        fill="#34495E"
-      />
+      <path d="M12 4h8l4 7 4-7h8L24 24 12 4Z" fill="#34495E" />
     </svg>
   );
 }
@@ -13014,15 +10420,9 @@ function InertiaMark() {
       aria-label="Inertia"
       role="img"
     >
-      <path
-        d="m7 7 12 14L7 35h8l12-14L15 7H7Z"
-        fill="#7A35F2"
-      />
+      <path d="m7 7 12 14L7 35h8l12-14L15 7H7Z" fill="#7A35F2" />
 
-      <path
-        d="m21 7 12 14-12 14h8l12-14L29 7h-8Z"
-        fill="#9A4BFF"
-      />
+      <path d="m21 7 12 14-12 14h8l12-14L29 7h-8Z" fill="#9A4BFF" />
     </svg>
   );
 }
@@ -13083,12 +10483,7 @@ function PostgresMark() {
         strokeWidth="1.2"
       />
 
-      <circle
-        cx="23"
-        cy="17"
-        r="1.5"
-        fill="#FFFFFF"
-      />
+      <circle cx="23" cy="17" r="1.5" fill="#FFFFFF" />
 
       <path
         d="M19 30c3 1 7 1 11-1"
@@ -13124,27 +10519,15 @@ function PgVectorMark() {
         [22, 39],
         [10, 29],
         [25, 24],
-      ].map(
-        (
-          [
-            x,
-            y,
-          ],
-          index,
-        ) => (
-          <circle
-            key={index}
-            cx={x}
-            cy={y}
-            r={
-              index === 6
-                ? 4
-                : 3
-            }
-            fill="#234D91"
-          />
-        ),
-      )}
+      ].map(([x, y], index) => (
+        <circle
+          key={index}
+          cx={x}
+          cy={y}
+          r={index === 6 ? 4 : 3}
+          fill="#234D91"
+        />
+      ))}
 
       <path
         d="M12 12 25 24 25 9M25 24 39 17M25 24 36 33M25 24 22 39M25 24 10 29"
@@ -13156,11 +10539,7 @@ function PgVectorMark() {
   );
 }
 
-function ArchitectureTechMarks({
-  index,
-}: {
-  index: number;
-}) {
+function ArchitectureTechMarks({ index }: { index: number }) {
   if (index === 1) {
     return (
       <div
@@ -13236,11 +10615,7 @@ function ArchitectureSignalConnector({
 
         lg:block
 
-        ${
-          rtl
-            ? "-left-10"
-            : "-right-10"
-        }
+        ${rtl ? "-left-10" : "-right-10"}
       `}
     >
       <span
@@ -13271,11 +10646,7 @@ function ArchitectureSignalConnector({
 
           shadow-[0_0_14px_rgba(22,133,234,0.18)]
 
-          ${
-            rtl
-              ? "right-[-5px]"
-              : "left-[-5px]"
-          }
+          ${rtl ? "right-[-5px]" : "left-[-5px]"}
         `}
       />
 
@@ -13294,11 +10665,7 @@ function ArchitectureSignalConnector({
 
           shadow-[0_0_14px_rgba(22,133,234,0.18)]
 
-          ${
-            rtl
-              ? "left-[-5px]"
-              : "right-[-5px]"
-          }
+          ${rtl ? "left-[-5px]" : "right-[-5px]"}
         `}
       />
 
@@ -13319,34 +10686,16 @@ function ArchitectureSignalConnector({
             shadow-[0_0_10px_rgba(22,133,234,0.62)]
           "
           initial={{
-            left:
-              rtl
-                ? "82%"
-                : "5%",
+            left: rtl ? "82%" : "5%",
           }}
           animate={{
-            left:
-              rtl
-                ? [
-                    "82%",
-                    "5%",
-                  ]
-                : [
-                    "5%",
-                    "82%",
-                  ],
+            left: rtl ? ["82%", "5%"] : ["5%", "82%"],
           }}
           transition={{
-            duration:
-              4.8 +
-              index *
-                0.35,
-            repeat:
-              Infinity,
+            duration: 4.8 + index * 0.35,
+            repeat: Infinity,
             ease: "linear",
-            delay:
-              index *
-              0.55,
+            delay: index * 0.55,
           }}
         />
       )}
@@ -13438,18 +10787,11 @@ function ArchitectureMobileConnector({
             top: "8%",
           }}
           animate={{
-            top: [
-              "8%",
-              "82%",
-            ],
+            top: ["8%", "82%"],
           }}
           transition={{
-            duration:
-              4.8 +
-              index *
-                0.3,
-            repeat:
-              Infinity,
+            duration: 4.8 + index * 0.3,
+            repeat: Infinity,
             ease: "linear",
           }}
         />
@@ -13473,8 +10815,7 @@ function ArchitectureStageCard({
   active: boolean;
   onSelect: () => void;
 }) {
-  const theme =
-    ARCHITECTURE_THEMES[index];
+  const theme = ARCHITECTURE_THEMES[index];
 
   return (
     <div
@@ -13513,12 +10854,7 @@ function ArchitectureStageCard({
         }
         transition={{
           duration: 0.38,
-          ease: [
-            0.22,
-            1,
-            0.36,
-            1,
-          ],
+          ease: [0.22, 1, 0.36, 1],
         }}
         className="
           architecture-stage-card
@@ -13566,22 +10902,19 @@ function ArchitectureStageCard({
           cursor-pointer
         "
         style={{
-          borderColor:
-            active
-              ? theme.color
-              : index === 2
-                ? "#9CC0FF"
-                : "#DFEAF6",
+          borderColor: active
+            ? theme.color
+            : index === 2
+              ? "#9CC0FF"
+              : "#DFEAF6",
 
-          background:
-            active
-              ? `linear-gradient(145deg, rgba(255,255,255,.94), ${theme.soft}A8)`
-              : "rgba(255,255,255,.72)",
+          background: active
+            ? `linear-gradient(145deg, rgba(255,255,255,.94), ${theme.soft}A8)`
+            : "rgba(255,255,255,.72)",
 
-          boxShadow:
-            active
-              ? `0 24px 62px ${theme.glow}, 0 0 0 1px ${theme.color}18, inset 0 1px 0 rgba(255,255,255,1)`
-              : `0 20px 58px ${theme.glow}, inset 0 1px 0 rgba(255,255,255,1)`,
+          boxShadow: active
+            ? `0 24px 62px ${theme.glow}, 0 0 0 1px ${theme.color}18, inset 0 1px 0 rgba(255,255,255,1)`
+            : `0 20px 58px ${theme.glow}, inset 0 1px 0 rgba(255,255,255,1)`,
         }}
       >
         <div
@@ -13613,11 +10946,9 @@ function ArchitectureStageCard({
               rounded-t-full
             "
             style={{
-              backgroundColor:
-                theme.color,
+              backgroundColor: theme.color,
 
-              boxShadow:
-                `0 -5px 18px ${theme.glow}`,
+              boxShadow: `0 -5px 18px ${theme.glow}`,
             }}
           />
         )}
@@ -13642,14 +10973,10 @@ function ArchitectureStageCard({
             sm:w-[70px]
           "
           style={{
-            backgroundColor:
-              theme.soft,
+            backgroundColor: theme.soft,
           }}
         >
-          <ArchitectureStageIcon
-            index={index}
-            theme={theme}
-          />
+          <ArchitectureStageIcon index={index} theme={theme} />
         </span>
 
         <h3
@@ -13672,9 +10999,7 @@ function ArchitectureStageCard({
           {title}
         </h3>
 
-        <ArchitectureTechMarks
-          index={index}
-        />
+        <ArchitectureTechMarks index={index} />
 
         <span
           className="
@@ -13689,15 +11014,10 @@ function ArchitectureStageCard({
             tracking-[0.13em]
           "
           style={{
-            color:
-              theme.color,
+            color: theme.color,
           }}
         >
-          <span>
-            {active
-              ? "Selected"
-              : "View layer"}
-          </span>
+          <span>{active ? "Selected" : "View layer"}</span>
 
           <span
             className={`
@@ -13706,11 +11026,7 @@ function ArchitectureStageCard({
 
               group-hover:translate-x-0.5
 
-              ${
-                rtl
-                  ? "rotate-180"
-                  : ""
-              }
+              ${rtl ? "rotate-180" : ""}
             `}
           >
             →
@@ -13721,9 +11037,7 @@ function ArchitectureStageCard({
       {index < 4 && (
         <ArchitectureSignalConnector
           index={index}
-          reducedMotion={
-            reducedMotion
-          }
+          reducedMotion={reducedMotion}
           rtl={rtl}
         />
       )}
@@ -13740,8 +11054,7 @@ function ArchitectureLayerDetails({
   index: number;
   arabic: boolean;
 }) {
-  const theme =
-    ARCHITECTURE_THEMES[index];
+  const theme = ARCHITECTURE_THEMES[index];
 
   return (
     <motion.div
@@ -13758,12 +11071,7 @@ function ArchitectureLayerDetails({
       }}
       transition={{
         duration: 0.5,
-        ease: [
-          0.22,
-          1,
-          0.36,
-          1,
-        ],
+        ease: [0.22, 1, 0.36, 1],
       }}
       className="
         architecture-layer-detail
@@ -13801,8 +11109,7 @@ function ArchitectureLayerDetails({
           blur-3xl
         "
         style={{
-          backgroundColor:
-            `${theme.color}12`,
+          backgroundColor: `${theme.color}12`,
         }}
       />
 
@@ -13843,14 +11150,10 @@ function ArchitectureLayerDetails({
                 shadow-[0_9px_24px_rgba(47,78,105,0.08),inset_0_1px_0_rgba(255,255,255,1)]
               "
               style={{
-                backgroundColor:
-                  theme.soft,
+                backgroundColor: theme.soft,
               }}
             >
-              <ArchitectureStageIcon
-                index={index}
-                theme={theme}
-              />
+              <ArchitectureStageIcon index={index} theme={theme} />
             </span>
 
             <div className="min-w-0">
@@ -13862,8 +11165,7 @@ function ArchitectureLayerDetails({
                   tracking-[0.2em]
                 "
                 style={{
-                  color:
-                    theme.color,
+                  color: theme.color,
                 }}
               >
                 {detail.eyebrow}
@@ -13914,14 +11216,10 @@ function ArchitectureLayerDetails({
               sm:grid-cols-3
             "
           >
-            {detail.bullets.map(
-              (
-                bullet,
-                bulletIndex,
-              ) => (
-                <div
-                  key={`${bullet}-${bulletIndex}`}
-                  className="
+            {detail.bullets.map((bullet, bulletIndex) => (
+              <div
+                key={`${bullet}-${bulletIndex}`}
+                className="
                     flex
                     min-w-0
                     items-start
@@ -13939,9 +11237,9 @@ function ArchitectureLayerDetails({
 
                     shadow-[0_8px_22px_rgba(46,75,102,0.045),inset_0_1px_0_rgba(255,255,255,1)]
                   "
-                >
-                  <span
-                    className="
+              >
+                <span
+                  className="
                       mt-0.5
                       flex
                       h-5
@@ -13956,16 +11254,15 @@ function ArchitectureLayerDetails({
                       font-black
                       text-white
                     "
-                    style={{
-                      backgroundColor:
-                        theme.color,
-                    }}
-                  >
-                    ✓
-                  </span>
+                  style={{
+                    backgroundColor: theme.color,
+                  }}
+                >
+                  ✓
+                </span>
 
-                  <span
-                    className="
+                <span
+                  className="
                       text-[10.5px]
                       font-semibold
                       leading-[1.4]
@@ -13973,12 +11270,11 @@ function ArchitectureLayerDetails({
 
                       sm:text-[11px]
                     "
-                  >
-                    {bullet}
-                  </span>
-                </div>
-              ),
-            )}
+                >
+                  {bullet}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -14005,9 +11301,7 @@ function ArchitectureLayerDetails({
               text-[#7B8EAE]
             "
           >
-            {arabic
-              ? "حدود التحكم"
-              : "CONTROL BOUNDARY"}
+            {arabic ? "حدود التحكم" : "CONTROL BOUNDARY"}
           </p>
 
           <div
@@ -14033,11 +11327,7 @@ function ArchitectureLayerDetails({
                 text-[#176FF2]
               "
             >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                className="h-5 w-5"
-              >
+              <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5">
                 <rect
                   x="6"
                   y="10"
@@ -14079,11 +11369,10 @@ function ArchitectureLayerDetails({
               gap-2
             "
           >
-            {detail.stack.map(
-              (item) => (
-                <span
-                  key={item}
-                  className="
+            {detail.stack.map((item) => (
+              <span
+                key={item}
+                className="
                     rounded-full
 
                     border
@@ -14098,11 +11387,10 @@ function ArchitectureLayerDetails({
                     font-bold
                     text-[#4E658A]
                   "
-                >
-                  {item}
-                </span>
-              ),
-            )}
+              >
+                {item}
+              </span>
+            ))}
           </div>
         </div>
       </div>
@@ -14126,41 +11414,24 @@ function ArchitectureDetailModal({
       return;
     }
 
-    const previousOverflow =
-      document.body.style.overflow;
+    const previousOverflow = document.body.style.overflow;
 
-    const onKeyDown = (
-      event: KeyboardEvent,
-    ) => {
-      if (
-        event.key ===
-        "Escape"
-      ) {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
         onClose();
       }
     };
 
-    document.body.style.overflow =
-      "hidden";
+    document.body.style.overflow = "hidden";
 
-    window.addEventListener(
-      "keydown",
-      onKeyDown,
-    );
+    window.addEventListener("keydown", onKeyDown);
 
     return () => {
-      document.body.style.overflow =
-        previousOverflow;
+      document.body.style.overflow = previousOverflow;
 
-      window.removeEventListener(
-        "keydown",
-        onKeyDown,
-      );
+      window.removeEventListener("keydown", onKeyDown);
     };
-  }, [
-    open,
-    onClose,
-  ]);
+  }, [open, onClose]);
 
   if (!open) {
     return null;
@@ -14249,9 +11520,7 @@ function ArchitectureDetailModal({
       role="dialog"
       aria-modal="true"
       aria-label={
-        arabic
-          ? "البنية التفصيلية للمنتج"
-          : "Detailed product architecture"
+        arabic ? "البنية التفصيلية للمنتج" : "Detailed product architecture"
       }
       initial={
         reducedMotion
@@ -14267,13 +11536,8 @@ function ArchitectureDetailModal({
         duration: 0.3,
         ease: "easeOut",
       }}
-      onMouseDown={(
-        event,
-      ) => {
-        if (
-          event.target ===
-          event.currentTarget
-        ) {
+      onMouseDown={(event) => {
+        if (event.target === event.currentTarget) {
           onClose();
         }
       }}
@@ -14315,18 +11579,9 @@ function ArchitectureDetailModal({
         }}
         transition={{
           duration: 0.5,
-          ease: [
-            0.22,
-            1,
-            0.36,
-            1,
-          ],
+          ease: [0.22, 1, 0.36, 1],
         }}
-        onMouseDown={(
-          event,
-        ) =>
-          event.stopPropagation()
-        }
+        onMouseDown={(event) => event.stopPropagation()}
         className="
           relative
 
@@ -14412,9 +11667,7 @@ function ArchitectureDetailModal({
                 text-[#1685EA]
               "
             >
-              {arabic
-                ? "DOCHIVE · ARCHITECTURE"
-                : "DOCHIVE · ARCHITECTURE"}
+              {arabic ? "DOCHIVE · ARCHITECTURE" : "DOCHIVE · ARCHITECTURE"}
             </p>
 
             <h3
@@ -14458,11 +11711,7 @@ function ArchitectureDetailModal({
           <button
             type="button"
             onClick={onClose}
-            aria-label={
-              arabic
-                ? "إغلاق"
-                : "Close"
-            }
+            aria-label={arabic ? "إغلاق" : "Close"}
             className="
               flex
               h-10
@@ -14519,43 +11768,29 @@ function ArchitectureDetailModal({
           "
         >
           <div className="space-y-2">
-            {modalItems.map(
-              (
-                item,
-                index,
-              ) => (
-                <motion.article
-                  key={item.title}
-                  initial={
-                    reducedMotion
-                      ? false
-                      : {
-                          opacity: 0,
-                          y: 12,
-                          scale: 0.992,
-                        }
-                  }
-                  animate={{
-                    opacity: 1,
-                    y: 0,
-                    scale: 1,
-                  }}
-                  transition={{
-                    duration: 0.45,
-                    delay:
-                      reducedMotion
-                        ? 0
-                        : 0.08 +
-                          index *
-                            0.06,
-                    ease: [
-                      0.22,
-                      1,
-                      0.36,
-                      1,
-                    ],
-                  }}
-                  className="
+            {modalItems.map((item, index) => (
+              <motion.article
+                key={item.title}
+                initial={
+                  reducedMotion
+                    ? false
+                    : {
+                        opacity: 0,
+                        y: 12,
+                        scale: 0.992,
+                      }
+                }
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                  scale: 1,
+                }}
+                transition={{
+                  duration: 0.45,
+                  delay: reducedMotion ? 0 : 0.08 + index * 0.06,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="
                     group
 
                     relative
@@ -14585,10 +11820,10 @@ function ArchitectureDetailModal({
                     sm:px-5
                     sm:py-4.5
                   "
-                >
-                  <div
-                    aria-hidden="true"
-                    className="
+              >
+                <div
+                  aria-hidden="true"
+                  className="
                       pointer-events-none
 
                       absolute
@@ -14602,17 +11837,17 @@ function ArchitectureDetailModal({
                       via-white
                       to-transparent
                     "
-                  />
+                />
 
-                  <div
-                    className="
+                <div
+                  className="
                       flex
                       items-start
                       gap-3.5
                     "
-                  >
-                    <span
-                      className="
+                >
+                  <span
+                    className="
                         mt-0.5
 
                         flex
@@ -14632,25 +11867,18 @@ function ArchitectureDetailModal({
 
                         shadow-[0_7px_20px_rgba(42,70,94,0.07),inset_0_1px_0_rgba(255,255,255,1)]
                       "
-                      style={{
-                        color:
-                          item.color,
+                    style={{
+                      color: item.color,
 
-                        backgroundColor:
-                          item.soft,
-                      }}
-                    >
-                      {String(
-                        index + 1,
-                      ).padStart(
-                        2,
-                        "0",
-                      )}
-                    </span>
+                      backgroundColor: item.soft,
+                    }}
+                  >
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
 
-                    <div className="min-w-0">
-                      <h4
-                        className="
+                  <div className="min-w-0">
+                    <h4
+                      className="
                           text-[13.5px]
                           font-[760]
                           leading-[1.2]
@@ -14659,12 +11887,12 @@ function ArchitectureDetailModal({
 
                           sm:text-[14.5px]
                         "
-                      >
-                        {item.title}
-                      </h4>
+                    >
+                      {item.title}
+                    </h4>
 
-                      <p
-                        className="
+                    <p
+                      className="
                           mt-1.5
 
                           text-[11.5px]
@@ -14674,15 +11902,15 @@ function ArchitectureDetailModal({
 
                           sm:text-[12.5px]
                         "
-                      >
-                        {item.text}
-                      </p>
-                    </div>
+                    >
+                      {item.text}
+                    </p>
                   </div>
+                </div>
 
-                  <span
-                    aria-hidden="true"
-                    className="
+                <span
+                  aria-hidden="true"
+                  className="
                       absolute
                       bottom-0
                       left-0
@@ -14698,14 +11926,12 @@ function ArchitectureDetailModal({
 
                       group-hover:scale-x-100
                     "
-                    style={{
-                      backgroundColor:
-                        item.color,
-                    }}
-                  />
-                </motion.article>
-              ),
-            )}
+                  style={{
+                    backgroundColor: item.color,
+                  }}
+                />
+              </motion.article>
+            ))}
           </div>
         </div>
 
@@ -14744,9 +11970,7 @@ function ArchitectureDetailModal({
           >
             <span className="h-2 w-2 rounded-full bg-[#2AA845]" />
 
-            {arabic
-              ? "يعمل داخل بيئتك"
-              : "Runs inside your environment"}
+            {arabic ? "يعمل داخل بيئتك" : "Runs inside your environment"}
           </div>
 
           <button
@@ -14782,9 +12006,7 @@ function ArchitectureDetailModal({
               hover:text-[#1685EA]
             "
           >
-            {arabic
-              ? "إغلاق المخطط"
-              : "Close diagram"}
+            {arabic ? "إغلاق المخطط" : "Close diagram"}
           </button>
         </div>
       </motion.div>
@@ -14807,13 +12029,7 @@ function ArchitectureEnvironment({
   onSelect: (index: number) => void;
   details: ArchitectureLayerDetail[];
 }) {
-  const titles =
-    details.map(
-      (
-        item,
-      ) =>
-        item.title,
-    );
+  const titles = details.map((item) => item.title);
 
   return (
     <div
@@ -14947,19 +12163,12 @@ function ArchitectureEnvironment({
                   strokeLinecap="round"
                 />
 
-                <circle
-                  cx="12"
-                  cy="15"
-                  r="1.2"
-                  fill="#FFFFFF"
-                />
+                <circle cx="12" cy="15" r="1.2" fill="#FFFFFF" />
               </svg>
             </span>
 
             <span className="truncate">
-              {arabic
-                ? "يعمل داخل بيئتك"
-                : "Runs inside your environment"}
+              {arabic ? "يعمل داخل بيئتك" : "Runs inside your environment"}
             </span>
           </div>
 
@@ -14974,9 +12183,7 @@ function ArchitectureEnvironment({
               sm:text-[10px]
             "
           >
-            {arabic
-              ? "بيئتك المحكومة"
-              : "YOUR GOVERNED ENVIRONMENT"}
+            {arabic ? "بيئتك المحكومة" : "YOUR GOVERNED ENVIRONMENT"}
           </span>
         </div>
 
@@ -15000,31 +12207,17 @@ function ArchitectureEnvironment({
             xl:gap-11
           "
         >
-          {titles.map(
-            (
-              title,
-              index,
-            ) => (
-              <ArchitectureStageCard
-                key={`${title}-${index}`}
-                index={index}
-                title={title}
-                reducedMotion={
-                  reducedMotion
-                }
-                rtl={rtl}
-                active={
-                  activeIndex ===
-                  index
-                }
-                onSelect={() =>
-                  onSelect(
-                    index,
-                  )
-                }
-              />
-            ),
-          )}
+          {titles.map((title, index) => (
+            <ArchitectureStageCard
+              key={`${title}-${index}`}
+              index={index}
+              title={title}
+              reducedMotion={reducedMotion}
+              rtl={rtl}
+              active={activeIndex === index}
+              onSelect={() => onSelect(index)}
+            />
+          ))}
         </div>
 
         {/* Mobile / tablet */}
@@ -15039,45 +12232,25 @@ function ArchitectureEnvironment({
             lg:hidden
           "
         >
-          {titles.map(
-            (
-              title,
-              index,
-            ) => (
-              <div
-                key={`mobile-${title}-${index}`}
-              >
-                <ArchitectureStageCard
-                  index={index}
-                  title={title}
-                  reducedMotion={
-                    reducedMotion
-                  }
-                  rtl={rtl}
-                  active={
-                    activeIndex ===
-                    index
-                  }
-                  onSelect={() =>
-                    onSelect(
-                      index,
-                    )
-                  }
-                />
+          {titles.map((title, index) => (
+            <div key={`mobile-${title}-${index}`}>
+              <ArchitectureStageCard
+                index={index}
+                title={title}
+                reducedMotion={reducedMotion}
+                rtl={rtl}
+                active={activeIndex === index}
+                onSelect={() => onSelect(index)}
+              />
 
-                {index <
-                  titles.length -
-                    1 && (
-                  <ArchitectureMobileConnector
-                    index={index}
-                    reducedMotion={
-                      reducedMotion
-                    }
-                  />
-                )}
-              </div>
-            ),
-          )}
+              {index < titles.length - 1 && (
+                <ArchitectureMobileConnector
+                  index={index}
+                  reducedMotion={reducedMotion}
+                />
+              )}
+            </div>
+          ))}
         </div>
 
         {/* Clicked card information */}
@@ -15093,17 +12266,9 @@ function ArchitectureEnvironment({
           "
         >
           <ArchitectureLayerDetails
-            detail={
-              details[
-                activeIndex
-              ]
-            }
-            index={
-              activeIndex
-            }
-            arabic={
-              arabic
-            }
+            detail={details[activeIndex]}
+            index={activeIndex}
+            arabic={arabic}
           />
         </div>
       </div>
@@ -15111,25 +12276,14 @@ function ArchitectureEnvironment({
   );
 }
 
-function ArchitectureBackground({
-  reducedMotion,
-}: {
-  reducedMotion: boolean;
-}) {
-  const rawId =
-    useId();
+function ArchitectureBackground({ reducedMotion }: { reducedMotion: boolean }) {
+  const rawId = useId();
 
-  const clean =
-    rawId.replace(
-      /:/g,
-      "",
-    );
+  const clean = rawId.replace(/:/g, "");
 
-  const leftPathId =
-    `architecture-bg-left-${clean}`;
+  const leftPathId = `architecture-bg-left-${clean}`;
 
-  const rightPathId =
-    `architecture-bg-right-${clean}`;
+  const rightPathId = `architecture-bg-right-${clean}`;
 
   return (
     <div
@@ -15218,22 +12372,17 @@ function ArchitectureBackground({
       >
         {Array.from({
           length: 16,
-        }).map(
-          (
-            _,
-            index,
-          ) => (
-            <span
-              key={index}
-              className="
+        }).map((_, index) => (
+          <span
+            key={index}
+            className="
                 h-[4px]
                 w-[4px]
                 rounded-full
                 bg-[#76B5F8]
               "
-            />
-          ),
-        )}
+          />
+        ))}
       </div>
 
       <div
@@ -15251,22 +12400,17 @@ function ArchitectureBackground({
       >
         {Array.from({
           length: 16,
-        }).map(
-          (
-            _,
-            index,
-          ) => (
-            <span
-              key={index}
-              className="
+        }).map((_, index) => (
+          <span
+            key={index}
+            className="
                 h-[4px]
                 w-[4px]
                 rounded-full
                 bg-[#7CB9F8]
               "
-            />
-          ),
-        )}
+          />
+        ))}
       </div>
 
       <svg
@@ -15309,34 +12453,15 @@ function ArchitectureBackground({
 
         {!reducedMotion && (
           <>
-            <circle
-              r="3.6"
-              fill="#176FF2"
-              opacity="0.55"
-            >
-              <animateMotion
-                dur="15s"
-                repeatCount="indefinite"
-              >
-                <mpath
-                  href={`#${leftPathId}`}
-                />
+            <circle r="3.6" fill="#176FF2" opacity="0.55">
+              <animateMotion dur="15s" repeatCount="indefinite">
+                <mpath href={`#${leftPathId}`} />
               </animateMotion>
             </circle>
 
-            <circle
-              r="3.6"
-              fill="#5C6BC0"
-              opacity="0.52"
-            >
-              <animateMotion
-                dur="16.5s"
-                begin="-5s"
-                repeatCount="indefinite"
-              >
-                <mpath
-                  href={`#${rightPathId}`}
-                />
+            <circle r="3.6" fill="#5C6BC0" opacity="0.52">
+              <animateMotion dur="16.5s" begin="-5s" repeatCount="indefinite">
+                <mpath href={`#${rightPathId}`} />
               </animateMotion>
             </circle>
           </>
@@ -15347,409 +12472,288 @@ function ArchitectureBackground({
 }
 
 function ArchitectureSection() {
-  const {
-    t,
-    i18n,
-  } = useTranslation(
-    "home",
-  );
+  const { t, i18n } = useTranslation("home");
 
-  const sectionRef =
-    useRef<HTMLElement>(
-      null,
-    );
+  const sectionRef = useRef<HTMLElement>(null);
 
-  const reducedMotion =
-    useReducedMotion() ??
-    false;
+  const reducedMotion = useReducedMotion() ?? false;
 
-  const arabic =
-    i18n.language
-      .toLowerCase()
-      .startsWith("ar");
+  const arabic = i18n.language.toLowerCase().startsWith("ar");
 
-  const rtl =
-    i18n.dir() ===
-    "rtl";
+  const rtl = i18n.dir() === "rtl";
 
-  const [
-    activeStage,
-    setActiveStage,
-  ] = useState(2);
+  const [activeStage, setActiveStage] = useState(2);
 
-  const [
-    architectureModal,
-    setArchitectureModal,
-  ] = useState(false);
+  const [architectureModal, setArchitectureModal] = useState(false);
 
-  const details =
-    useMemo(
-      () =>
-        getArchitectureLayerDetails(
-          arabic,
-        ),
-      [
-        arabic,
-      ],
-    );
+  const details = useMemo(() => getArchitectureLayerDetails(arabic), [arabic]);
 
   useEffect(() => {
-    if (
-      reducedMotion ||
-      !sectionRef.current
-    ) {
+    if (reducedMotion || !sectionRef.current) {
       return;
     }
 
-    gsap.registerPlugin(
-      ScrollTrigger,
-    );
+    gsap.registerPlugin(ScrollTrigger);
 
-    const ctx =
-      gsap.context(
-        () => {
-          const mm =
-            gsap.matchMedia();
+    const ctx = gsap.context(() => {
+      const mm = gsap.matchMedia();
 
-          const headerTimeline =
-            gsap.timeline({
-              scrollTrigger: {
-                trigger:
-                  sectionRef.current,
+      const headerTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
 
-                start:
-                  "top 89%",
+          start: "top 89%",
 
-                end:
-                  "top 50%",
+          end: "top 50%",
 
-                scrub:
-                  1.55,
+          scrub: 1.55,
 
-                invalidateOnRefresh:
-                  true,
-              },
-            });
-
-          headerTimeline
-            .fromTo(
-              ".architecture-eyebrow",
-              {
-                opacity: 0,
-                y: 12,
-              },
-              {
-                opacity: 1,
-                y: 0,
-                duration: 0.6,
-                ease:
-                  "power1.out",
-              },
-            )
-
-            .fromTo(
-              ".architecture-heading",
-              {
-                opacity: 0,
-                y: 24,
-                scale: 0.995,
-              },
-              {
-                opacity: 1,
-                y: 0,
-                scale: 1,
-                duration: 0.85,
-                ease:
-                  "power1.inOut",
-              },
-              "-=0.24",
-            )
-
-            .fromTo(
-              ".architecture-description",
-              {
-                opacity: 0,
-                y: 13,
-              },
-              {
-                opacity: 1,
-                y: 0,
-                duration: 0.68,
-                ease:
-                  "power1.out",
-              },
-              "-=0.34",
-            )
-
-            .fromTo(
-              ".architecture-environment",
-              {
-                opacity: 0,
-                y: 28,
-                scale: 0.992,
-                force3D: true,
-              },
-              {
-                opacity: 1,
-                y: 0,
-                scale: 1,
-                duration: 0.92,
-                ease:
-                  "power1.inOut",
-                force3D: true,
-              },
-              "-=0.18",
-            );
-
-          mm.add(
-            "(min-width: 1024px)",
-            () => {
-              const cards =
-                gsap.utils.toArray<HTMLElement>(
-                  ".architecture-desktop-flow .architecture-stage-wrap",
-                );
-
-              const connectors =
-                gsap.utils.toArray<HTMLElement>(
-                  ".architecture-desktop-flow .architecture-connector",
-                );
-
-              gsap.set(
-                cards,
-                {
-                  opacity: 0,
-                  y: 22,
-                  scale: 0.994,
-                  force3D: true,
-                  transformOrigin:
-                    "50% 50%",
-                },
-              );
-
-              gsap.set(
-                connectors,
-                {
-                  opacity: 0,
-                  scaleX: 0,
-                  transformOrigin:
-                    rtl
-                      ? "100% 50%"
-                      : "0% 50%",
-                },
-              );
-
-              const flow =
-                gsap.timeline({
-                  scrollTrigger: {
-                    trigger:
-                      ".architecture-desktop-flow",
-
-                    start:
-                      "top 86%",
-
-                    end:
-                      "center 38%",
-
-                    scrub:
-                      1.9,
-
-                    invalidateOnRefresh:
-                      true,
-                  },
-                });
-
-              cards.forEach(
-                (
-                  card,
-                  index,
-                ) => {
-                  flow.to(
-                    card,
-                    {
-                      opacity: 1,
-                      y: 0,
-                      scale: 1,
-                      duration: 0.82,
-                      ease:
-                        "power1.inOut",
-                      force3D: true,
-                    },
-                    index === 0
-                      ? "+=0.02"
-                      : "+=0.08",
-                  );
-
-                  if (
-                    connectors[
-                      index
-                    ]
-                  ) {
-                    flow.to(
-                      connectors[
-                        index
-                      ],
-                      {
-                        opacity: 1,
-                        scaleX: 1,
-                        duration: 0.34,
-                        ease:
-                          "power1.out",
-                      },
-                      "-=0.28",
-                    );
-                  }
-                },
-              );
-
-              flow.fromTo(
-                ".architecture-cta",
-                {
-                  opacity: 0,
-                  y: 12,
-                },
-                {
-                  opacity: 1,
-                  y: 0,
-                  duration: 0.6,
-                  ease:
-                    "power1.out",
-                },
-                "-=0.18",
-              );
-            },
-          );
-
-          mm.add(
-            "(max-width: 1023px)",
-            () => {
-              const cards =
-                gsap.utils.toArray<HTMLElement>(
-                  ".architecture-mobile-flow .architecture-stage-wrap",
-                );
-
-              const connectors =
-                gsap.utils.toArray<HTMLElement>(
-                  ".architecture-mobile-connector",
-                );
-
-              cards.forEach(
-                (
-                  card,
-                  index,
-                ) => {
-                  const timeline =
-                    gsap.timeline({
-                      scrollTrigger: {
-                        trigger:
-                          card,
-
-                        start:
-                          "top 90%",
-
-                        toggleActions:
-                          "play none none reverse",
-                      },
-                    });
-
-                  timeline.fromTo(
-                    card,
-                    {
-                      opacity: 0,
-                      y: 18,
-                      scale: 0.995,
-                      force3D: true,
-                    },
-                    {
-                      opacity: 1,
-                      y: 0,
-                      scale: 1,
-                      duration: 0.72,
-                      ease:
-                        "power1.inOut",
-                      force3D: true,
-                    },
-                  );
-
-                  if (
-                    connectors[
-                      index
-                    ]
-                  ) {
-                    timeline.fromTo(
-                      connectors[
-                        index
-                      ],
-                      {
-                        opacity: 0,
-                        scaleY: 0.7,
-                        transformOrigin:
-                          "50% 0%",
-                      },
-                      {
-                        opacity: 1,
-                        scaleY: 1,
-                        duration: 0.36,
-                        ease:
-                          "power1.out",
-                      },
-                      "-=0.3",
-                    );
-                  }
-                },
-              );
-
-              gsap.fromTo(
-                ".architecture-cta",
-                {
-                  opacity: 0,
-                  y: 12,
-                },
-                {
-                  opacity: 1,
-                  y: 0,
-                  duration: 0.72,
-                  ease:
-                    "power1.out",
-
-                  scrollTrigger: {
-                    trigger:
-                      ".architecture-cta",
-
-                    start:
-                      "top 92%",
-
-                    toggleActions:
-                      "play none none reverse",
-                  },
-                },
-              );
-            },
-          );
-
-          return () => {
-            mm.revert();
-          };
+          invalidateOnRefresh: true,
         },
-        sectionRef,
-      );
+      });
+
+      headerTimeline
+        .fromTo(
+          ".architecture-eyebrow",
+          {
+            opacity: 0,
+            y: 12,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: "power1.out",
+          },
+        )
+
+        .fromTo(
+          ".architecture-heading",
+          {
+            opacity: 0,
+            y: 24,
+            scale: 0.995,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.85,
+            ease: "power1.inOut",
+          },
+          "-=0.24",
+        )
+
+        .fromTo(
+          ".architecture-description",
+          {
+            opacity: 0,
+            y: 13,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.68,
+            ease: "power1.out",
+          },
+          "-=0.34",
+        )
+
+        .fromTo(
+          ".architecture-environment",
+          {
+            opacity: 0,
+            y: 28,
+            scale: 0.992,
+            force3D: true,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.92,
+            ease: "power1.inOut",
+            force3D: true,
+          },
+          "-=0.18",
+        );
+
+      mm.add("(min-width: 1024px)", () => {
+        const cards = gsap.utils.toArray<HTMLElement>(
+          ".architecture-desktop-flow .architecture-stage-wrap",
+        );
+
+        const connectors = gsap.utils.toArray<HTMLElement>(
+          ".architecture-desktop-flow .architecture-connector",
+        );
+
+        gsap.set(cards, {
+          opacity: 0,
+          y: 22,
+          scale: 0.994,
+          force3D: true,
+          transformOrigin: "50% 50%",
+        });
+
+        gsap.set(connectors, {
+          opacity: 0,
+          scaleX: 0,
+          transformOrigin: rtl ? "100% 50%" : "0% 50%",
+        });
+
+        const flow = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".architecture-desktop-flow",
+
+            start: "top 86%",
+
+            end: "center 38%",
+
+            scrub: 1.9,
+
+            invalidateOnRefresh: true,
+          },
+        });
+
+        cards.forEach((card, index) => {
+          flow.to(
+            card,
+            {
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              duration: 0.82,
+              ease: "power1.inOut",
+              force3D: true,
+            },
+            index === 0 ? "+=0.02" : "+=0.08",
+          );
+
+          if (connectors[index]) {
+            flow.to(
+              connectors[index],
+              {
+                opacity: 1,
+                scaleX: 1,
+                duration: 0.34,
+                ease: "power1.out",
+              },
+              "-=0.28",
+            );
+          }
+        });
+
+        flow.fromTo(
+          ".architecture-cta",
+          {
+            opacity: 0,
+            y: 12,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: "power1.out",
+          },
+          "-=0.18",
+        );
+      });
+
+      mm.add("(max-width: 1023px)", () => {
+        const cards = gsap.utils.toArray<HTMLElement>(
+          ".architecture-mobile-flow .architecture-stage-wrap",
+        );
+
+        const connectors = gsap.utils.toArray<HTMLElement>(
+          ".architecture-mobile-connector",
+        );
+
+        cards.forEach((card, index) => {
+          const timeline = gsap.timeline({
+            scrollTrigger: {
+              trigger: card,
+
+              start: "top 90%",
+
+              toggleActions: "play none none reverse",
+            },
+          });
+
+          timeline.fromTo(
+            card,
+            {
+              opacity: 0,
+              y: 18,
+              scale: 0.995,
+              force3D: true,
+            },
+            {
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              duration: 0.72,
+              ease: "power1.inOut",
+              force3D: true,
+            },
+          );
+
+          if (connectors[index]) {
+            timeline.fromTo(
+              connectors[index],
+              {
+                opacity: 0,
+                scaleY: 0.7,
+                transformOrigin: "50% 0%",
+              },
+              {
+                opacity: 1,
+                scaleY: 1,
+                duration: 0.36,
+                ease: "power1.out",
+              },
+              "-=0.3",
+            );
+          }
+        });
+
+        gsap.fromTo(
+          ".architecture-cta",
+          {
+            opacity: 0,
+            y: 12,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.72,
+            ease: "power1.out",
+
+            scrollTrigger: {
+              trigger: ".architecture-cta",
+
+              start: "top 92%",
+
+              toggleActions: "play none none reverse",
+            },
+          },
+        );
+      });
+
+      return () => {
+        mm.revert();
+      };
+    }, sectionRef);
 
     return () => {
       ctx.revert();
     };
-  }, [
-    reducedMotion,
-    rtl,
-  ]);
+  }, [reducedMotion, rtl]);
 
   return (
     <>
       <section
         ref={sectionRef}
-        dir={
-          rtl
-            ? "rtl"
-            : "ltr"
-        }
+        dir={rtl ? "rtl" : "ltr"}
         className="
           relative
           isolate
@@ -15766,11 +12770,7 @@ function ArchitectureSection() {
           lg:px-8
         "
       >
-        <ArchitectureBackground
-          reducedMotion={
-            reducedMotion
-          }
-        />
+        <ArchitectureBackground reducedMotion={reducedMotion} />
 
         <div
           className="
@@ -15807,9 +12807,7 @@ function ArchitectureSection() {
                 sm:text-[11px]
               "
             >
-              <span>
-                DOCHIVE
-              </span>
+              <span>DOCHIVE</span>
 
               <span
                 aria-hidden="true"
@@ -15848,11 +12846,7 @@ function ArchitectureSection() {
                 xl:text-[62px]
               "
             >
-              <ArchitectureHeadline
-                text={t(
-                  "architecture.headline",
-                )}
-              />
+              <ArchitectureHeadline text={t("architecture.headline")} />
             </h2>
 
             <p
@@ -15874,28 +12868,18 @@ function ArchitectureSection() {
                 lg:text-[16px]
               "
             >
-              {t(
-                "architecture.body",
-              )}
+              {t("architecture.body")}
             </p>
           </div>
 
           <div className="mt-11 sm:mt-12">
             <ArchitectureEnvironment
-              reducedMotion={
-                reducedMotion
-              }
+              reducedMotion={reducedMotion}
               arabic={arabic}
               rtl={rtl}
-              activeIndex={
-                activeStage
-              }
-              onSelect={
-                setActiveStage
-              }
-              details={
-                details
-              }
+              activeIndex={activeStage}
+              onSelect={setActiveStage}
+              details={details}
             />
           </div>
 
@@ -15913,11 +12897,7 @@ function ArchitectureSection() {
           >
             <button
               type="button"
-              onClick={() =>
-                setArchitectureModal(
-                  true,
-                )
-              }
+              onClick={() => setArchitectureModal(true)}
               className="
                 group
 
@@ -15956,9 +12936,7 @@ function ArchitectureSection() {
               "
             >
               <span>
-                {arabic
-                  ? "عرض البنية التفصيلية"
-                  : "View detailed architecture"}
+                {arabic ? "عرض البنية التفصيلية" : "View detailed architecture"}
               </span>
 
               <span
@@ -15968,11 +12946,7 @@ function ArchitectureSection() {
 
                   group-hover:translate-x-1
 
-                  ${
-                    rtl
-                      ? "rotate-180"
-                      : ""
-                  }
+                  ${rtl ? "rotate-180" : ""}
                 `}
               >
                 <ArrowIcon />
@@ -15983,25 +12957,14 @@ function ArchitectureSection() {
       </section>
 
       <ArchitectureDetailModal
-        open={
-          architectureModal
-        }
-        onClose={() =>
-          setArchitectureModal(
-            false,
-          )
-        }
-        arabic={
-          arabic
-        }
-        reducedMotion={
-          reducedMotion
-        }
+        open={architectureModal}
+        onClose={() => setArchitectureModal(false)}
+        arabic={arabic}
+        reducedMotion={reducedMotion}
       />
     </>
   );
 }
-
 
 /* =============================================================================
    USE CASES SECTION
@@ -16061,18 +13024,10 @@ const USE_CASE_THEMES: UseCaseTheme[] = [
   },
 ];
 
-function UseCasesHeadline({
-  text,
-}: {
-  text: string;
-}) {
-  const phrase =
-    "is required";
+function UseCasesHeadline({ text }: { text: string }) {
+  const phrase = "is required";
 
-  const index =
-    text
-      .toLowerCase()
-      .indexOf(phrase);
+  const index = text.toLowerCase().indexOf(phrase);
 
   if (index === -1) {
     return <>{text}</>;
@@ -16080,41 +13035,23 @@ function UseCasesHeadline({
 
   return (
     <>
-      {text.slice(
-        0,
-        index,
-      )}
+      {text.slice(0, index)}
 
       <span className="text-[#176FF2]">
-        {text.slice(
-          index,
-          index +
-            phrase.length,
-        )}
+        {text.slice(index, index + phrase.length)}
       </span>
 
-      {text.slice(
-        index +
-          phrase.length,
-      )}
+      {text.slice(index + phrase.length)}
     </>
   );
 }
 
-function UseCaseIcon({
-  index,
-  theme,
-}: {
-  index: number;
-  theme: UseCaseTheme;
-}) {
+function UseCaseIcon({ index, theme }: { index: number; theme: UseCaseTheme }) {
   const stroke = {
     stroke: theme.color,
     strokeWidth: 2.2,
-    strokeLinecap:
-      "round" as const,
-    strokeLinejoin:
-      "round" as const,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
   };
 
   if (index === 0) {
@@ -16125,15 +13062,9 @@ function UseCaseIcon({
         className="h-10 w-10"
         aria-hidden="true"
       >
-        <path
-          d="M12 5h20l7 7v31H12V5Z"
-          {...stroke}
-        />
+        <path d="M12 5h20l7 7v31H12V5Z" {...stroke} />
 
-        <path
-          d="M32 5v8h7M18 20h14M18 26h14M18 32h10"
-          {...stroke}
-        />
+        <path d="M32 5v8h7M18 20h14M18 26h14M18 32h10" {...stroke} />
       </svg>
     );
   }
@@ -16146,23 +13077,11 @@ function UseCaseIcon({
         className="h-10 w-10"
         aria-hidden="true"
       >
-        <path
-          d="M12 5h20l7 7v31H12V5Z"
-          {...stroke}
-        />
+        <path d="M12 5h20l7 7v31H12V5Z" {...stroke} />
 
-        <path
-          d="M32 5v8h7M18 20h14M18 26h14M18 32h10"
-          {...stroke}
-        />
+        <path d="M32 5v8h7M18 20h14M18 26h14M18 32h10" {...stroke} />
 
-        <circle
-          cx="34"
-          cy="34"
-          r="4"
-          fill={theme.color}
-          opacity="0.16"
-        />
+        <circle cx="34" cy="34" r="4" fill={theme.color} opacity="0.16" />
       </svg>
     );
   }
@@ -16175,20 +13094,11 @@ function UseCaseIcon({
         className="h-10 w-10"
         aria-hidden="true"
       >
-        <path
-          d="M9 31c0-8 6-15 15-15s15 7 15 15"
-          {...stroke}
-        />
+        <path d="M9 31c0-8 6-15 15-15s15 7 15 15" {...stroke} />
 
-        <path
-          d="M13 31h22M18 16v-5M30 16v-5M8 35h32"
-          {...stroke}
-        />
+        <path d="M13 31h22M18 16v-5M30 16v-5M8 35h32" {...stroke} />
 
-        <path
-          d="M14 35c1 5 5 8 10 8s9-3 10-8"
-          {...stroke}
-        />
+        <path d="M14 35c1 5 5 8 10 8s9-3 10-8" {...stroke} />
       </svg>
     );
   }
@@ -16201,15 +13111,9 @@ function UseCaseIcon({
         className="h-10 w-10"
         aria-hidden="true"
       >
-        <path
-          d="M7 9c7-3 13-2 17 2v29c-4-4-10-5-17-2V9Z"
-          {...stroke}
-        />
+        <path d="M7 9c7-3 13-2 17 2v29c-4-4-10-5-17-2V9Z" {...stroke} />
 
-        <path
-          d="M41 9c-7-3-13-2-17 2v29c4-4 10-5 17-2V9Z"
-          {...stroke}
-        />
+        <path d="M41 9c-7-3-13-2-17 2v29c4-4 10-5 17-2V9Z" {...stroke} />
       </svg>
     );
   }
@@ -16222,19 +13126,9 @@ function UseCaseIcon({
         className="h-10 w-10"
         aria-hidden="true"
       >
-        <rect
-          x="7"
-          y="10"
-          width="34"
-          height="27"
-          rx="4"
-          {...stroke}
-        />
+        <rect x="7" y="10" width="34" height="27" rx="4" {...stroke} />
 
-        <path
-          d="m10 14 14 11 14-11"
-          {...stroke}
-        />
+        <path d="m10 14 14 11 14-11" {...stroke} />
       </svg>
     );
   }
@@ -16246,19 +13140,12 @@ function UseCaseIcon({
       className="h-10 w-10"
       aria-hidden="true"
     >
-      <path
-        d="M6 19 24 7l18 12H6Z"
-        {...stroke}
-      />
+      <path d="M6 19 24 7l18 12H6Z" {...stroke} />
 
-      <path
-        d="M10 21v18M18 21v18M30 21v18M38 21v18M6 40h36"
-        {...stroke}
-      />
+      <path d="M10 21v18M18 21v18M30 21v18M38 21v18M6 40h36" {...stroke} />
     </svg>
   );
 }
-
 
 function UseCaseCard({
   item,
@@ -16269,11 +13156,7 @@ function UseCaseCard({
   index: number;
   reducedMotion: boolean;
 }) {
-  const theme =
-    USE_CASE_THEMES[
-      index %
-        USE_CASE_THEMES.length
-    ];
+  const theme = USE_CASE_THEMES[index % USE_CASE_THEMES.length];
 
   return (
     <div
@@ -16315,8 +13198,7 @@ function UseCaseCard({
           backdrop-blur-[12px]
         "
         style={{
-          borderColor:
-            `${theme.color}18`,
+          borderColor: `${theme.color}18`,
         }}
       />
 
@@ -16327,21 +13209,13 @@ function UseCaseCard({
             : {
                 y: -6,
                 rotateX: 1.1,
-                rotateY:
-                  index % 2 === 0
-                    ? -1.2
-                    : 1.2,
+                rotateY: index % 2 === 0 ? -1.2 : 1.2,
                 scale: 1.006,
               }
         }
         transition={{
           duration: 0.5,
-          ease: [
-            0.22,
-            1,
-            0.36,
-            1,
-          ],
+          ease: [0.22, 1, 0.36, 1],
         }}
         className="
           use-case-card
@@ -16377,11 +13251,9 @@ function UseCaseCard({
           lg:px-7
         "
         style={{
-          borderColor:
-            theme.border,
+          borderColor: theme.border,
 
-          boxShadow:
-            `0 26px 76px ${theme.glow}, 0 9px 24px rgba(39,69,96,0.055), inset 0 1px 0 rgba(255,255,255,1)`,
+          boxShadow: `0 26px 76px ${theme.glow}, 0 9px 24px rgba(39,69,96,0.055), inset 0 1px 0 rgba(255,255,255,1)`,
         }}
       >
         {/* glass reflections */}
@@ -16420,8 +13292,7 @@ function UseCaseCard({
             blur-3xl
           "
           style={{
-            backgroundColor:
-              `${theme.color}12`,
+            backgroundColor: `${theme.color}12`,
           }}
         />
 
@@ -16458,8 +13329,7 @@ function UseCaseCard({
             sm:gap-5
           "
           style={{
-            transform:
-              "translateZ(18px)",
+            transform: "translateZ(18px)",
           }}
         >
           <span
@@ -16482,17 +13352,12 @@ function UseCaseCard({
               sm:w-[70px]
             "
             style={{
-              background:
-                `linear-gradient(145deg, rgba(255,255,255,.95), ${theme.soft})`,
+              background: `linear-gradient(145deg, rgba(255,255,255,.95), ${theme.soft})`,
 
-              boxShadow:
-                `0 14px 34px ${theme.glow}, inset 0 1px 0 rgba(255,255,255,1)`,
+              boxShadow: `0 14px 34px ${theme.glow}, inset 0 1px 0 rgba(255,255,255,1)`,
             }}
           >
-            <UseCaseIcon
-              index={index}
-              theme={theme}
-            />
+            <UseCaseIcon index={index} theme={theme} />
           </span>
 
           <div
@@ -16577,8 +13442,7 @@ function UseCaseCard({
                 sm:text-[10.5px]
               "
               style={{
-                color:
-                  theme.color,
+                color: theme.color,
               }}
             >
               {item.control}
@@ -16605,11 +13469,9 @@ function UseCaseCard({
             opacity-70
           "
           style={{
-            backgroundColor:
-              theme.color,
+            backgroundColor: theme.color,
 
-            boxShadow:
-              `0 -5px 16px ${theme.glow}`,
+            boxShadow: `0 -5px 16px ${theme.glow}`,
           }}
         />
       </motion.article>
@@ -16617,11 +13479,7 @@ function UseCaseCard({
   );
 }
 
-function UseCasesBackground({
-  reducedMotion,
-}: {
-  reducedMotion: boolean;
-}) {
+function UseCasesBackground({ reducedMotion }: { reducedMotion: boolean }) {
   return (
     <div
       aria-hidden="true"
@@ -16682,11 +13540,7 @@ function UseCasesBackground({
           reducedMotion
             ? undefined
             : {
-                y: [
-                  0,
-                  -8,
-                  0,
-                ],
+                y: [0, -8, 0],
               }
         }
         transition={{
@@ -16716,11 +13570,7 @@ function UseCasesBackground({
           reducedMotion
             ? undefined
             : {
-                y: [
-                  0,
-                  9,
-                  0,
-                ],
+                y: [0, 9, 0],
               }
         }
         transition={{
@@ -16745,14 +13595,10 @@ function UseCasesBackground({
       >
         {Array.from({
           length: 16,
-        }).map(
-          (
-            _,
-            index,
-          ) => (
-            <span
-              key={index}
-              className="
+        }).map((_, index) => (
+          <span
+            key={index}
+            className="
                 h-[4px]
                 w-[4px]
 
@@ -16760,301 +13606,203 @@ function UseCasesBackground({
 
                 bg-[#78B7F8]
               "
-            />
-          ),
-        )}
+          />
+        ))}
       </div>
     </div>
   );
 }
 
-function UseCasesSection({
-  items,
-}: {
-  items: UseCaseItem[];
-}) {
-  const {
-    t,
-    i18n,
-  } = useTranslation(
-    "home",
-  );
+function UseCasesSection({ items }: { items: UseCaseItem[] }) {
+  const { t, i18n } = useTranslation("home");
 
-  const sectionRef =
-    useRef<HTMLElement>(
-      null,
-    );
+  const sectionRef = useRef<HTMLElement>(null);
 
-  const backgroundRef =
-    useRef<HTMLDivElement>(
-      null,
-    );
+  const backgroundRef = useRef<HTMLDivElement>(null);
 
-  const reducedMotion =
-    useReducedMotion() ??
-    false;
+  const reducedMotion = useReducedMotion() ?? false;
 
-  const rtl =
-    i18n.dir() ===
-    "rtl";
+  const rtl = i18n.dir() === "rtl";
 
   useEffect(() => {
-    if (
-      reducedMotion ||
-      !sectionRef.current
-    ) {
+    if (reducedMotion || !sectionRef.current) {
       return;
     }
 
-    gsap.registerPlugin(
-      ScrollTrigger,
-    );
+    gsap.registerPlugin(ScrollTrigger);
 
-    const ctx =
-      gsap.context(
-        () => {
-          const mm =
-            gsap.matchMedia();
+    const ctx = gsap.context(() => {
+      const mm = gsap.matchMedia();
 
-          const header =
-            gsap.timeline({
-              scrollTrigger: {
-                trigger:
-                  sectionRef.current,
+      const header = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
 
-                start:
-                  "top 90%",
+          start: "top 90%",
 
-                end:
-                  "top 54%",
+          end: "top 54%",
 
-                scrub:
-                  1.65,
+          scrub: 1.65,
 
-                invalidateOnRefresh:
-                  true,
-              },
-            });
-
-          header
-            .fromTo(
-              ".use-cases-accent",
-              {
-                opacity: 0,
-                scaleX: 0.45,
-                transformOrigin:
-                  rtl
-                    ? "100% 50%"
-                    : "0% 50%",
-              },
-              {
-                opacity: 1,
-                scaleX: 1,
-                duration: 0.58,
-                ease:
-                  "power1.out",
-              },
-            )
-
-            .fromTo(
-              ".use-cases-heading",
-              {
-                opacity: 0,
-                y: 20,
-                scale: 0.996,
-                force3D: true,
-              },
-              {
-                opacity: 1,
-                y: 0,
-                scale: 1,
-                duration: 0.92,
-                ease:
-                  "power1.inOut",
-                force3D: true,
-              },
-              "-=0.18",
-            );
-
-          mm.add(
-            "(min-width: 768px)",
-            () => {
-              const cards =
-                gsap.utils.toArray<HTMLElement>(
-                  ".use-case-card-wrap",
-                );
-
-              gsap.set(
-                cards,
-                {
-                  opacity: 0,
-                  y: 24,
-                  scale: 0.994,
-                  rotateX: 2.2,
-                  transformPerspective:
-                    1200,
-                  force3D: true,
-                  transformOrigin:
-                    "50% 50%",
-                },
-              );
-
-              const flow =
-                gsap.timeline({
-                  scrollTrigger: {
-                    trigger:
-                      ".use-cases-grid",
-
-                    start:
-                      "top 88%",
-
-                    end:
-                      "bottom 31%",
-
-                    scrub:
-                      2.25,
-
-                    invalidateOnRefresh:
-                      true,
-                  },
-                });
-
-              cards.forEach(
-                (
-                  card,
-                  index,
-                ) => {
-                  flow.to(
-                    card,
-                    {
-                      opacity: 1,
-                      y: 0,
-                      scale: 1,
-                      rotateX: 0,
-                      duration: 0.95,
-                      ease:
-                        "power1.inOut",
-                      force3D: true,
-                    },
-                    index === 0
-                      ? "+=0.02"
-                      : "+=0.08",
-                  );
-                },
-              );
-            },
-          );
-
-          mm.add(
-            "(max-width: 767px)",
-            () => {
-              const cards =
-                gsap.utils.toArray<HTMLElement>(
-                  ".use-case-card-wrap",
-                );
-
-              cards.forEach(
-                (
-                  card,
-                ) => {
-                  gsap.fromTo(
-                    card,
-                    {
-                      opacity: 0,
-                      y: 18,
-                      scale: 0.996,
-                      rotateX: 1.6,
-                      transformPerspective:
-                        1000,
-                      force3D: true,
-                    },
-                    {
-                      opacity: 1,
-                      y: 0,
-                      scale: 1,
-                      rotateX: 0,
-                      duration: 0.82,
-                      ease:
-                        "power1.inOut",
-                      force3D: true,
-
-                      scrollTrigger: {
-                        trigger:
-                          card,
-
-                        start:
-                          "top 91%",
-
-                        toggleActions:
-                          "play none none reverse",
-                      },
-                    },
-                  );
-                },
-              );
-            },
-          );
-
-          if (
-            backgroundRef.current
-          ) {
-            gsap.fromTo(
-              backgroundRef.current,
-              {
-                yPercent:
-                  -0.8,
-              },
-              {
-                yPercent:
-                  1.2,
-
-                ease:
-                  "none",
-
-                scrollTrigger: {
-                  trigger:
-                    sectionRef.current,
-
-                  start:
-                    "top bottom",
-
-                  end:
-                    "bottom top",
-
-                  scrub:
-                    3,
-
-                  invalidateOnRefresh:
-                    true,
-                },
-              },
-            );
-          }
-
-          return () => {
-            mm.revert();
-          };
+          invalidateOnRefresh: true,
         },
-        sectionRef,
-      );
+      });
+
+      header
+        .fromTo(
+          ".use-cases-accent",
+          {
+            opacity: 0,
+            scaleX: 0.45,
+            transformOrigin: rtl ? "100% 50%" : "0% 50%",
+          },
+          {
+            opacity: 1,
+            scaleX: 1,
+            duration: 0.58,
+            ease: "power1.out",
+          },
+        )
+
+        .fromTo(
+          ".use-cases-heading",
+          {
+            opacity: 0,
+            y: 20,
+            scale: 0.996,
+            force3D: true,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.92,
+            ease: "power1.inOut",
+            force3D: true,
+          },
+          "-=0.18",
+        );
+
+      mm.add("(min-width: 768px)", () => {
+        const cards = gsap.utils.toArray<HTMLElement>(".use-case-card-wrap");
+
+        gsap.set(cards, {
+          opacity: 0,
+          y: 24,
+          scale: 0.994,
+          rotateX: 2.2,
+          transformPerspective: 1200,
+          force3D: true,
+          transformOrigin: "50% 50%",
+        });
+
+        const flow = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".use-cases-grid",
+
+            start: "top 88%",
+
+            end: "bottom 31%",
+
+            scrub: 2.25,
+
+            invalidateOnRefresh: true,
+          },
+        });
+
+        cards.forEach((card, index) => {
+          flow.to(
+            card,
+            {
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              rotateX: 0,
+              duration: 0.95,
+              ease: "power1.inOut",
+              force3D: true,
+            },
+            index === 0 ? "+=0.02" : "+=0.08",
+          );
+        });
+      });
+
+      mm.add("(max-width: 767px)", () => {
+        const cards = gsap.utils.toArray<HTMLElement>(".use-case-card-wrap");
+
+        cards.forEach((card) => {
+          gsap.fromTo(
+            card,
+            {
+              opacity: 0,
+              y: 18,
+              scale: 0.996,
+              rotateX: 1.6,
+              transformPerspective: 1000,
+              force3D: true,
+            },
+            {
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              rotateX: 0,
+              duration: 0.82,
+              ease: "power1.inOut",
+              force3D: true,
+
+              scrollTrigger: {
+                trigger: card,
+
+                start: "top 91%",
+
+                toggleActions: "play none none reverse",
+              },
+            },
+          );
+        });
+      });
+
+      if (backgroundRef.current) {
+        gsap.fromTo(
+          backgroundRef.current,
+          {
+            yPercent: -0.8,
+          },
+          {
+            yPercent: 1.2,
+
+            ease: "none",
+
+            scrollTrigger: {
+              trigger: sectionRef.current,
+
+              start: "top bottom",
+
+              end: "bottom top",
+
+              scrub: 3,
+
+              invalidateOnRefresh: true,
+            },
+          },
+        );
+      }
+
+      return () => {
+        mm.revert();
+      };
+    }, sectionRef);
 
     return () => {
       ctx.revert();
     };
-  }, [
-    reducedMotion,
-    rtl,
-  ]);
+  }, [reducedMotion, rtl]);
 
   return (
     <section
       ref={sectionRef}
       id="use-cases"
-      dir={
-        rtl
-          ? "rtl"
-          : "ltr"
-      }
+      dir={rtl ? "rtl" : "ltr"}
       className="
         relative
         isolate
@@ -17083,11 +13831,7 @@ function UseCasesSection({
           will-change-transform
         "
       >
-        <UseCasesBackground
-          reducedMotion={
-            reducedMotion
-          }
-        />
+        <UseCasesBackground reducedMotion={reducedMotion} />
       </div>
 
       <div
@@ -17142,11 +13886,7 @@ function UseCasesSection({
               xl:text-[61px]
             "
           >
-            <UseCasesHeadline
-              text={t(
-                "useCases.headline",
-              )}
-            />
+            <UseCasesHeadline text={t("useCases.headline")} />
           </h2>
         </div>
 
@@ -17171,21 +13911,14 @@ function UseCasesSection({
             lg:gap-y-5
           "
         >
-          {items.map(
-            (
-              item,
-              index,
-            ) => (
-              <UseCaseCard
-                key={`${item.title}-${index}`}
-                item={item}
-                index={index}
-                reducedMotion={
-                  reducedMotion
-                }
-              />
-            ),
-          )}
+          {items.map((item, index) => (
+            <UseCaseCard
+              key={`${item.title}-${index}`}
+              item={item}
+              index={index}
+              reducedMotion={reducedMotion}
+            />
+          ))}
         </div>
       </div>
     </section>
@@ -17236,21 +13969,12 @@ const COMPARE_THEMES: CompareTheme[] = [
   },
 ];
 
-function CompareHeadline({
-  text,
-}: {
-  text: string;
-}) {
-  const phrase =
-    "governed intelligence layer";
+function CompareHeadline({ text }: { text: string }) {
+  const phrase = "governed intelligence layer";
 
-  const lower =
-    text.toLowerCase();
+  const lower = text.toLowerCase();
 
-  const index =
-    lower.indexOf(
-      phrase,
-    );
+  const index = lower.indexOf(phrase);
 
   if (index === -1) {
     return <>{text}</>;
@@ -17258,41 +13982,23 @@ function CompareHeadline({
 
   return (
     <>
-      {text.slice(
-        0,
-        index,
-      )}
+      {text.slice(0, index)}
 
       <span className="text-[#1685EA]">
-        {text.slice(
-          index,
-          index +
-            phrase.length,
-        )}
+        {text.slice(index, index + phrase.length)}
       </span>
 
-      {text.slice(
-        index +
-          phrase.length,
-      )}
+      {text.slice(index + phrase.length)}
     </>
   );
 }
 
-function CompareIcon({
-  index,
-  theme,
-}: {
-  index: number;
-  theme: CompareTheme;
-}) {
+function CompareIcon({ index, theme }: { index: number; theme: CompareTheme }) {
   const stroke = {
     stroke: theme.color,
     strokeWidth: 2.25,
-    strokeLinecap:
-      "round" as const,
-    strokeLinejoin:
-      "round" as const,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
   };
 
   if (index === 0) {
@@ -17303,15 +14009,9 @@ function CompareIcon({
         className="h-9 w-9 sm:h-10 sm:w-10"
         aria-hidden="true"
       >
-        <path
-          d="M12 5h20l7 7v31H12V5Z"
-          {...stroke}
-        />
+        <path d="M12 5h20l7 7v31H12V5Z" {...stroke} />
 
-        <path
-          d="M32 5v8h7M18 20h14M18 26h14M18 32h10"
-          {...stroke}
-        />
+        <path d="M32 5v8h7M18 20h14M18 26h14M18 32h10" {...stroke} />
       </svg>
     );
   }
@@ -17324,20 +14024,11 @@ function CompareIcon({
         className="h-9 w-9 sm:h-10 sm:w-10"
         aria-hidden="true"
       >
-        <path
-          d="M8 17V8h9M31 8h9v9M40 31v9h-9M17 40H8v-9"
-          {...stroke}
-        />
+        <path d="M8 17V8h9M31 8h9v9M40 31v9h-9M17 40H8v-9" {...stroke} />
 
-        <path
-          d="M16 14h16v20H16z"
-          {...stroke}
-        />
+        <path d="M16 14h16v20H16z" {...stroke} />
 
-        <path
-          d="M20 20h8M20 25h8M20 30h5"
-          {...stroke}
-        />
+        <path d="M20 20h8M20 25h8M20 30h5" {...stroke} />
       </svg>
     );
   }
@@ -17355,19 +14046,9 @@ function CompareIcon({
           {...stroke}
         />
 
-        <rect
-          x="19"
-          y="21"
-          width="10"
-          height="9"
-          rx="2"
-          {...stroke}
-        />
+        <rect x="19" y="21" width="10" height="9" rx="2" {...stroke} />
 
-        <path
-          d="M21 21v-2.5a3 3 0 0 1 6 0V21"
-          {...stroke}
-        />
+        <path d="M21 21v-2.5a3 3 0 0 1 6 0V21" {...stroke} />
       </svg>
     );
   }
@@ -17379,28 +14060,14 @@ function CompareIcon({
       className="h-9 w-9 sm:h-10 sm:w-10"
       aria-hidden="true"
     >
-      <circle
-        cx="21"
-        cy="21"
-        r="11"
-        {...stroke}
-      />
+      <circle cx="21" cy="21" r="11" {...stroke} />
 
-      <path
-        d="m29 29 11 11"
-        {...stroke}
-      />
+      <path d="m29 29 11 11" {...stroke} />
     </svg>
   );
 }
 
-function CompareFocus({
-  text,
-  index,
-}: {
-  text: string;
-  index: number;
-}) {
+function CompareFocus({ text, index }: { text: string; index: number }) {
   const phrases = [
     "document intelligence, typed retrieval, structured extraction, and governed AI workflows",
     "Permissions, metadata, search, retention, and organizational use",
@@ -17408,19 +14075,13 @@ function CompareFocus({
     "OCR, governance, workflow, and private AI complete the governed lifecycle",
   ];
 
-  const phrase =
-    phrases[index];
+  const phrase = phrases[index];
 
   if (!phrase) {
     return <>{text}</>;
   }
 
-  const matchIndex =
-    text
-      .toLowerCase()
-      .indexOf(
-        phrase.toLowerCase(),
-      );
+  const matchIndex = text.toLowerCase().indexOf(phrase.toLowerCase());
 
   if (matchIndex === -1) {
     return <>{text}</>;
@@ -17428,23 +14089,13 @@ function CompareFocus({
 
   return (
     <>
-      {text.slice(
-        0,
-        matchIndex,
-      )}
+      {text.slice(0, matchIndex)}
 
       <span className="font-semibold text-[#1685EA]">
-        {text.slice(
-          matchIndex,
-          matchIndex +
-            phrase.length,
-        )}
+        {text.slice(matchIndex, matchIndex + phrase.length)}
       </span>
 
-      {text.slice(
-        matchIndex +
-          phrase.length,
-      )}
+      {text.slice(matchIndex + phrase.length)}
     </>
   );
 }
@@ -17458,11 +14109,7 @@ function CompareRowCard({
   index: number;
   reducedMotion: boolean;
 }) {
-  const theme =
-    COMPARE_THEMES[
-      index %
-        COMPARE_THEMES.length
-    ];
+  const theme = COMPARE_THEMES[index % COMPARE_THEMES.length];
 
   return (
     <div
@@ -17500,8 +14147,7 @@ function CompareRowCard({
           backdrop-blur-[12px]
         "
         style={{
-          borderColor:
-            `${theme.color}12`,
+          borderColor: `${theme.color}12`,
         }}
       />
 
@@ -17517,12 +14163,7 @@ function CompareRowCard({
         }
         transition={{
           duration: 0.46,
-          ease: [
-            0.22,
-            1,
-            0.36,
-            1,
-          ],
+          ease: [0.22, 1, 0.36, 1],
         }}
         className="
           compare-row-card
@@ -17553,8 +14194,7 @@ function CompareRowCard({
           lg:px-6
         "
         style={{
-          boxShadow:
-            `0 20px 56px ${theme.glow}, 0 7px 18px rgba(42,70,94,0.04), inset 0 1px 0 rgba(255,255,255,1)`,
+          boxShadow: `0 20px 56px ${theme.glow}, 0 7px 18px rgba(42,70,94,0.04), inset 0 1px 0 rgba(255,255,255,1)`,
         }}
       >
         <div
@@ -17589,8 +14229,7 @@ function CompareRowCard({
             blur-3xl
           "
           style={{
-            backgroundColor:
-              `${theme.color}0C`,
+            backgroundColor: `${theme.color}0C`,
           }}
         />
 
@@ -17611,8 +14250,7 @@ function CompareRowCard({
             lg:gap-8
           "
           style={{
-            transform:
-              "translateZ(16px)",
+            transform: "translateZ(16px)",
           }}
         >
           <div
@@ -17634,12 +14272,7 @@ function CompareRowCard({
               }
               transition={{
                 duration: 0.36,
-                ease: [
-                  0.22,
-                  1,
-                  0.36,
-                  1,
-                ],
+                ease: [0.22, 1, 0.36, 1],
               }}
               className="
                 flex
@@ -17660,17 +14293,12 @@ function CompareRowCard({
                 sm:w-[70px]
               "
               style={{
-                background:
-                  `linear-gradient(145deg, rgba(255,255,255,.96), ${theme.soft})`,
+                background: `linear-gradient(145deg, rgba(255,255,255,.96), ${theme.soft})`,
 
-                boxShadow:
-                  `0 13px 32px ${theme.glow}, inset 0 1px 0 rgba(255,255,255,1)`,
+                boxShadow: `0 13px 32px ${theme.glow}, inset 0 1px 0 rgba(255,255,255,1)`,
               }}
             >
-              <CompareIcon
-                index={index}
-                theme={theme}
-              />
+              <CompareIcon index={index} theme={theme} />
             </motion.span>
 
             <h3
@@ -17728,10 +14356,7 @@ function CompareRowCard({
               lg:text-[15.5px]
             "
           >
-            <CompareFocus
-              text={row.focus}
-              index={index}
-            />
+            <CompareFocus text={row.focus} index={index} />
           </p>
         </div>
 
@@ -17753,11 +14378,9 @@ function CompareRowCard({
             opacity-55
           "
           style={{
-            backgroundColor:
-              theme.color,
+            backgroundColor: theme.color,
 
-            boxShadow:
-              `0 -4px 13px ${theme.glow}`,
+            boxShadow: `0 -4px 13px ${theme.glow}`,
           }}
         />
       </motion.article>
@@ -17765,11 +14388,7 @@ function CompareRowCard({
   );
 }
 
-function CompareBackground({
-  reducedMotion,
-}: {
-  reducedMotion: boolean;
-}) {
+function CompareBackground({ reducedMotion }: { reducedMotion: boolean }) {
   return (
     <div
       aria-hidden="true"
@@ -17830,11 +14449,7 @@ function CompareBackground({
           reducedMotion
             ? undefined
             : {
-                y: [
-                  0,
-                  -7,
-                  0,
-                ],
+                y: [0, -7, 0],
               }
         }
         transition={{
@@ -17864,11 +14479,7 @@ function CompareBackground({
           reducedMotion
             ? undefined
             : {
-                y: [
-                  0,
-                  8,
-                  0,
-                ],
+                y: [0, 8, 0],
               }
         }
         transition={{
@@ -17893,22 +14504,17 @@ function CompareBackground({
       >
         {Array.from({
           length: 16,
-        }).map(
-          (
-            _,
-            index,
-          ) => (
-            <span
-              key={index}
-              className="
+        }).map((_, index) => (
+          <span
+            key={index}
+            className="
                 h-[4px]
                 w-[4px]
                 rounded-full
                 bg-[#79B7F8]
               "
-            />
-          ),
-        )}
+          />
+        ))}
       </div>
 
       <div
@@ -17926,267 +14532,186 @@ function CompareBackground({
       >
         {Array.from({
           length: 16,
-        }).map(
-          (
-            _,
-            index,
-          ) => (
-            <span
-              key={index}
-              className="
+        }).map((_, index) => (
+          <span
+            key={index}
+            className="
                 h-[4px]
                 w-[4px]
                 rounded-full
                 bg-[#79B7F8]
               "
-            />
-          ),
-        )}
+          />
+        ))}
       </div>
     </div>
   );
 }
 
-function CompareSection({
-  rows,
-}: {
-  rows: CompareRow[];
-}) {
-  const {
-    t,
-    i18n,
-  } = useTranslation(
-    "home",
-  );
+function CompareSection({ rows }: { rows: CompareRow[] }) {
+  const { t, i18n } = useTranslation("home");
 
-  const sectionRef =
-    useRef<HTMLElement>(
-      null,
-    );
+  const sectionRef = useRef<HTMLElement>(null);
 
-  const backgroundRef =
-    useRef<HTMLDivElement>(
-      null,
-    );
+  const backgroundRef = useRef<HTMLDivElement>(null);
 
-  const reducedMotion =
-    useReducedMotion() ??
-    false;
+  const reducedMotion = useReducedMotion() ?? false;
 
-  const rtl =
-    i18n.dir() ===
-    "rtl";
+  const rtl = i18n.dir() === "rtl";
 
   useEffect(() => {
-    if (
-      reducedMotion ||
-      !sectionRef.current
-    ) {
+    if (reducedMotion || !sectionRef.current) {
       return;
     }
 
-    gsap.registerPlugin(
-      ScrollTrigger,
-    );
+    gsap.registerPlugin(ScrollTrigger);
 
-    const ctx =
-      gsap.context(
-        () => {
-          const header =
-            gsap.timeline({
-              scrollTrigger: {
-                trigger:
-                  sectionRef.current,
+    const ctx = gsap.context(() => {
+      const header = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
 
-                start:
-                  "top 90%",
+          start: "top 90%",
 
-                end:
-                  "top 52%",
+          end: "top 52%",
 
-                scrub:
-                  1.7,
+          scrub: 1.7,
 
-                invalidateOnRefresh:
-                  true,
-              },
-            });
-
-          header
-            .fromTo(
-              ".compare-heading",
-              {
-                opacity: 0,
-                y: 22,
-                scale: 0.996,
-                force3D: true,
-              },
-              {
-                opacity: 1,
-                y: 0,
-                scale: 1,
-                duration: 0.9,
-                ease:
-                  "power1.inOut",
-                force3D: true,
-              },
-            )
-
-            .fromTo(
-              ".compare-description",
-              {
-                opacity: 0,
-                y: 14,
-              },
-              {
-                opacity: 1,
-                y: 0,
-                duration: 0.7,
-                ease:
-                  "power1.out",
-              },
-              "-=0.36",
-            )
-
-            .fromTo(
-              ".compare-shell",
-              {
-                opacity: 0,
-                y: 24,
-                scale: 0.994,
-                force3D: true,
-              },
-              {
-                opacity: 1,
-                y: 0,
-                scale: 1,
-                duration: 0.8,
-                ease:
-                  "power1.inOut",
-                force3D: true,
-              },
-              "-=0.12",
-            );
-
-          const rowCards =
-            gsap.utils.toArray<HTMLElement>(
-              ".compare-row-wrap",
-            );
-
-          gsap.set(
-            rowCards,
-            {
-              opacity: 0,
-              y: 22,
-              scale: 0.995,
-              rotateX: 1.8,
-              transformPerspective:
-                1200,
-              force3D: true,
-              transformOrigin:
-                "50% 50%",
-            },
-          );
-
-          const flow =
-            gsap.timeline({
-              scrollTrigger: {
-                trigger:
-                  ".compare-shell",
-
-                start:
-                  "top 86%",
-
-                end:
-                  "bottom 31%",
-
-                scrub:
-                  2.25,
-
-                invalidateOnRefresh:
-                  true,
-              },
-            });
-
-          rowCards.forEach(
-            (
-              card,
-              index,
-            ) => {
-              flow.to(
-                card,
-                {
-                  opacity: 1,
-                  y: 0,
-                  scale: 1,
-                  rotateX: 0,
-                  duration: 0.92,
-                  ease:
-                    "power1.inOut",
-                  force3D: true,
-                },
-                index === 0
-                  ? "+=0.02"
-                  : "+=0.08",
-              );
-            },
-          );
-
-          if (
-            backgroundRef.current
-          ) {
-            gsap.fromTo(
-              backgroundRef.current,
-              {
-                yPercent:
-                  -0.7,
-              },
-              {
-                yPercent:
-                  1.1,
-
-                ease:
-                  "none",
-
-                scrollTrigger: {
-                  trigger:
-                    sectionRef.current,
-
-                  start:
-                    "top bottom",
-
-                  end:
-                    "bottom top",
-
-                  scrub:
-                    3,
-
-                  invalidateOnRefresh:
-                    true,
-                },
-              },
-            );
-          }
+          invalidateOnRefresh: true,
         },
-        sectionRef,
-      );
+      });
+
+      header
+        .fromTo(
+          ".compare-heading",
+          {
+            opacity: 0,
+            y: 22,
+            scale: 0.996,
+            force3D: true,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.9,
+            ease: "power1.inOut",
+            force3D: true,
+          },
+        )
+
+        .fromTo(
+          ".compare-description",
+          {
+            opacity: 0,
+            y: 14,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.7,
+            ease: "power1.out",
+          },
+          "-=0.36",
+        )
+
+        .fromTo(
+          ".compare-shell",
+          {
+            opacity: 0,
+            y: 24,
+            scale: 0.994,
+            force3D: true,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.8,
+            ease: "power1.inOut",
+            force3D: true,
+          },
+          "-=0.12",
+        );
+
+      const rowCards = gsap.utils.toArray<HTMLElement>(".compare-row-wrap");
+
+      gsap.set(rowCards, {
+        opacity: 0,
+        y: 22,
+        scale: 0.995,
+        rotateX: 1.8,
+        transformPerspective: 1200,
+        force3D: true,
+        transformOrigin: "50% 50%",
+      });
+
+      const flow = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".compare-shell",
+
+          start: "top 86%",
+
+          end: "bottom 31%",
+
+          scrub: 2.25,
+
+          invalidateOnRefresh: true,
+        },
+      });
+
+      rowCards.forEach((card, index) => {
+        flow.to(
+          card,
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            rotateX: 0,
+            duration: 0.92,
+            ease: "power1.inOut",
+            force3D: true,
+          },
+          index === 0 ? "+=0.02" : "+=0.08",
+        );
+      });
+
+      if (backgroundRef.current) {
+        gsap.fromTo(
+          backgroundRef.current,
+          {
+            yPercent: -0.7,
+          },
+          {
+            yPercent: 1.1,
+
+            ease: "none",
+
+            scrollTrigger: {
+              trigger: sectionRef.current,
+
+              start: "top bottom",
+
+              end: "bottom top",
+
+              scrub: 3,
+
+              invalidateOnRefresh: true,
+            },
+          },
+        );
+      }
+    }, sectionRef);
 
     return () => {
       ctx.revert();
     };
-  }, [
-    reducedMotion,
-    rtl,
-  ]);
+  }, [reducedMotion, rtl]);
 
   return (
     <section
       ref={sectionRef}
-      dir={
-        rtl
-          ? "rtl"
-          : "ltr"
-      }
+      dir={rtl ? "rtl" : "ltr"}
       className="
         relative
         isolate
@@ -18214,11 +14739,7 @@ function CompareSection({
           will-change-transform
         "
       >
-        <CompareBackground
-          reducedMotion={
-            reducedMotion
-          }
-        />
+        <CompareBackground reducedMotion={reducedMotion} />
       </div>
 
       <div
@@ -18261,11 +14782,7 @@ function CompareSection({
               xl:text-[61px]
             "
           >
-            <CompareHeadline
-              text={t(
-                "compare.headline",
-              )}
-            />
+            <CompareHeadline text={t("compare.headline")} />
           </h2>
 
           <p
@@ -18287,9 +14804,7 @@ function CompareSection({
               lg:text-[16px]
             "
           >
-            {t(
-              "compare.body",
-            )}
+            {t("compare.body")}
           </p>
         </div>
 
@@ -18339,21 +14854,14 @@ function CompareSection({
           />
 
           <div className="space-y-3">
-            {rows.map(
-              (
-                row,
-                index,
-              ) => (
-                <CompareRowCard
-                  key={`${row.vs}-${index}`}
-                  row={row}
-                  index={index}
-                  reducedMotion={
-                    reducedMotion
-                  }
-                />
-              ),
-            )}
+            {rows.map((row, index) => (
+              <CompareRowCard
+                key={`${row.vs}-${index}`}
+                row={row}
+                index={index}
+                reducedMotion={reducedMotion}
+              />
+            ))}
           </div>
         </div>
       </div>
@@ -18366,21 +14874,12 @@ function CompareSection({
    FINAL CTA SECTION
 ============================================================================= */
 
-function FinalCtaHeadline({
-  text,
-}: {
-  text: string;
-}) {
-  const phrase =
-    "trusted intelligence";
+function FinalCtaHeadline({ text }: { text: string }) {
+  const phrase = "trusted intelligence";
 
-  const lower =
-    text.toLowerCase();
+  const lower = text.toLowerCase();
 
-  const index =
-    lower.indexOf(
-      phrase,
-    );
+  const index = lower.indexOf(phrase);
 
   if (index === -1) {
     return <>{text}</>;
@@ -18388,32 +14887,18 @@ function FinalCtaHeadline({
 
   return (
     <>
-      {text.slice(
-        0,
-        index,
-      )}
+      {text.slice(0, index)}
 
       <span className="text-[#1685EA]">
-        {text.slice(
-          index,
-          index +
-            phrase.length,
-        )}
+        {text.slice(index, index + phrase.length)}
       </span>
 
-      {text.slice(
-        index +
-          phrase.length,
-      )}
+      {text.slice(index + phrase.length)}
     </>
   );
 }
 
-function FinalCtaFeatureIcon({
-  index,
-}: {
-  index: number;
-}) {
+function FinalCtaFeatureIcon({ index }: { index: number }) {
   const themes = [
     {
       color: "#1685EA",
@@ -18429,19 +14914,13 @@ function FinalCtaFeatureIcon({
     },
   ];
 
-  const theme =
-    themes[
-      index %
-        themes.length
-    ];
+  const theme = themes[index % themes.length];
 
   const stroke = {
     stroke: theme.color,
     strokeWidth: 2.3,
-    strokeLinecap:
-      "round" as const,
-    strokeLinejoin:
-      "round" as const,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
   };
 
   return (
@@ -18462,8 +14941,7 @@ function FinalCtaFeatureIcon({
         shadow-[0_12px_34px_rgba(45,75,101,0.09),inset_0_1px_0_rgba(255,255,255,1)]
       "
       style={{
-        background:
-          `linear-gradient(145deg,rgba(255,255,255,.96),${theme.soft})`,
+        background: `linear-gradient(145deg,rgba(255,255,255,.96),${theme.soft})`,
       }}
     >
       {index === 0 && (
@@ -18487,24 +14965,14 @@ function FinalCtaFeatureIcon({
           className="h-10 w-10"
           aria-hidden="true"
         >
-          <circle
-            cx="24"
-            cy="24"
-            r="7"
-            {...stroke}
-          />
+          <circle cx="24" cy="24" r="7" {...stroke} />
 
           <path
             d="M24 6v5M24 37v5M6 24h5M37 24h5M11.3 11.3l3.5 3.5M33.2 33.2l3.5 3.5M36.7 11.3l-3.5 3.5M14.8 33.2l-3.5 3.5"
             {...stroke}
           />
 
-          <circle
-            cx="24"
-            cy="24"
-            r="15"
-            {...stroke}
-          />
+          <circle cx="24" cy="24" r="15" {...stroke} />
         </svg>
       )}
 
@@ -18515,46 +14983,21 @@ function FinalCtaFeatureIcon({
           className="h-10 w-10"
           aria-hidden="true"
         >
-          <circle
-            cx="19"
-            cy="17"
-            r="6"
-            {...stroke}
-          />
+          <circle cx="19" cy="17" r="6" {...stroke} />
 
-          <circle
-            cx="31"
-            cy="18"
-            r="5"
-            {...stroke}
-          />
+          <circle cx="31" cy="18" r="5" {...stroke} />
 
-          <path
-            d="M8 40v-4c0-7.5 4.8-12 11-12s11 4.5 11 12v4"
-            {...stroke}
-          />
+          <path d="M8 40v-4c0-7.5 4.8-12 11-12s11 4.5 11 12v4" {...stroke} />
 
-          <path
-            d="M28 27c6 .5 11 4.5 11 11v2"
-            {...stroke}
-          />
+          <path d="M28 27c6 .5 11 4.5 11 11v2" {...stroke} />
         </svg>
       )}
     </span>
   );
 }
 
-function FinalCtaCalloutIcon({
-  index,
-}: {
-  index: number;
-}) {
-  const color =
-    index === 0
-      ? "#1685EA"
-      : index === 1
-        ? "#1685EA"
-        : "#2AA845";
+function FinalCtaCalloutIcon({ index }: { index: number }) {
+  const color = index === 0 ? "#1685EA" : index === 1 ? "#1685EA" : "#2AA845";
 
   if (index === 0) {
     return (
@@ -18564,14 +15007,7 @@ function FinalCtaCalloutIcon({
         className="h-7 w-7"
         aria-hidden="true"
       >
-        <rect
-          x="8"
-          y="14"
-          width="16"
-          height="13"
-          rx="3"
-          fill={color}
-        />
+        <rect x="8" y="14" width="16" height="13" rx="3" fill={color} />
 
         <path
           d="M11 14v-3a5 5 0 0 1 10 0v3"
@@ -18580,12 +15016,7 @@ function FinalCtaCalloutIcon({
           strokeLinecap="round"
         />
 
-        <circle
-          cx="16"
-          cy="20"
-          r="1.5"
-          fill="#FFFFFF"
-        />
+        <circle cx="16" cy="20" r="1.5" fill="#FFFFFF" />
       </svg>
     );
   }
@@ -18610,12 +15041,7 @@ function FinalCtaCalloutIcon({
   }
 
   return (
-    <svg
-      viewBox="0 0 32 32"
-      fill="none"
-      className="h-7 w-7"
-      aria-hidden="true"
-    >
+    <svg viewBox="0 0 32 32" fill="none" className="h-7 w-7" aria-hidden="true">
       <path
         d="M9 24h14a5 5 0 0 0 .8-9.9A8 8 0 0 0 8.7 13 5.5 5.5 0 0 0 9 24Z"
         stroke={color}
@@ -18636,25 +15062,13 @@ function FinalCtaDocumentVisual({
   reducedMotion: boolean;
   rtl: boolean;
 }) {
-  const rawId =
-    useId();
+  const rawId = useId();
 
-  const clean =
-    rawId.replace(
-      /:/g,
-      "",
-    );
+  const clean = rawId.replace(/:/g, "");
 
-  const orbitId =
-    `final-cta-orbit-${clean}`;
+  const orbitId = `final-cta-orbit-${clean}`;
 
-  const callouts =
-    trust
-      .slice(
-        0,
-        3,
-      )
-      .filter(Boolean);
+  const callouts = trust.slice(0, 3).filter(Boolean);
 
   return (
     <div
@@ -18726,32 +15140,15 @@ function FinalCtaDocumentVisual({
 
         {!reducedMotion && (
           <>
-            <circle
-              r="7"
-              fill="#1685EA"
-              opacity="0.13"
-            >
-              <animateMotion
-                dur="13.5s"
-                repeatCount="indefinite"
-              >
-                <mpath
-                  href={`#${orbitId}`}
-                />
+            <circle r="7" fill="#1685EA" opacity="0.13">
+              <animateMotion dur="13.5s" repeatCount="indefinite">
+                <mpath href={`#${orbitId}`} />
               </animateMotion>
             </circle>
 
-            <circle
-              r="3"
-              fill="#1685EA"
-            >
-              <animateMotion
-                dur="13.5s"
-                repeatCount="indefinite"
-              >
-                <mpath
-                  href={`#${orbitId}`}
-                />
+            <circle r="3" fill="#1685EA">
+              <animateMotion dur="13.5s" repeatCount="indefinite">
+                <mpath href={`#${orbitId}`} />
               </animateMotion>
             </circle>
           </>
@@ -18763,11 +15160,7 @@ function FinalCtaDocumentVisual({
           reducedMotion
             ? undefined
             : {
-                y: [
-                  0,
-                  -6,
-                  0,
-                ],
+                y: [0, -6, 0],
               }
         }
         transition={{
@@ -18792,8 +15185,7 @@ function FinalCtaDocumentVisual({
           sm:top-[70px]
         "
         style={{
-          transformStyle:
-            "preserve-3d",
+          transformStyle: "preserve-3d",
         }}
       >
         <div
@@ -18830,8 +15222,7 @@ function FinalCtaDocumentVisual({
             shadow-[0_20px_35px_rgba(44,84,114,0.13)]
           "
           style={{
-            transform:
-              "translateZ(-18px)",
+            transform: "translateZ(-18px)",
           }}
         />
 
@@ -18860,12 +15251,10 @@ function FinalCtaDocumentVisual({
             sm:min-h-[340px]
           "
           style={{
-            transform:
-              rtl
-                ? "rotateY(5deg) rotateX(1.5deg)"
-                : "rotateY(-5deg) rotateX(1.5deg)",
-            transformStyle:
-              "preserve-3d",
+            transform: rtl
+              ? "rotateY(5deg) rotateX(1.5deg)"
+              : "rotateY(-5deg) rotateX(1.5deg)",
+            transformStyle: "preserve-3d",
           }}
         >
           <div
@@ -18893,8 +15282,7 @@ function FinalCtaDocumentVisual({
               items-center
             "
             style={{
-              transform:
-                "translateZ(18px)",
+              transform: "translateZ(18px)",
             }}
           >
             <div className="h-[48px] w-[54px] shrink-0">
@@ -18910,8 +15298,7 @@ function FinalCtaDocumentVisual({
               space-y-3
             "
             style={{
-              transform:
-                "translateZ(15px)",
+              transform: "translateZ(15px)",
             }}
           >
             <span className="block h-3 w-[72%] rounded-full bg-[#DCEAF8]" />
@@ -18943,44 +15330,29 @@ function FinalCtaDocumentVisual({
         </div>
       </motion.div>
 
-      {callouts.map(
-        (
-          item,
-          index,
-        ) => {
-          const positions = [
-            "right-0 top-[16px] sm:right-[-4px]",
-            "left-0 top-[200px] sm:left-[-8px]",
-            "right-[-2px] bottom-[24px] sm:right-[-10px]",
-          ];
+      {callouts.map((item, index) => {
+        const positions = [
+          "right-0 top-[16px] sm:right-[-4px]",
+          "left-0 top-[200px] sm:left-[-8px]",
+          "right-[-2px] bottom-[24px] sm:right-[-10px]",
+        ];
 
-          return (
-            <motion.div
-              key={`${item}-${index}`}
-              animate={
-                reducedMotion
-                  ? undefined
-                  : {
-                      y: [
-                        0,
-                        index === 1
-                          ? 5
-                          : -5,
-                        0,
-                      ],
-                    }
-              }
-              transition={{
-                duration:
-                  8.3 +
-                  index *
-                    0.8,
-                repeat:
-                  Infinity,
-                ease:
-                  "easeInOut",
-              }}
-              className={`
+        return (
+          <motion.div
+            key={`${item}-${index}`}
+            animate={
+              reducedMotion
+                ? undefined
+                : {
+                    y: [0, index === 1 ? 5 : -5, 0],
+                  }
+            }
+            transition={{
+              duration: 8.3 + index * 0.8,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className={`
                 final-cta-callout
 
                 absolute
@@ -19007,9 +15379,9 @@ function FinalCtaDocumentVisual({
 
                 ${positions[index]}
               `}
-            >
-              <span
-                className="
+          >
+            <span
+              className="
                   flex
                   h-10
                   w-10
@@ -19021,14 +15393,12 @@ function FinalCtaDocumentVisual({
 
                   bg-[#F2F8FE]
                 "
-              >
-                <FinalCtaCalloutIcon
-                  index={index}
-                />
-              </span>
+            >
+              <FinalCtaCalloutIcon index={index} />
+            </span>
 
-              <span
-                className="
+            <span
+              className="
                   text-[10.5px]
                   font-bold
                   leading-[1.3]
@@ -19036,344 +15406,247 @@ function FinalCtaDocumentVisual({
 
                   sm:text-[11px]
                 "
-              >
-                {item}
-              </span>
-            </motion.div>
-          );
-        },
-      )}
+            >
+              {item}
+            </span>
+          </motion.div>
+        );
+      })}
     </div>
   );
 }
 
-function FinalCtaSection({
-  trust,
-}: {
-  trust: string[];
-}) {
-  const {
-    t,
-    i18n,
-  } = useTranslation(
-    "home",
-  );
+function FinalCtaSection({ trust }: { trust: string[] }) {
+  const { t, i18n } = useTranslation("home");
 
-  const {
-    t: tc,
-  } = useTranslation(
-    "common",
-  );
+  const { t: tc } = useTranslation("common");
 
-  const sectionRef =
-    useRef<HTMLElement>(
-      null,
-    );
+  const sectionRef = useRef<HTMLElement>(null);
 
-  const backgroundRef =
-    useRef<HTMLDivElement>(
-      null,
-    );
+  const backgroundRef = useRef<HTMLDivElement>(null);
 
-  const reducedMotion =
-    useReducedMotion() ??
-    false;
+  const reducedMotion = useReducedMotion() ?? false;
 
-  const rtl =
-    i18n.dir() ===
-    "rtl";
+  const rtl = i18n.dir() === "rtl";
 
-  const centerTrust =
-    trust
-      .slice(
-        0,
-        3,
-      )
-      .filter(Boolean);
+  const centerTrust = trust.slice(0, 3).filter(Boolean);
 
-  const lowerTrust =
-    trust
-      .slice(
-        3,
-        6,
-      )
-      .filter(Boolean);
+  const lowerTrust = trust.slice(3, 6).filter(Boolean);
 
   useEffect(() => {
-    if (
-      reducedMotion ||
-      !sectionRef.current
-    ) {
+    if (reducedMotion || !sectionRef.current) {
       return;
     }
 
-    gsap.registerPlugin(
-      ScrollTrigger,
-    );
+    gsap.registerPlugin(ScrollTrigger);
 
-    const ctx =
-      gsap.context(
-        () => {
-          const callouts =
-            gsap.utils.toArray<HTMLElement>(
-              ".final-cta-callout",
-            );
+    const ctx = gsap.context(() => {
+      const callouts = gsap.utils.toArray<HTMLElement>(".final-cta-callout");
 
-          /*
+      /*
             Scroll-driven reveal:
             - short travel distances avoid jank
             - force3D keeps transforms on the compositor
             - the sequence finishes before the section is mostly past
             - floating Framer animations continue after reveal
           */
-          gsap.set(
-            callouts,
-            {
-              opacity: 0,
-              filter:
-                "blur(5px)",
-            },
-          );
+      gsap.set(callouts, {
+        opacity: 0,
+        filter: "blur(5px)",
+      });
 
-          const timeline =
-            gsap.timeline({
-              defaults: {
-                ease:
-                  "power1.inOut",
-              },
-
-              scrollTrigger: {
-                trigger:
-                  sectionRef.current,
-
-                start:
-                  "top 91%",
-
-                end:
-                  "66% 34%",
-
-                scrub:
-                  1.65,
-
-                invalidateOnRefresh:
-                  true,
-
-                fastScrollEnd:
-                  true,
-              },
-            });
-
-          timeline
-            .fromTo(
-              ".final-cta-top-line",
-              {
-                opacity: 0,
-                scaleX: 0.12,
-                transformOrigin:
-                  rtl
-                    ? "100% 50%"
-                    : "0% 50%",
-              },
-              {
-                opacity: 1,
-                scaleX: 1,
-                duration: 0.64,
-                ease:
-                  "power1.out",
-              },
-            )
-
-            .fromTo(
-              ".final-cta-copy",
-              {
-                opacity: 0,
-                y: 22,
-                x:
-                  rtl
-                    ? 14
-                    : -14,
-                scale: 0.997,
-                force3D: true,
-              },
-              {
-                opacity: 1,
-                y: 0,
-                x: 0,
-                scale: 1,
-                duration: 0.88,
-                ease:
-                  "power1.inOut",
-                force3D: true,
-              },
-              "-=0.26",
-            )
-
-            .fromTo(
-              ".final-cta-actions",
-              {
-                opacity: 0,
-                y: 12,
-              },
-              {
-                opacity: 1,
-                y: 0,
-                duration: 0.58,
-                ease:
-                  "power1.out",
-              },
-              "-=0.36",
-            )
-
-            .fromTo(
-              ".final-cta-feature",
-              {
-                opacity: 0,
-                y: 16,
-                scale: 0.996,
-                force3D: true,
-              },
-              {
-                opacity: 1,
-                y: 0,
-                scale: 1,
-                stagger: 0.1,
-                duration: 0.68,
-                ease:
-                  "power1.inOut",
-                force3D: true,
-              },
-              "-=0.3",
-            )
-
-            .fromTo(
-              ".final-cta-visual",
-              {
-                opacity: 0,
-                x:
-                  rtl
-                    ? -24
-                    : 24,
-                y: 12,
-                scale: 0.992,
-                force3D: true,
-              },
-              {
-                opacity: 1,
-                x: 0,
-                y: 0,
-                scale: 1,
-                duration: 0.9,
-                ease:
-                  "power1.inOut",
-                force3D: true,
-              },
-              "-=0.48",
-            )
-
-            .fromTo(
-              ".final-cta-document",
-              {
-                opacity: 0.4,
-                filter:
-                  "blur(3px)",
-              },
-              {
-                opacity: 1,
-                filter:
-                  "blur(0px)",
-                duration: 0.52,
-                ease:
-                  "power1.out",
-              },
-              "-=0.64",
-            )
-
-            .to(
-              callouts,
-              {
-                opacity: 1,
-                filter:
-                  "blur(0px)",
-                stagger: 0.1,
-                duration: 0.5,
-                ease:
-                  "power1.out",
-              },
-              "-=0.34",
-            )
-
-            .fromTo(
-              ".final-cta-trust",
-              {
-                opacity: 0,
-                y: 10,
-              },
-              {
-                opacity: 1,
-                y: 0,
-                stagger: 0.065,
-                duration: 0.52,
-                ease:
-                  "power1.out",
-              },
-              "-=0.3",
-            );
-
-          if (
-            backgroundRef.current
-          ) {
-            gsap.fromTo(
-              backgroundRef.current,
-              {
-                yPercent:
-                  -0.45,
-              },
-              {
-                yPercent:
-                  0.75,
-
-                ease:
-                  "none",
-
-                scrollTrigger: {
-                  trigger:
-                    sectionRef.current,
-
-                  start:
-                    "top bottom",
-
-                  end:
-                    "bottom top",
-
-                  scrub:
-                    2.8,
-
-                  invalidateOnRefresh:
-                    true,
-                },
-              },
-            );
-          }
+      const timeline = gsap.timeline({
+        defaults: {
+          ease: "power1.inOut",
         },
-        sectionRef,
-      );
+
+        scrollTrigger: {
+          trigger: sectionRef.current,
+
+          start: "top 91%",
+
+          end: "66% 34%",
+
+          scrub: 1.65,
+
+          invalidateOnRefresh: true,
+
+          fastScrollEnd: true,
+        },
+      });
+
+      timeline
+        .fromTo(
+          ".final-cta-top-line",
+          {
+            opacity: 0,
+            scaleX: 0.12,
+            transformOrigin: rtl ? "100% 50%" : "0% 50%",
+          },
+          {
+            opacity: 1,
+            scaleX: 1,
+            duration: 0.64,
+            ease: "power1.out",
+          },
+        )
+
+        .fromTo(
+          ".final-cta-copy",
+          {
+            opacity: 0,
+            y: 22,
+            x: rtl ? 14 : -14,
+            scale: 0.997,
+            force3D: true,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            x: 0,
+            scale: 1,
+            duration: 0.88,
+            ease: "power1.inOut",
+            force3D: true,
+          },
+          "-=0.26",
+        )
+
+        .fromTo(
+          ".final-cta-actions",
+          {
+            opacity: 0,
+            y: 12,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.58,
+            ease: "power1.out",
+          },
+          "-=0.36",
+        )
+
+        .fromTo(
+          ".final-cta-feature",
+          {
+            opacity: 0,
+            y: 16,
+            scale: 0.996,
+            force3D: true,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            stagger: 0.1,
+            duration: 0.68,
+            ease: "power1.inOut",
+            force3D: true,
+          },
+          "-=0.3",
+        )
+
+        .fromTo(
+          ".final-cta-visual",
+          {
+            opacity: 0,
+            x: rtl ? -24 : 24,
+            y: 12,
+            scale: 0.992,
+            force3D: true,
+          },
+          {
+            opacity: 1,
+            x: 0,
+            y: 0,
+            scale: 1,
+            duration: 0.9,
+            ease: "power1.inOut",
+            force3D: true,
+          },
+          "-=0.48",
+        )
+
+        .fromTo(
+          ".final-cta-document",
+          {
+            opacity: 0.4,
+            filter: "blur(3px)",
+          },
+          {
+            opacity: 1,
+            filter: "blur(0px)",
+            duration: 0.52,
+            ease: "power1.out",
+          },
+          "-=0.64",
+        )
+
+        .to(
+          callouts,
+          {
+            opacity: 1,
+            filter: "blur(0px)",
+            stagger: 0.1,
+            duration: 0.5,
+            ease: "power1.out",
+          },
+          "-=0.34",
+        )
+
+        .fromTo(
+          ".final-cta-trust",
+          {
+            opacity: 0,
+            y: 10,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            stagger: 0.065,
+            duration: 0.52,
+            ease: "power1.out",
+          },
+          "-=0.3",
+        );
+
+      if (backgroundRef.current) {
+        gsap.fromTo(
+          backgroundRef.current,
+          {
+            yPercent: -0.45,
+          },
+          {
+            yPercent: 0.75,
+
+            ease: "none",
+
+            scrollTrigger: {
+              trigger: sectionRef.current,
+
+              start: "top bottom",
+
+              end: "bottom top",
+
+              scrub: 2.8,
+
+              invalidateOnRefresh: true,
+            },
+          },
+        );
+      }
+    }, sectionRef);
 
     return () => {
       ctx.revert();
     };
-  }, [
-    reducedMotion,
-    rtl,
-  ]);
+  }, [reducedMotion, rtl]);
 
   return (
     <section
       ref={sectionRef}
-      dir={
-        rtl
-          ? "rtl"
-          : "ltr"
-      }
+      dir={rtl ? "rtl" : "ltr"}
       className="
         relative
         isolate
@@ -19452,19 +15725,13 @@ function FinalCtaSection({
             reducedMotion
               ? undefined
               : {
-                  y: [
-                    0,
-                    -7,
-                    0,
-                  ],
+                  y: [0, -7, 0],
                 }
           }
           transition={{
             duration: 13,
-            repeat:
-              Infinity,
-            ease:
-              "easeInOut",
+            repeat: Infinity,
+            ease: "easeInOut",
           }}
         />
       </div>
@@ -19531,11 +15798,7 @@ function FinalCtaSection({
                 xl:text-[58px]
               "
             >
-              <FinalCtaHeadline
-                text={t(
-                  "final.headline",
-                )}
-              />
+              <FinalCtaHeadline text={t("final.headline")} />
             </h2>
 
             <p
@@ -19553,9 +15816,7 @@ function FinalCtaSection({
                 lg:text-[17px]
               "
             >
-              {t(
-                "final.body",
-              )}
+              {t("final.body")}
             </p>
 
             <div
@@ -19604,9 +15865,7 @@ function FinalCtaSection({
                   sm:min-w-[245px]
                 "
               >
-                {tc(
-                  "cta.book",
-                )}
+                {tc("cta.book")}
 
                 <span
                   className="
@@ -19615,9 +15874,7 @@ function FinalCtaSection({
                     group-hover:translate-x-1
                   "
                 >
-                  <ArrowIcon
-                    rtl={rtl}
-                  />
+                  <ArrowIcon rtl={rtl} />
                 </span>
               </LocaleLink>
 
@@ -19676,14 +15933,11 @@ function FinalCtaSection({
                   <PlayIcon />
                 </span>
 
-                {tc(
-                  "cta.how",
-                )}
+                {tc("cta.how")}
               </LocaleLink>
             </div>
 
-            {lowerTrust.length >
-              0 && (
+            {lowerTrust.length > 0 && (
               <div
                 className="
                   mt-8
@@ -19694,14 +15948,10 @@ function FinalCtaSection({
                   sm:grid-cols-3
                 "
               >
-                {lowerTrust.map(
-                  (
-                    item,
-                    index,
-                  ) => (
-                    <div
-                      key={`${item}-${index}`}
-                      className="
+                {lowerTrust.map((item, index) => (
+                  <div
+                    key={`${item}-${index}`}
+                    className="
                         final-cta-trust
 
                         flex
@@ -19709,9 +15959,9 @@ function FinalCtaSection({
                         items-center
                         gap-2.5
                       "
-                    >
-                      <span
-                        className="
+                  >
+                    <span
+                      className="
                           flex
                           h-8
                           w-8
@@ -19725,25 +15975,25 @@ function FinalCtaSection({
 
                           text-[#1685EA]
                         "
+                    >
+                      <svg
+                        viewBox="0 0 20 20"
+                        fill="none"
+                        className="h-4 w-4"
+                        aria-hidden="true"
                       >
-                        <svg
-                          viewBox="0 0 20 20"
-                          fill="none"
-                          className="h-4 w-4"
-                          aria-hidden="true"
-                        >
-                          <path
-                            d="m4 10 4 4 8-9"
-                            stroke="currentColor"
-                            strokeWidth="2.3"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                      </span>
+                        <path
+                          d="m4 10 4 4 8-9"
+                          stroke="currentColor"
+                          strokeWidth="2.3"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </span>
 
-                      <span
-                        className="
+                    <span
+                      className="
                           text-[10.5px]
                           font-semibold
                           leading-[1.3]
@@ -19751,12 +16001,11 @@ function FinalCtaSection({
 
                           sm:text-[11px]
                         "
-                      >
-                        {item}
-                      </span>
-                    </div>
-                  ),
-                )}
+                    >
+                      {item}
+                    </span>
+                  </div>
+                ))}
               </div>
             )}
           </div>
@@ -19782,35 +16031,22 @@ function FinalCtaSection({
             "
           >
             <div className="space-y-8 lg:space-y-10">
-              {centerTrust.map(
-                (
-                  item,
-                  index,
-                ) => (
-                  <motion.div
-                    key={`${item}-${index}`}
-                    whileHover={
-                      reducedMotion
-                        ? undefined
-                        : {
-                            x:
-                              rtl
-                                ? -3
-                                : 3,
-                            y: -2,
-                          }
-                    }
-                    transition={{
-                      duration:
-                        0.35,
-                      ease: [
-                        0.22,
-                        1,
-                        0.36,
-                        1,
-                      ],
-                    }}
-                    className="
+              {centerTrust.map((item, index) => (
+                <motion.div
+                  key={`${item}-${index}`}
+                  whileHover={
+                    reducedMotion
+                      ? undefined
+                      : {
+                          x: rtl ? -3 : 3,
+                          y: -2,
+                        }
+                  }
+                  transition={{
+                    duration: 0.35,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                  className="
                       final-cta-feature
 
                       flex
@@ -19818,13 +16054,11 @@ function FinalCtaSection({
                       items-center
                       gap-4
                     "
-                  >
-                    <FinalCtaFeatureIcon
-                      index={index}
-                    />
+                >
+                  <FinalCtaFeatureIcon index={index} />
 
-                    <p
-                      className="
+                  <p
+                    className="
                         min-w-0
 
                         text-[15px]
@@ -19837,12 +16071,11 @@ function FinalCtaSection({
 
                         xl:text-[17px]
                       "
-                    >
-                      {item}
-                    </p>
-                  </motion.div>
-                ),
-              )}
+                  >
+                    {item}
+                  </p>
+                </motion.div>
+              ))}
             </div>
           </div>
 
@@ -19850,9 +16083,7 @@ function FinalCtaSection({
 
           <FinalCtaDocumentVisual
             trust={trust}
-            reducedMotion={
-              reducedMotion
-            }
+            reducedMotion={reducedMotion}
             rtl={rtl}
           />
         </div>
@@ -19866,85 +16097,53 @@ function FinalCtaSection({
 ============================================================================= */
 
 export function HomePage() {
-  const {
-    t,
-  } = useTranslation("home");
+  const { t } = useTranslation("home");
 
-  const [
-    demo,
-    setDemo,
-  ] = useState(false);
+  const [demo, setDemo] = useState(false);
 
-  const trustRaw = t(
-    "trust",
-    {
-      returnObjects: true,
-    },
-  );
+  const trustRaw = t("trust", {
+    returnObjects: true,
+  });
 
-  const trust =
-    Array.isArray(trustRaw)
-      ? (trustRaw as string[])
-      : [];
+  const trust = Array.isArray(trustRaw) ? (trustRaw as string[]) : [];
 
-  const before = t(
-    "problem.before",
-    {
-      returnObjects: true,
-    },
-  ) as string[];
+  const before = t("problem.before", {
+    returnObjects: true,
+  }) as string[];
 
-  const after = t(
-    "problem.after",
-    {
-      returnObjects: true,
-    },
-  ) as string[];
+  const after = t("problem.after", {
+    returnObjects: true,
+  }) as string[];
 
-  const stages = t(
-    "transform.stages",
-    {
-      returnObjects: true,
-    },
-  ) as {
+  const stages = t("transform.stages", {
+    returnObjects: true,
+  }) as {
     title: string;
     text: string;
   }[];
 
-  const steps = t(
-    "how.steps",
-    {
-      returnObjects: true,
-    },
-  ) as string[];
+  const steps = t("how.steps", {
+    returnObjects: true,
+  }) as string[];
 
-  const cards = t(
-    "governance.cards",
-    {
-      returnObjects: true,
-    },
-  ) as {
+  const cards = t("governance.cards", {
+    returnObjects: true,
+  }) as {
     id: string;
     title: string;
     text: string;
   }[];
 
-  const deployments = t(
-    "deployment.cards",
-    {
-      returnObjects: true,
-    },
-  ) as {
+  const deployments = t("deployment.cards", {
+    returnObjects: true,
+  }) as {
     title: string;
     points: string[];
   }[];
 
-  const useCases = t(
-    "useCases.items",
-    {
-      returnObjects: true,
-    },
-  ) as {
+  const useCases = t("useCases.items", {
+    returnObjects: true,
+  }) as {
     title: string;
     problem: string;
     workflow: string;
@@ -19952,62 +16151,40 @@ export function HomePage() {
     control: string;
   }[];
 
-  const compare = t(
-    "compare.rows",
-    {
-      returnObjects: true,
-    },
-  ) as {
+  const compare = t("compare.rows", {
+    returnObjects: true,
+  }) as {
     vs: string;
     focus: string;
   }[];
 
   return (
     <>
-      <Seo
-        page="home"
-        path="/"
-      />
+      <Seo page="home" path="/" />
 
       {/* HERO — COMPLETE */}
 
-      <HomeHero
-        trust={trust}
-        onDemo={() =>
-          setDemo(true)
-        }
-      />
+      <HomeHero trust={trust} onDemo={() => setDemo(true)} />
 
       {/* PROBLEM — APPROVED VERSION */}
 
-      <ProblemSection
-        before={before}
-        after={after}
-      />
+      <ProblemSection before={before} after={after} />
 
       {/* TRANSFORM — REFERENCE-ACCURATE REDESIGN */}
 
-      <TransformSection
-        stages={stages}
-      />
+      <TransformSection stages={stages} />
 
       {/* HOW — REFERENCE-ACCURATE REDESIGN */}
 
-      <HowSection
-        steps={steps}
-      />
+      <HowSection steps={steps} />
 
       {/* GOVERNANCE — REFERENCE-ACCURATE REDESIGN */}
 
-      <GovernanceSection
-        cards={cards}
-      />
+      <GovernanceSection cards={cards} />
 
       {/* DEPLOYMENT — REFERENCE-ACCURATE REDESIGN */}
 
-      <DeploymentSection
-        deployments={deployments}
-      />
+      <DeploymentSection deployments={deployments} />
 
       {/* ARCHITECTURE — REFERENCE-ACCURATE REDESIGN */}
 
@@ -20015,28 +16192,17 @@ export function HomePage() {
 
       {/* USE CASES — REFERENCE-ACCURATE REDESIGN */}
 
-      <UseCasesSection
-        items={useCases}
-      />
+      <UseCasesSection items={useCases} />
 
       {/* COMPARE — REFERENCE-ACCURATE REDESIGN */}
 
-      <CompareSection
-        rows={compare}
-      />
+      <CompareSection rows={compare} />
 
       {/* FINAL CTA — REFERENCE-ACCURATE REDESIGN */}
 
-      <FinalCtaSection
-        trust={trust}
-      />
+      <FinalCtaSection trust={trust} />
 
-      <VideoModal
-        open={demo}
-        onClose={() =>
-          setDemo(false)
-        }
-      />
+      <VideoModal open={demo} onClose={() => setDemo(false)} />
     </>
   );
 }
